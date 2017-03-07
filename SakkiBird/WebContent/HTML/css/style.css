@@ -724,7 +724,7 @@ h6{ font-size: 20px; }
 
 #posts{
 	float: left;
-	width: 624px;
+	width: 930px;
 }
 
 #posts .post{
@@ -750,6 +750,8 @@ h6{ font-size: 20px; }
 }
 
 #posts h1 a{
+	font-family:"±¼¸²";
+	margin-top:10px;
 	display: block;
 	margin-bottom: 30px;
 	width: 514px;
@@ -781,6 +783,14 @@ h6{ font-size: 20px; }
 
 #posts .post .post-thumbnail{
 	position: relative;
+    overflow: hidden;
+    height: 300px;
+    margin-bottom: 30px;
+    background: #f1f1f1;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+	/* position: relative;
 	overflow: hidden;
 	width: 596px;
 	height: 270px;
@@ -788,9 +798,13 @@ h6{ font-size: 20px; }
 	background: #f1f1f1;
 	border-radius: 10px;
 	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
+	-webkit-border-radius: 10px; */
 }
 
+#posts-image-margin{
+	margin: auto;
+    display: block;
+}
 
 #posts .post .post-thumbnail .cover{
 	position: absolute;
@@ -881,6 +895,67 @@ h6{ font-size: 20px; }
 	background: #000;
 }
 
+/* VOTE-BLOCK----------------------------------------------------*/
+
+#radio-btns{
+	margin-left : 30px;
+    background: #f1f1f1;
+    -webkit-border-radius: 10px;
+    padding:5px 5px 5px 5px;
+}
+
+#radio-btns label{
+	font-weight:bold;
+}
+
+#vote-btns{
+	margin-left:368px;
+}
+
+#vote-btns button{
+	width:80px;
+	height:45px;
+	background: lavender;
+    border-radius: 10px;    
+}
+
+#vote-style{
+	font-weight: bold;	
+	background:#f1f1f1;
+	margin-left : 30px;
+	-webkit-border-radius: 10px;
+    padding:2px 5px 15px 5px;
+    margin-top:10px;
+}
+
+.vote-bar {
+	width:750px;
+	height:30px;
+	margin-top:5px;	
+}
+
+#percent{
+	float:right;
+	margin-right:30px;
+	margin-top:5px;
+	font-size:14px;
+	font-weigt:bold;
+}
+
+#vote-style h2{
+	font-family:±¼¸² ±¼¸²Ã¼;
+	text-align:center;
+}
+
+#vote-back{
+	width:80px;
+	height:45px;
+	background: lavender;
+    border-radius: 10px;
+    margin:auto;
+    display:block;
+}
+
 /* COMMENTS-BLOCK ------------------------------------------------------------*/
 
 
@@ -924,6 +999,7 @@ h6{ font-size: 20px; }
 	overflow: hidden;
 	position: relative;
 	padding: 0px 0px 20px 0px;
+	width
 }
 
 
@@ -944,11 +1020,15 @@ h6{ font-size: 20px; }
 	float: right;
 	padding: 2px 8px;
 	background: #ccc;
-	color: #f1f1f1;
+	color: black;
 	font-size: 12px;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
+}
+
+.fn{
+	font-weight:bold;
 }
 
 /* COMMENTS PAGINATION ------------------------------------------------------------*/
@@ -993,6 +1073,7 @@ h6{ font-size: 20px; }
 
 .leave-comment{
 	margin-top: 20px;
+	margin-left: 30px;
 	padding-top:30px;
 	background: url(../img/post-divider-inverted.png) no-repeat;
 }
@@ -1026,6 +1107,7 @@ h6{ font-size: 20px; }
 #contactForm textarea,
 #commentform input,
 #commentform textarea{
+	margin-left:30px;
 	padding: 10px 15px;
 	background: #fff;
 	border: 1px solid #ccc;
@@ -1038,6 +1120,7 @@ h6{ font-size: 20px; }
 .admin-form input,
 #contactForm input,
 #commentform input{
+	margin-left: 30px;
 	width: 282px;
 }
 
@@ -1045,16 +1128,18 @@ h6{ font-size: 20px; }
 .admin-form textarea,
 #contactForm textarea,
 #commentform textarea{
-	width: 380px;
+	    width: 840px;
 }
 
 #sc-contact-form #submit,
 .admin-form #submit,
 #contactForm #submit,
 #commentform input#submit{
+	
 	width: 76px;
-	margin: 21px 0px;
+	margin: 20px 30px 0px;
 	padding: 5px 0px;
+	float:right;
 }
 
 #sc-contact-form #submit:hover,
@@ -1081,6 +1166,7 @@ h6{ font-size: 20px; }
 .admin-form label,
 #contactForm label,
 #commentform label{
+	margin-left: 30px;
 	display: block;
 	font-size: 14px;
 	line-height: 2.5em;

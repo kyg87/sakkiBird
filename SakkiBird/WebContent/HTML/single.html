@@ -160,10 +160,10 @@
 			<div id="content">
 				
 				<!-- title -->
-				<div id="page-title">
+				<!-- <div id="page-title">
 					<span class="title">The Blog</span>
 					<span class="subtitle">Donec eu libero sit amet quam egestas semper.</span>
-				</div>
+				</div> -->
 				<!-- ENDS title -->
 				
 				<!-- Posts -->
@@ -171,62 +171,167 @@
 				
 					<!-- post -->
 					<div class="post">
-						<h1><a href="single.html">Lorem ipsum dolor amet</a></h1>
+						<h1><a href="single.html">전광렬, 그가 고통받고있는 이유는??</a></h1>
 						
-						<!-- shadow -->
-						<div class="thumb-shadow">
-						
-							<!-- post-thumb -->
-							<div class="post-thumbnail">
-								<img src="img/dummies/596x270.gif"  alt="Feature image" />
-							</div>
-							<!-- ENDS post-thumb -->
-							<div>
-								<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-								<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames, Pellentesque habitant morbi tristique senectus et netus et malesuada fames Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</p>
-	
-							</div>
-						</div>
-						<!-- ENDS shadow -->
-											
-						<!-- meta -->
-						<ul class="meta">
-							<li><strong>Posted on</strong> Dec 27th 2011 </li>
-							<li><strong>By</strong> <a href="#">Ansimuz</a></li> 
-							<li> <strong>Posted in</strong> 
-								<div class="meta-tags">
+							<ul class="meta">
+							<li><strong>작성 날짜 : </strong> 2017/02/15 17:52 </li>
+							<li><strong>작성자 : </strong> KwangForever </li> 
+
+								<!-- <div class="meta-tags">
 									<a href="#">Webdesign</a>
 									<a href="#">Code</a>
 									<a href="#">Photo</a>
 									<a href="#">Blue</a>
 									<a href="#">Computers</a>
 									<a href="#">Sites</a>
-								</div>
+								</div> -->
 							</li>
 						</ul>
+						
+						<!-- shadow -->
+						<div class="thumb-shadow">
+						
+							<!-- post-thumb -->
+							<div class="post-thumbnail">
+							
+								<img alt='Featured Image' src='images/11.jpg' 
+								class='avatar avatar-60 photo' height='300' width='500'
+								id = "posts-image-margin"/>
+							</div>
+							
+							<!-- ENDS post-thumb -->
+							<div>
+								<p>안녕하세요 전광렬입니다.</p>
+								<p>저는 지금 고통받고 있습니다. 무엇때문에 고통받고 있을까요?</p>
+								<p></p><p></p>
+							</div>
+						</div>
+						<!-- ENDS shadow -->
+											
+						<!-- meta -->
+					
 						<!-- ENDS meta -->	
 						
+						
 					</div>
+					
 					<!-- ENDS post -->
+					<div id = "radio-btns">
+						<p>
+							<input type = "radio" name="group" />
+							<label>1번 선택지 1번 선택지1번 선택지1번 선택지1번 선택지1번 선택지1번 선택지1번 선택지</label>
+						</p>
+						<p>
+							<input type = "radio" name="group" />
+							<label>2번 선택지2번 선택지2번 선택지2번 선택지2번 선택지2번 선택지</label>
+						</p>
+						<p>
+							<input type = "radio" name="group" />
+							<label>3번 선택지3번 선택지3번 선택지3번 선택지</label>
+						</p>
+						<p>
+							<input type = "radio" name="group" />
+							<label>4번 선택지4번 선택지4번 선택지</label>
+						</p>
+						<p>
+							<input type = "radio" name="group" />
+							<label>5번 선택지</label>
+						</p>
+						
+						<div id = "vote-btns">
+							<button>투표하기</button>
+								<button>결과보기</button>
+						</div>
+					</div>
+					
+<!-- 					------------------ 투표 결과 --------------------------- -->
+					
+					<div id="vote-style">
+					<dl>
+						<dt>
+							<h2> VOTE Result </h2>
+						</dt>
+						<dd>1. 1번 선택지
+						<dd id="percent">30%</dd>
+						</dd>
+						<dd>
+							<meter class="vote-bar" value="3" min="0" max="10"></meter>
+						</dd>
+					
+						<dd>2. 2번 선택지
+						<dd id="percent">10%</dd>
+						</dd>
+						<dd>
+							<meter class="vote-bar" value="1" min="0" max="10"></meter>
+						</dd>
+						
+						<dd>3. 3번 선택지
+						<dd id="percent">20%</dd>
+						</dd>
+						<dd>
+							<meter class="vote-bar" value="2" min="0" max="10"></meter>
+
+						</dd>
+						
+						<dd>4. 4번 선택지
+						<dd id="percent">30%</dd>
+						</dd>
+						<dd>
+							<meter class="vote-bar" value="3" min="0" max="10"></meter>
+
+						</dd>
+						
+						<dd>5. 5번 선택지
+						<dd id="percent">10%</dd>
+						</dd>
+						<dd>
+							<meter class="vote-bar" value="1" min="0" max="10"></meter>
+
+						</dd>				
+					</dl>
+					<button id = "vote-back">돌아가기</button>
+				</div>
+					
+					
+					
+					
+					<div class="leave-comment">
+								<h2>Leave a Reply</h2>	
+								<!-- form -->
+								<form action="#" method="post" id="commentform">
+									
+								</form>
+								<!-- ENDS form -->
+							</div>
+					<div class="admin-form">
+											<div>
+												<label >COMMENTS</label>
+												<textarea  name="comment" id="comment" rows="10" tabindex="4"></textarea>
+											</div>
+											<div><input type="submit" name="submit" id="submit" tabindex="5" value="등록" /></div>
+											<div><input type="hidden" name="comment_post_ID" value="586" /></div>
+										</div>
+										<input type='hidden' name='comment_post_ID' value='586' id='comment_post_ID' />
 					
 					<!-- Comments-Block -->
 					<div id="comments-block">
-						<div class="n-comments">165</div> <div class="n-comments-text">comments</div>
+						<div class="n-comments">3</div> <div class="n-comments-text">comments</div>
 		
 						<!-- comments list -->
 						<ul class="commentlist">
 							<li class="comment" id="comment-18">
 								<div id="div-comment-18" class="comment-body">
 									<div class="comment-author vcard">
-										<img alt='' src='img/dummies/avatar.jpg' class='avatar avatar-60 photo' height='60' width='60' />
-										<cite class="fn">admin</cite><span class="says"> says:</span>
+										<img alt='' src='images/6.jpg' class='avatar avatar-60 photo' height='60' width='60' />
+										<cite class="fn">KwangForever</cite>
 									</div>
 					
 									<div class="comment-meta commentmetadata">
-										<a href="#">February 9, 2011 at 6:28 pm</a>
+										<label>2017/02/12 17:12</label>
 									</div>
 					
-									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
+									<p>안녕하세요. 전광렬입니다. 아무도 댓글을 달지 않으시네요 ^^ </p>
+									
 					
 									<div class="reply">
 										<a class='comment-reply-link' href='/archives/196?replytocom=18#respond' onclick='return addComment.moveForm("div-comment-18", "18", "respond", "196")'>Reply</a>
@@ -236,15 +341,15 @@
 							<li class="comment" id="comment-18">
 								<div id="div-comment-18" class="comment-body">
 									<div class="comment-author vcard">
-										<img alt='' src='img/dummies/avatar.jpg' class='avatar avatar-60 photo' height='60' width='60' />
-										<cite class="fn">admin</cite><span class="says"> says:</span>
+										<img alt='' src='images/hoo.jpg' class='avatar avatar-60 photo' height='60' width='60' />
+										<cite class="fn">Hoo1818</cite>
 									</div>
 					
 									<div class="comment-meta commentmetadata">
-										<a href="#">February 9, 2011 at 6:28 pm</a>
+										<label>2017/02/12 17:12</label>
 									</div>
 					
-									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
+									<p>광렬이형님! 저 인정이입니다. 잘지내셨죠?</p>
 					
 									<div class="reply">
 										<a class='comment-reply-link' href='/archives/196?replytocom=18#respond' onclick='return addComment.moveForm("div-comment-18", "18", "respond", "196")'>Reply</a>
@@ -254,12 +359,12 @@
 							<li class="comment" id="comment-18">
 								<div id="div-comment-18" class="comment-body">
 									<div class="comment-author vcard">
-										<img alt='' src='img/dummies/avatar.jpg' class='avatar avatar-60 photo' height='60' width='60' />
-										<cite class="fn">admin</cite><span class="says"> says:</span>
+										<img alt='' src='images/default.png' class='avatar avatar-60 photo' height='60' width='60' />
+										<cite class="fn">Default</cite>
 									</div>
 					
 									<div class="comment-meta commentmetadata">
-										<a href="#">February 9, 2011 at 6:28 pm</a>
+										<label>2017/02/12 17:12</label>
 									</div>
 					
 									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
@@ -282,30 +387,7 @@
 		
 						<!-- comments form -->
 						<div id="respond">
-							<div class="leave-comment">
-								<h2>Leave a Reply</h2>	
-								<!-- form -->
-								<form action="#" method="post" id="commentform">
-									<fieldset>
-										<div><label >NAME </label>
-										<input type="text" name="author" id="author" value="" tabindex="1" /></div>
-										<div><label >EMAIL (Will not be published) </label>
-										<input type="text" name="email" id="email" value="" tabindex="2" /></div>
-										<div><label >WEBSITE</label><input type="text" name="url" id="url" value="" tabindex="3" /></div>
-										<div class="admin-form">
-											<div>
-												<label >COMMENTS</label>
-												<textarea  name="comment" id="comment" rows="10" tabindex="4"></textarea>
-											</div>
-											<div><input type="submit" name="submit" id="submit" tabindex="5" value="SEND" /></div>
-											<div><input type="hidden" name="comment_post_ID" value="586" /></div>
-										</div>
-										<input type='hidden' name='comment_post_ID' value='586' id='comment_post_ID' />
-										<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
-									</fieldset>
-								</form>
-								<!-- ENDS form -->
-							</div>
+							
 						</div>
 						<!-- ENDS comments form -->	
 					</div>
@@ -316,8 +398,8 @@
 				
 				
 				<!-- sidebar -->
-				<ul id="sidebar">
-					<!-- init sidebar -->
+			<!-- 	<ul id="sidebar">
+					init sidebar
 					<li>
 						<h6>Categories</h6>		
 						<ul>
@@ -337,8 +419,8 @@
 							<li class="cat-item"><a href="#" title="View all posts">Pellentesque habitant morbi</a></li>
 						</ul>
 					</li>
-					<!-- ENDS init sidebar -->
-				</ul>
+					ENDS init sidebar
+				</ul> -->
 				<!-- ENDS sidebar -->
 											
 
