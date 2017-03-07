@@ -67,11 +67,11 @@ ul.tabs li.current a {
 
 /* initially all panes are hidden */ 
 .panes .pane {
-	display:none;	
+	display:block;	
 }
 
 .panes>div {
-    display: none;
+    display: block;
     min-height: 200px;
    
 }
@@ -119,6 +119,7 @@ ul.tabs li.current a {
 .panes{
 	margin-top: 30px;
 	background: url(../img/front-divider.png) no-repeat top center;
+
 }
 
 .panes .plain-text{
@@ -128,3 +129,81 @@ ul.tabs li.current a {
 .panes .plain-text a{
 	text-decoration: none;
 }
+
+/* 기존 마더 버드 ---------------------------------------------------------*/
+
+#thumbnails {
+	min-height: 800px;
+	/* border: 1px solid red; */
+	position: relative;
+	overflow: hidden;
+	/* padding-left: 10px; */
+	display: block;
+}
+
+.entryStage {
+	border: 1px solid black;
+	display: block;
+	float: left;
+	width: 300px;
+	height: 300px;
+	background: #000;
+	position: relative;
+	margin-top: 0px;
+	margin-bottom: 20px;
+	margin-left: 11px;
+	/* 	margin-right:5px; */
+	padding: 5px;
+	text-align: center;
+	overflow: hidden;
+}
+/* 전광렬 사진 넘치는거 없앰11 */
+.entryStage .poster {
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+}
+/* -------------------글자 이미지 겹치기--------------- */
+.poster {
+	position: absolute;
+}
+
+.info {
+	position: absolute;
+	/* margin-top: 110px; */
+}
+/* ------------------------------------------------------ */
+.entryStage .info {
+	padding-top: 15px;
+	height: 100px;
+	overflow: hidden;
+	position: relative;
+}
+
+.venue {
+	background: #ff3;
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/* 페이지 부분  */
+.paging {
+	text-align: center;
+}
+
+#submit {
+	text-align: right;
+	border: 1px solid;
+}
+
+.btninfo {
+	text-align: center;
+	padding: 3px 3px;
+	cursor: pointer;
+	border-radius: 4px;
+	color: #000;
+	background-color: yellow;
+	border-color: yellow;
+}
+
