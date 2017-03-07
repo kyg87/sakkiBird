@@ -1327,6 +1327,15 @@ h6{ font-size: 20px; }
 	cursor: pointer;
 }
 
+#footer li {
+    font-size: 14px;
+    font-family: ¸¼Àº°íµñ,sans-serif;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-right: 5px solid rgba(244,245,249,0.2254);
+    color: rgba(244,245,249,0.4254)/* #f4f5f9 */;
+    display: inline;
+}
 
 
 
