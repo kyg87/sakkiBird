@@ -133,8 +133,10 @@
 						<h1><a href="single.html">전광렬, 그가 고통받고있는 이유는??</a></h1>
 						
 							<ul class="meta">
-							<li><strong>작성 날짜 : </strong> 2017/02/15 17:52 </li>
 							<li><strong>작성자 : </strong> KwangForever </li> 
+							<li><strong>작성 시간 : </strong> 2017/02/15 17:52 </li>
+							<li><strong>마감 시간 : </strong> 2017/03/09 18:00 </li>
+							
 
 								<!-- <div class="meta-tags">
 									<a href="#">Webdesign</a>
@@ -267,7 +269,10 @@
 												<label >COMMENTS</label>
 												<textarea  name="comment" id="comment" rows="10" tabindex="4"></textarea>
 											</div>
-											<div><input type="submit" name="submit" id="submit" tabindex="5" value="등록" /></div>
+											
+											<div id="reply-submit-btns"><input type="submit" name="submit" id="submit" tabindex="5" value="등록" />
+											<input type="submit" name="submit" id="submit" tabindex="5" value="사진첨부" /></div>
+											
 											<div><input type="hidden" name="comment_post_ID" value="586" /></div>
 										</div>
 										<input type='hidden' name='comment_post_ID' value='586' id='comment_post_ID' />
@@ -289,14 +294,31 @@
 										<label>2017/02/12 17:12</label>
 									</div>
 					
-									<p>안녕하세요. 전광렬입니다. 아무도 댓글을 달지 않으시네요 ^^ </p>
+									<p>안녕하세요. 전광렬입니다. 아무도 댓글을 달지 않으시네요 ^^ <div id="picture-reply-btn">
+									<img alt='Featured Image' src='images/icons/9.jpg' 
+										class='avatar avatar-60 photo' height='120' width='200'
+										id = "reply-image-margin"/>
+									</div></p>
 									
 					
-									<div class="reply">
-										<a class='comment-reply-link' href='/archives/196?replytocom=18#respond' onclick='return addComment.moveForm("div-comment-18", "18", "respond", "196")'>Reply</a>
-									</div>
+									
 								</div>
+								
 							</li>
+							<div class="reply">
+								<a class='comment-reply-link' href='/archives/196?replytocom=18#respond' onclick='return addComment.moveForm("div-comment-18", "18", "respond", "196")'>Reply</a>
+							</div>
+							
+									<div class="reply-form">
+										<div>
+											<textarea name="comment" id="comment" rows="10" tabindex="4" style="margin: 0px; width: 759px; height: 100px;"></textarea>
+										</div>
+										
+										<div id="reply-submit-btns1">
+											<input type="submit" tabindex="5" value="등록" />
+											<input type="submit" tabindex="5" value="사진첨부" />
+										</div>
+									</div>
 							<li class="comment" id="comment-18">
 								<div id="div-comment-18" class="comment-body">
 									<div class="comment-author vcard">
@@ -310,11 +332,13 @@
 					
 									<p>광렬이형님! 저 인정이입니다. 잘지내셨죠?</p>
 					
-									<div class="reply">
-										<a class='comment-reply-link' href='/archives/196?replytocom=18#respond' onclick='return addComment.moveForm("div-comment-18", "18", "respond", "196")'>Reply</a>
-									</div>
+									
 								</div>
 							</li>
+							
+							<div class="reply">
+										<a class='comment-reply-link' href='/archives/196?replytocom=18#respond' onclick='return addComment.moveForm("div-comment-18", "18", "respond", "196")'>Reply</a>
+									</div>
 							<li class="comment" id="comment-18">
 								<div id="div-comment-18" class="comment-body">
 									<div class="comment-author vcard">
@@ -328,11 +352,12 @@
 					
 									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
 					
-									<div class="reply">
-										<a class='comment-reply-link' href='/archives/196?replytocom=18#respond' onclick='return addComment.moveForm("div-comment-18", "18", "respond", "196")'>Reply</a>
-									</div>
+									
 								</div>
 							</li>
+							<div class="reply">
+										<a class='comment-reply-link' href='/archives/196?replytocom=18#respond' onclick='return addComment.moveForm("div-comment-18", "18", "respond", "196")'>Reply</a>
+									</div>
 						</ul>
 						<!-- ENDS comments list -->
 		
