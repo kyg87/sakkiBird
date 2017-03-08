@@ -70,7 +70,15 @@ youtube_32.png
 
 
 /* Circular 32x32 px ------------------------------------------------------------*/
-
+/* ½ÂÀÏ ¼öÁ¤ */
+.social .search{background: url(../img/social-icons/circular/search-icon.png); background-size: 105%;	}
+.social .write{background: url(../img/social-icons/circular/write-icon.png); border-radius:50px;}
+.social .sign{
+	background: url(../img/social-icons/circular/login-icon.png) no-repeat center; border-radius: 5px;
+	background-size: 95%;
+}
+/* ·Î±×¾Æ¿ôÀ¸·Î ¹Ù²ð°æ¿ì
+.social .sign{background: url(../img/social-icons/circular/logout-icon.png);} */
 
 .social .addthis{ background: url(../img/social-icons/circular/addthis_32.png); }
 .social .aim{ background: url(../img/social-icons/circular/aim_32.png); }
