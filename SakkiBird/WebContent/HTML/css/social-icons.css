@@ -71,8 +71,12 @@ youtube_32.png
 
 /* Circular 32x32 px ------------------------------------------------------------*/
 /* ½ÂÀÏ ¼öÁ¤ */
-.social .search{background: url(../img/social-icons/circular/search-icon.png); background-size: 105%;	}
-.social .write{background: url(../img/social-icons/circular/write-icon.png); border-radius:50px;}
+.social .search{background: url(../img/social-icons/circular/search-icon.png); background-size: 105%;}
+.social .write{
+	background: url(../img/social-icons/circular/write-icon.png) no-repeat;
+	background-size: 35px 35px; 
+	border-radius:20px;
+}
 .social .sign{
 	background: url(../img/social-icons/circular/login-icon.png) no-repeat center; border-radius: 5px;
 	background-size: 95%;

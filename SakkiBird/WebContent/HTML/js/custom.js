@@ -218,7 +218,7 @@ jQuery(document).ready(function($) {
 						
 		// Fancy box
 		$("a.fancybox").fancybox({ 
-			'overlayColor'		:	'#000'
+			'overlayColor':	'#000'
 		});
 		
 		// Gallery over 

@@ -70,8 +70,8 @@ body {
 
 #logo{
 	position: absolute;
-	top: 20px;
-	left: 30px;
+	margin-top: 20px;
+	margin-left: 30px;
 }
 
 #content a{
@@ -87,6 +87,10 @@ body {
 	border-bottom: 1px solid #d7d7d7;
 	padding-bottom: 20px;
 	margin-bottom: 20px;
+}
+
+.hidden{
+	display:none;
 }
 
 /* breadcrumbs --------------------------------------------------------*/
@@ -142,6 +146,12 @@ body #header-img{
 	position: relative;
 	z-index: 10;
 	background: #363636;
+}
+
+body #header-block{
+	width:1000px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 body.home #headline{
@@ -218,7 +228,7 @@ h6{ font-size: 20px; }
 #social-holder{
 	overflow: hidden;
 	width: 100%;
-	padding-top: 40px;	
+	padding-top: 20px;	
 }
 
 .social{
@@ -230,8 +240,8 @@ h6{ font-size: 20px; }
 
 .social li{
 	display: block;
-	width: 32px;
-	height: 32px;
+	width: 40px;
+	height: 40px;
 	float: left;
 	margin-right: 10px;
 	margin-bottom: 10px;
@@ -239,8 +249,8 @@ h6{ font-size: 20px; }
 
 .social a{
 	display: block;
-	width: 32px;
-	height: 32px;
+	width: 35px;
+	height: 35px;
 	text-indent: -9000px;
 }
 
@@ -806,13 +816,8 @@ h6{ font-size: 20px; }
 	-webkit-border-radius: 10px; */
 }
 
-#reply-image-margin{
-	margin-left:70px;
-	display:block;
-}
-
 #posts-image-margin{
-	margin:auto;
+	margin: auto;
     display: block;
 }
 
@@ -1008,8 +1013,8 @@ h6{ font-size: 20px; }
 .commentlist li .comment-body{
 	overflow: hidden;
 	position: relative;
-	
-	
+	padding: 0px 0px 20px 0px;
+	width
 }
 
 
@@ -1025,12 +1030,9 @@ h6{ font-size: 20px; }
 }
 
 #content .commentlist .reply a{
-	width: 33px;
-	margin-bottom: 20px;
-    margin-left: 70px;
 	display: block;
 	text-decoration: none;
-
+	float: right;
 	padding: 2px 8px;
 	background: #ccc;
 	color: black;
@@ -1043,8 +1045,6 @@ h6{ font-size: 20px; }
 .fn{
 	font-weight:bold;
 }
-
-
 
 /* COMMENTS PAGINATION ------------------------------------------------------------*/
 
@@ -1125,7 +1125,7 @@ h6{ font-size: 20px; }
 	margin-left:30px;
 	padding: 10px 15px;
 	background: #fff;
-/* 	border: 1px solid #ccc; */
+	border: 1px solid #ccc;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -1135,7 +1135,7 @@ h6{ font-size: 20px; }
 .admin-form input,
 #contactForm input,
 #commentform input{
-	margin-left: 5px;
+	margin-left: 30px;
 	width: 282px;
 }
 
@@ -1150,36 +1150,13 @@ h6{ font-size: 20px; }
 .admin-form #submit,
 #contactForm #submit,
 #commentform input#submit{
-	text-align: center;
-	width: 76px;
 	
+	width: 76px;
+	margin: 20px 30px 0px;
 	padding: 5px 0px;
 	float:right;
 }
 
-#reply-submit-btns{
-	
-	padding-right: 30px;
-}
-
-#reply-submit-btns1 input{
-	text-align: center;
-    width: 76px;
-    padding: 5px 0px;
-    float: right;	
-	-webkit-border-radius: 5px;
-	background: #fff;
-	margin-left: 5px;
-	color: #606060;
-    font-size: 14px;
-    margin-bottom:20px;
-}
-
-.reply-form{
-	width: 763px;
-	height: 150px;
-    margin-left: 70px;
-}
 #sc-contact-form #submit:hover,
 .admin-form #submit:hover,
 #contactForm #submit:hover,

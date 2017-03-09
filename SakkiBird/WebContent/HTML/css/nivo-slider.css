@@ -96,7 +96,7 @@
 
 #slider {
     position:relative;
-    width:906px; /* Change this to your images width */
+    width: 906px; /* Change this to your images width */
     height: 390px; /*337px + 25px; /* Change this to your images height */
     background: url(../img/loading.gif) no-repeat 50% 50%;
 }
