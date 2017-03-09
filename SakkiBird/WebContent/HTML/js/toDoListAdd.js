@@ -15,6 +15,7 @@ var createNewTask = function(taskEntered) {
 	//SET UP THE NEW LIST ITEM
 	var listItem = document.createElement("tr"); //<li>
     var numName = document.createElement("td");
+    var colTd = document.createElement("td");
 	var inputText = document.createElement("input"); //checkbox
     var checkbox = document.createElement("input"); //checkbox
 
@@ -29,9 +30,10 @@ var createNewTask = function(taskEntered) {
     numName.textContent =  (toDoList.children.length +1)+ "번";
 	//ADD ITEMS TO THE LI WE JUST CREATED
 	listItem.appendChild(numName);
-    listItem.appendChild(inputText).className += "box";
+	listItem.appendChild(colTd);
+	colTd.appendChild(inputText).className += "box";
 
-    /*listItem.appendChild(checkbox);*/
+	colTd.appendChild(checkbox);
 	//EVERYTHING PUT TOGETHER
 	return listItem;
 
@@ -42,7 +44,10 @@ var createNewTask = function(taskEntered) {
 
 var addToTaskList = function() {
 
-    if(toDoList.children.length +1 > 5) return;
+    if(toDoList.children.length +1 > 5){
+    	alert("그만");
+    	return;
+    }
 	//Grab the inputted task from above and store its value inside 
 	//the createNewTask function to allow the list item to be created
 	var taskItem = createNewTask(task.value);
@@ -67,7 +72,7 @@ taskBtn.addEventListener("click", addToTaskList);
 var deleteTask = function() {
 
 	//STORE THE PARENT ITEM THAT THE CHECK BOX IS INSIDE OF
-	var listItem = this.parentNode;
+	var listItem = this.parentNode.parentNode;
 
 
 	//REMOVE THE LIST ITEM
