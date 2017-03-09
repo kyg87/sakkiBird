@@ -103,7 +103,8 @@ window.addEventListener("load",function(){
 
 <body class="home">
 
-	<!-- HEADER -->
+	<div id="header-color">
+	<!-- HEADER -->	
 	<div id="header-img">
 		<div id="header-block">
 			<a href="index.html">
@@ -114,7 +115,7 @@ window.addEventListener("load",function(){
 				<ul class="social">
 					<li><a href="" class="poshytip search" id="idid"
 						title="검색하려면 클릭하세요."></a></li>
-					<li><a href="" class="poshytip write"
+					<li><a href="writer.html" class="poshytip write"
 						title="글을 작성하려면 클릭하세요."></a></li>
 					<li id="button-account">
 					<a href="" class="poshytip sign" title="로그인/가입하려면 클릭하세요."></a></li>
@@ -144,15 +145,18 @@ window.addEventListener("load",function(){
 	</div>
 	<!-- ENDS headline -->
 	<!-- WRAPPER -->
+	</div>
+	<!-- HEADER-COLOR -->
+	
 	<div id="wrapper">
 
 		<!-- Slider -->
 		<div id="slider-block">
 			<div id="slider-holder">
 				<div id="slider">
-					<a href="http://www.luiszuno.com">
+					<a href="http://naver.com">
 					<img src="images/Listen.jpg" title="~~" alt="" /></a> 
-					<a href="http://themeforest.net/user/Ansimuz/portfolio?ref=ansimuz">
+					<a href="http://naver.com">
 					<img src="images/Ohmygirl.jpg" title="~~" alt="" /></a>
 				</div>
 			</div>
@@ -178,7 +182,7 @@ window.addEventListener("load",function(){
 
 							<div id="thumbnails">
 								<div class="entryStage">
-									<a href="content.html">
+									<a href="single.html">
 										<div class="poster">
 											<img src="images/icons/7.jpg" alt="" />
 										</div>
@@ -192,7 +196,7 @@ window.addEventListener("load",function(){
 								</div>
 
 								<div class="entryStage">
-									<a href="content.html">
+									<a href="single.html">
 										<div class="poster">
 											<img src="images/icons/9.jpg" alt="" />
 										</div>
@@ -208,7 +212,7 @@ window.addEventListener("load",function(){
 
 
 								<div class="entryStage">
-									<a href="content.html">
+									<a href="single.html">
 										<div class="poster">
 											<img src="images/icons/13.jpg" alt="" />
 										</div>
@@ -222,7 +226,7 @@ window.addEventListener("load",function(){
 								</div>
 
 								<div class="entryStage">
-									<a href="content.html">
+									<a href="single.html">
 										<div class="poster">
 											<img src="images/icons/16.jpg" alt="" />
 										</div>
@@ -236,7 +240,7 @@ window.addEventListener("load",function(){
 								</div>
 
 								<div class="entryStage">
-									<a href="content.html">
+									<a href="single.html">
 										<div class="poster">
 											<img src="images/icons/18.jpg" alt="" />
 										</div>
@@ -250,7 +254,7 @@ window.addEventListener("load",function(){
 								</div>
 
 								<div class="entryStage">
-									<a href="content.html">
+									<a href="single.html">
 										<div class="poster">
 											<img src="images/icons/images (1).jpg" alt="" />
 										</div>
@@ -291,11 +295,15 @@ window.addEventListener("load",function(){
 				<form id="searchPlace">
 					<fieldset>
 						<legend class="hidden">검색필드</legend>
-						<label class="hidden">검색분류</label> <SELECT>
+						<label class="hidden">검색분류</label> 
+						
+						<SELECT style="width: 70px; height:28px;">
 							<OPTION VALUE=1 SELECTED>제목</OPTION>
 							<OPTION VALUE=2>내용</OPTION>
 							<OPTION VALUE=3>작성자</OPTION>
-						</select> <label class="hidden">검색어</label> 
+						</select> 
+						
+						<label class="hidden">검색어</label>
 						<input type="text" id="search-bar" placeholder="검색어를 입력하세요" /> 
 						<input class="btninfo" type="submit" value="검색" />
 					</fieldset>
