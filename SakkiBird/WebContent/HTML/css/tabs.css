@@ -134,44 +134,46 @@ ul.tabs li.current a {
 
 #thumbnails {
 	min-height: 800px;
-	/* border: 1px solid red; */
 	position: relative;
 	overflow: hidden;
-	/* padding-left: 10px; */
 	display: block;
+	
+	width:990px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .entryStage {
 	border: 1px solid black;
-	display: block;
-	float: left;
-	width: 300px;
-	height: 300px;
-	background: #000;
-	position: relative;
-	margin-top: 0px;
-	margin-bottom: 20px;
-	margin-left: 11px;
-	/* 	margin-right:5px; */
-	padding: 5px;
-	text-align: center;
-	overflow: hidden;
+    display: block;
+    float: left;
+    width: 300px;
+    height: 300px;
+    background: #000;
+    position: relative;
+    margin-top: 11px;
+    margin-bottom: 11px;
+    margin-left: 11px;
+    text-align: center;
+    overflow: hidden;
 }
 /* 전광렬 사진 넘치는거 없앰11 */
 .entryStage .poster {
-	width: 100%;
-	height: 300px;
-	overflow: hidden;
+	width: 290px;
+    height: 300px;
+    overflow: hidden;
+    margin: 5px;
 }
 /* -------------------글자 이미지 겹치기--------------- */
 .poster {
 	position: absolute;
 }
 
-.info {
-	position: absolute;
-	/* margin-top: 110px; */
+.poster img{
+	width:270px;
+	height:200px;
 }
+
 /* ------------------------------------------------------ */
 .entryStage .info {
 	padding-top: 15px;
@@ -181,10 +183,11 @@ ul.tabs li.current a {
 }
 
 .venue {
-	background: #ff3;
-	color: #000;
-	font-size: 14px;
-	font-weight: bold;
+	display: block;
+    background: #000;
+    color: #ffd800;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 /* 페이지 부분  */
