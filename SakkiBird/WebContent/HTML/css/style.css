@@ -233,7 +233,8 @@ h6{ font-size: 20px; }
 #social-holder{
 	overflow: hidden;
 	width: 100%;
-	padding-top: 20px;	
+	padding-top: 20px;
+	height: 82px;	
 }
 
 .social{
