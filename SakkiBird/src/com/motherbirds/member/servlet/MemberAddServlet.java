@@ -1,4 +1,4 @@
-package com.motherbirds.board.servlet;
+package com.motherbirds.member.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class BoardListServlet
+ * Servlet implementation class MemberAddServlet
  */
-@WebServlet("/boardListServlet")
-public class BoardListServlet extends HttpServlet {
+@WebServlet("/memberAddServlet")
+public class MemberAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardListServlet() {
+    public MemberAddServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
