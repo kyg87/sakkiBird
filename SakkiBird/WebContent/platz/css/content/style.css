@@ -1,0 +1,137 @@
+/* VOTE-BLOCK----------------------------------------------------*/
+
+#radio-btns{
+	margin-left : 30px;
+    background: #f1f1f1;
+    -webkit-border-radius: 10px;
+    padding:5px 5px 5px 5px;
+}
+
+#radio-btns label{
+	font-weight:bold;
+}
+
+#vote-btns{
+	margin-left:368px;
+}
+
+#vote-btns button{
+	width:80px;
+	height:45px;
+	background: lavender;
+    border-radius: 10px;    
+}
+
+#vote-style{
+	font-weight: bold;	
+	background:#f1f1f1;
+	margin-left : 30px;
+	-webkit-border-radius: 10px;
+    padding:2px 5px 15px 5px;
+    margin-top:10px;
+}
+
+.vote-bar {
+	width:750px;
+	height:30px;
+	margin-top:5px;	
+}
+
+#percent{
+	float:right;
+	margin-right:30px;
+	margin-top:5px;
+	font-size:14px;
+	font-weigt:bold;
+}
+
+#vote-style h2{
+	font-family:±¼¸² ±¼¸²Ã¼;
+	text-align:center;
+}
+
+#vote-back{
+	width:80px;
+	height:45px;
+	background: lavender;
+    border-radius: 10px;
+    margin:auto;
+    display:block;
+}
+
+/* COMMENTS-BLOCK ------------------------------------------------------------*/
+#comments-block .n-comments{
+	left:0px;
+}
+
+#comments-block .n-comments{
+	left:0px;
+}
+
+#comments-block .n-comments-text{
+	display: block;
+	position: absolute;
+	top: 4px;
+	left:68px;
+	font-family: 'Ubuntu', arial, serif; 
+	font-size: 28px;
+}
+
+/* COMMENTSLIST ------------------------------------------------------------*/
+
+.commentlist{
+	display: block;
+}
+
+.commentlist li{
+	display: block;
+	margin-bottom: 0px;
+	padding: 10px 10px 10px 0px;
+	line-height: 1.5em;
+}
+
+.commentlist ul{
+	padding-left: 40px;
+	border-left: 1px dashed #ccc;
+}
+
+.commentlist li .comment-body{
+	overflow: hidden;
+	position: relative;
+	padding: 0px 0px 20px 0px;
+	width
+}
+
+
+.commentlist li img{
+	display: block;
+	float: left;
+	margin: 0px 12px 20px 0px;
+}
+
+.commentlist .meta-date{
+	display: block;
+	float: right;
+}
+
+#content .commentlist .reply a{
+	display: block;
+	text-decoration: none;
+	float: right;
+	padding: 2px 8px;
+	background: #ccc;
+	color: black;
+	font-size: 12px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.fn{
+	font-weight:bold;
+}
+
+.clearfix{
+	overflow:auto;
+	zoom: 1;
+}

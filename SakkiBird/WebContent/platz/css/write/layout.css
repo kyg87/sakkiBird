@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+#main-table {
+    min-height: 500px;
+    width: inherit;
+}
+
+#option-field {
+    margin-top: 20px;
+    height: 100px;
+    display: block;
+}
+
+#option-bottom {
+    margin-top: 50px;
+    height: 70px;
+    text-align: center;
+}
+
+#wrapper{
+	width: 1000px;
+	margin: 0px auto;
+	min-height: 700px;
+	font-size: 14px;
+	line-height: 1.5em;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+.info-add{
+	    text-align: center;
+}
