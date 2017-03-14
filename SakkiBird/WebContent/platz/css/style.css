@@ -612,7 +612,7 @@ body,html{
     box-shadow: none; 
 	outline: 0;
 	margin: 0;
-	background: url(img/icon-search.svg) no-repeat 12px 7px;
+	background: url(img/20_search.png) no-repeat  20px 20px ;
 	vertical-align:center;
 	margin-left:-40px;
 	background-color:#FFF;
@@ -647,20 +647,21 @@ body,html{
 	margin-left:-600px;
 	height:100%;
 	top:0;
+	text-align:center;
 }
 
 .copy-text{
-	float:left;
-	text-align:left;
+	/* float:left; */
+	text-align:center;
 	font-family: Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 13px;
 	height:70px;
 	line-height:70px;
 	cursor:pointer;
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 	color:#666;
-	margin-left:15px;
+	/* margin-left:15px; */
 	font-weight:500;
 }
 
@@ -719,7 +720,7 @@ body,html{
 }
 }
 
-/* Small viewports � Old monitors, netbooks, tablets (landscape), etc. */
+/* Small viewports 占� Old monitors, netbooks, tablets (landscape), etc. */
  
 @media only screen and (max-width: 965px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -757,7 +758,7 @@ body,html{
 }
 }
 
-/* Smaller viewports � more tablets, old monitors */
+/* Smaller viewports 占� more tablets, old monitors */
  
 @media only screen and (max-width: 860px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -769,7 +770,7 @@ body,html{
 }
 }
 
-/* Even smaller viewports � more tablets, etc. */
+/* Even smaller viewports 占� more tablets, etc. */
  
 @media only screen and (max-width: 740px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -840,3 +841,143 @@ body,html{
 
 }
 
+
+
+
+
+
+/*---------------------------------------- 슬라이더 */
+
+#slider-wrapper {
+  width: 940px;
+  height: 470px;
+  margin: 50px auto;
+  position: relative;
+  margin-bottom: 0px;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+#s1 {
+  padding: 6px;
+  background: #000000;
+  position: absolute;
+  left: 50%;
+  bottom: 25px;
+  margin-left: -36px;
+  border-radius: 20px;
+  opacity: 0.3;
+  cursor: pointer;
+  z-index: 999;
+}
+
+#s2 {
+  padding: 6px;
+  background: #000000;
+  position: absolute;
+  left: 50%;
+  bottom: 25px;
+  margin-left: -12px;
+  border-radius: 20px;
+  opacity: 0.3;
+  cursor: pointer;
+  z-index: 999;
+}
+
+#s3 {
+  padding: 6px;
+  background: #000000;
+  position: absolute;
+  left: 50%;
+  bottom: 25px;
+  margin-left: 12px;
+  border-radius: 20px;
+  opacity: 0.3;
+  cursor: pointer;
+  z-index: 999;
+}
+
+#s4 {
+  padding: 6px;
+  background: #000000;
+  position: absolute;
+  left: 50%;
+  bottom: 25px;
+  margin-left: 36px;
+  border-radius: 20px;
+  opacity: 0.3;
+  cursor: pointer;
+  z-index: 999;
+}
+
+#s1:hover,
+#s2:hover,
+#s3:hover,
+#s4:hover {
+  opacity: .50;
+}
+
+.inner-wrapper {
+  width: 940px;
+  height: 470px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 0px;
+  overflow: hidden;
+}
+
+.control {
+  display: none;
+}
+
+#Slide1:checked ~ .overflow-wrapper {
+  margin-left: 0%;
+}
+
+#Slide2:checked ~ .overflow-wrapper {
+  margin-left: -100%;
+}
+
+#Slide3:checked ~ .overflow-wrapper {
+  margin-left: -200%;
+}
+
+#Slide4:checked ~ .overflow-wrapper {
+  margin-left: -300%;
+}
+
+#Slide1:checked + #s1 {
+  opacity: 1;
+}
+
+#Slide2:checked + #s2 {
+  opacity: 1;
+}
+
+#Slide3:checked + #s3 {
+  opacity: 1;
+}
+
+#Slide4:checked + #s4 {
+  opacity: 1;
+}
+
+.overflow-wrapper {
+  width: 400%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: hidden;
+  z-index: 1;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.slide img {
+  width: 25%;
+  float: left;
+}
