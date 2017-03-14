@@ -3,7 +3,7 @@ package com.motherbirds.model;
 import java.util.Date;
 import java.util.List;
 
-public class MEMBERMODEL {
+public class MemberModel {
 
 	 private String ID;
 	 private String EMAIL;

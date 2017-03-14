@@ -1,6 +1,7 @@
 package com.motherbirds.dao;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,27 +10,28 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.motherbirds.model.MEMBERMODEL;
+import com.motherbirds.model.MemberModel;
+
 
 public class MemberDAO {
 
-	public List<MEMBERMODEL> getList() {
+	public List<MemberModel> getList() {
 		String sql = "SELECT * FROM MEMBER";
-		List<MEMBERMODEL> list = new ArrayList<>();
+		List<MemberModel> list = new ArrayList<>();
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String url = "jdbc:mysql://211.238.142.84:3306/motherbird";// DB¿¬°á
-			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // µå¶óÀÌºê
-																				// ·Îµå
+			String url = "jdbc:mysql://211.238.142.84:3306/motherbird";// DBï¿½ï¿½ï¿½ï¿½
+			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // ï¿½ï¿½ï¿½ï¿½Ìºï¿½
+																				// ï¿½Îµï¿½
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 
-			MEMBERMODEL MEMMODEL = null;
+			MemberModel MEMMODEL = null;
 
 			while (rs.next()) {
-				MEMMODEL = new MEMBERMODEL();
+				MEMMODEL = new MemberModel();
 				MEMMODEL.setID(rs.getString("ID"));
 				MEMMODEL.setEMAIL(rs.getString("EMAIL"));
 				MEMMODEL.setPW(rs.getString("PW"));
@@ -52,16 +54,16 @@ public class MemberDAO {
 		return list;
 	}
 
-	public void ADD(MEMBERMODEL member) {
+	public void ADD(MemberModel member) {
 		String sql = "INSERT INTO MEMBER(ID,EMAIL,PW,USERNAME,REGDATE) VALUES(?,?,?,?,sysdate());";
-		List<MEMBERMODEL> list = new ArrayList<>();
+		List<MemberModel> list = new ArrayList<>();
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String url = "jdbc:mysql://211.238.142.84:3306/motherbird";// DB¿¬°á
-			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // µå¶óÀÌºê
-																				// ·Îµå
+			String url = "jdbc:mysql://211.238.142.84:3306/motherbird";// DBï¿½ï¿½ï¿½ï¿½
+			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // ï¿½ï¿½ï¿½ï¿½Ìºï¿½
+																				// ï¿½Îµï¿½
 			PreparedStatement st = con.prepareStatement(sql);
 			int result = st.executeUpdate();
 			

@@ -2,16 +2,16 @@ package com.motherbirds.dao;
 
 import java.util.List;
 
-import com.motherbirds.model.MEMBERMODEL;
+import com.motherbirds.model.MemberModel;
 
 public class TestProgram {
 
 	public static void main(String[] args) {
 
 	  MemberDAO member = new MemberDAO();
-			List<MEMBERMODEL> list = member.getList();
+			List<MemberModel> list = member.getList();
 			
-			for(MEMBERMODEL M : list)
+			for(MemberModel M : list)
 				System.out.println(M.getEMAIL());
 
 	}
