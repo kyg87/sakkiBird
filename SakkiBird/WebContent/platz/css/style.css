@@ -704,6 +704,12 @@ body,html{
 }
 }
 
+
+
+
+
+
+
 /* Others wide screen */
  
 @media only screen and (max-width: 1200px) {
@@ -720,7 +726,15 @@ body,html{
 }
 }
 
-/* Small viewports 占� Old monitors, netbooks, tablets (landscape), etc. */
+
+
+
+
+
+
+
+
+/* Small viewports �뜝占� Old monitors, netbooks, tablets (landscape), etc. */
  
 @media only screen and (max-width: 965px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -758,7 +772,7 @@ body,html{
 }
 }
 
-/* Smaller viewports 占� more tablets, old monitors */
+/* Smaller viewports �뜝占� more tablets, old monitors */
  
 @media only screen and (max-width: 860px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -770,7 +784,7 @@ body,html{
 }
 }
 
-/* Even smaller viewports 占� more tablets, etc. */
+/* Even smaller viewports �뜝占� more tablets, etc. */
  
 @media only screen and (max-width: 740px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -846,16 +860,18 @@ body,html{
 
 
 
-/*---------------------------------------- 슬라이더 */
+/*---------------------------------------- �뒳�씪�씠�뜑 */
 
 #slider-wrapper {
-  width: 940px;
-  height: 470px;
+  width: 1160px;
+  height: 370px;
   margin: 50px auto;
   position: relative;
   margin-bottom: 0px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   overflow: hidden;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
+  background-color: #FFF;
 }
 
 #s1 {
@@ -918,13 +934,18 @@ body,html{
 }
 
 .inner-wrapper {
-  width: 940px;
-  height: 470px;
+	margin-left: 1.5%;
+	margin-bottom: 1%;
+    margin-top: 1%;
+	width:97%;
+ /*  width: 940px; */
+  height: 350px;
   position: absolute;
   top: 0;
   left: 0;
   margin-bottom: 0px;
   overflow: hidden;
+  
 }
 
 .control {
@@ -979,5 +1000,13 @@ body,html{
 
 .slide img {
   width: 25%;
+  height:100%;
   float: left;
+  
 }
+
+
+/* .whites{
+	box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
+    background-color: #FFF;
+} */
