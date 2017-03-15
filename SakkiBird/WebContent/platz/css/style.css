@@ -164,7 +164,7 @@ body,html{
 	top:0;
 }
 
-.top-rated,.recent,.oldies{
+.top-rated,.recent,.oldies,.rated,.top-recent{
 	float:left;
 	text-align:left;
 	font-family: 'Roboto',sans-serif;
@@ -178,11 +178,17 @@ body,html{
 	text-transform: uppercase;
 	letter-spacing:1.5px;
 }
+/* writer의 MAIN버튼 */
+.rated{color:#CCC;margin-left:15px;font-weight:500;}
+/* writer의 WRITE버튼 */
+.top-recent{color: #666;margin-left:80px;font-weight:500;margin-left:40px;}
 
+/* index의 MAIN버튼 */
 .top-rated{color:#666;margin-left:15px;font-weight:500;}
+/* index의 WRITE,LOGIN버튼 */
 .recent,.oldies{color: #CCC;margin-left:80px;font-weight:500;margin-left:40px;}
 
-.top-rated:hover,.recent:hover,.oldies:hover{color:#666;opacity:1;}
+.top-rated:hover,.recent:hover,.oldies:hover,.top-recent:hover,.ratde:hover{color:#666;opacity:1;}
 
 #fleche-nav-1,#fleche-nav-2,#fleche-nav-3{
 	float:left;
@@ -308,7 +314,7 @@ body,html{
 .work figure {
     float:left;
 	width:calc(100% / 3 - 30px);
-    height:280px;
+    height:auto;
     line-height:auto;
     position: relative;
     padding: 0 !important;
@@ -322,7 +328,6 @@ body,html{
 	-moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
 	box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
 	background-color:#FFF;
-	margin-bottom: 30px;
 }
 
 .work figure.white dl{
@@ -1011,3 +1016,71 @@ body,html{
 	box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
     background-color: #FFF;
 } */
+
+
+
+
+
+
+/*버튼이미지*/
+
+.pagination {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination li {
+  float: left;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, Helvetica Neue,sans-serif;
+  color: #444;
+}
+
+.pagination li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  position: relative;
+  margin-right: 1px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.pagination li a:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.75);
+  -webkit-transform: scale(0);
+  border-radius: 100px;
+  -webkit-transition: all .25s;
+}
+
+.pagination li a:hover {
+  color: transparent;
+}
+
+.pagination li a:hover:before {
+  -webkit-transform: scale(.3);
+  box-shadow: inset 0 0 0 4px rgba(0,0,0,.75);
+}
+
+.pagination li.active a:before {
+  -webkit-transform: scale(1);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.75);
+}
+
+.pagination li.active a:hover {
+  color: rgb(0,0,0);
+}
+
+
+/*버튼이미지2*/
