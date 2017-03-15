@@ -122,8 +122,8 @@
 						
 						<%for(WriterModel m : list){ %>
 						<figure class="whites">
-							<a href="details.html">
-								<img img src="images/<%=m.getContent_img()%>.jpg" alt="" />
+							<a href="details.jsp?page=<%=m.getNum()%>">
+								<img src="images/<%=m.getContent_img()%>.jpg" alt="" />
 								<!-- <dl>
 									<dt>Wordpress theme</dt>
 									<dd>Symphony is a responsive one page website template designed with sketches and coded with html5 and php. Freebie released by Lacoste Xavier.</dd>	

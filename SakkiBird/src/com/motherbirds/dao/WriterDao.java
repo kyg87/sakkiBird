@@ -5,4 +5,5 @@ import com.motherbirds.model.WriterModel;
 public interface WriterDao {
 	public List<WriterModel> getList(String query);
 	int add(WriterModel write);
+	WriterModel getWriteModel(int num);
 }

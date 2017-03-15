@@ -1,10 +1,21 @@
+<%@page import="com.motherbirds.model.WriterModel"%>
+<%@page import="com.motherbirds.dao.MYSQLWriter"%>
 <%@page import="com.motherbirds.model.BoardCommentModel"%>
 <%@page import="java.util.List"%>
 <%@page import="com.motherbirds.dao.BoardCommentDAO"%>
 
 <%
+	String pageNum = request.getParameter("page");
 	BoardCommentDAO bocodao = new BoardCommentDAO();
 	List<BoardCommentModel> list = bocodao.getList();
+	
+	System.out.println(request.getParameter("page"));
+	
+	MYSQLWriter writerDAO = new MYSQLWriter();
+	WriterModel writerModel = writerDAO.getWriteModel(Integer.parseInt(pageNum));
+	
+	System.out.println(writerModel.getContent_img());
+
 %>
 
 <%@page language="java" contentType="text/html; charset=UTF-8"
@@ -181,8 +192,7 @@
 
 				<div class="work">
 					<figure class="white">
-						<!-- <img src="img/psd-4.jpg" alt="" /> -->
-						<img src="../HTML/images/11.jpg" alt="" />
+						<img src="images/<%=writerModel.getContent_img()%>.jpg" alt="" />
 						<div id="wrapper-part-info">
 							<div class="part-info-image-single">
 								<div>

@@ -51,7 +51,7 @@ public class MYSQLWriter implements WriterDao{
 			            
 			            list.add(write);
 			         }
-			      
+			        
 			         
 			         rs.close();
 			         st.close();
@@ -101,6 +101,68 @@ public class MYSQLWriter implements WriterDao{
 		      }
 		      return 0;
 		   }
+		   
+		   
+		@Override
+		public WriterModel getWriteModel(int num) {
+			// TODO Auto-generated method stub
+			 String sql = "select * from BOARD_WRITE WHERE NUM LIKE ?";
+		      
+	         WriterModel write = null;
+		
+		      
+		      try {
+		         Class.forName("com.mysql.jdbc.Driver");
+		         
+		         String url = "jdbc:mysql://211.238.142.84:3306/motherbird";
+		         Connection con = DriverManager.getConnection(url, "kyg", "0116");
+		         PreparedStatement st = con.prepareStatement(sql);
+		         
+		      	 st.setInt(1, num);
+		      	
+		         ResultSet rs = st.executeQuery();
+		         
+		
+		
+		         
+		         if(rs.next()){
+		            write = new WriterModel();
+		            write.setNum(rs.getInt("NUM"));
+		            write.setTitle(rs.getString("TITLE"));
+		            write.setWriter(rs.getString("WRITER"));
+		            write.setRegDate(rs.getDate("REGDATE"));
+		            write.setEndDate(rs.getDate("ENDDATE"));
+		            write.setContent(rs.getString("Content"));
+		            write.setContent_first_choice(rs.getString("Content_first_choice"));
+		            write.setContent_voterate1(rs.getInt("Content_voterate1"));
+		            write.setContent_second_choice(rs.getString("Content_second_choice"));
+		            write.setContent_voterate1(rs.getInt("Content_voterate2"));
+		            write.setContent_third_choice(rs.getString("Content_third_choice"));
+		            write.setContent_voterate1(rs.getInt("Content_voterate3"));
+		            write.setContent_fourth_choice(rs.getString("Content_fourth_choice"));
+		            write.setContent_voterate1(rs.getInt("Content_voterate4"));
+		            write.setContent_fifth_choice(rs.getString("Content_fifth_choice"));
+		            write.setContent_voterate1(rs.getInt("Content_voterate5"));
+		            write.setHit(rs.getInt("HIT"));
+		            write.setContent_img(rs.getString("content_img"));
+		            
+		
+		         }
+		        
+		         
+		         rs.close();
+		         st.close();
+		         con.close();
+		                  
+		      } catch (ClassNotFoundException e) {
+		         // TODO Auto-generated catch block
+		         e.printStackTrace();
+		      } catch (SQLException e) {
+		         // TODO Auto-generated catch block
+		         e.printStackTrace();
+		      }
+		      return write;
+		}
 
 	}
 

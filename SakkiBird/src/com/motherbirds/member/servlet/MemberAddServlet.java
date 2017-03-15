@@ -52,13 +52,13 @@ public class MemberAddServlet extends HttpServlet {
 		System.out.println(username);
 		MemberModel memberModel = new MemberModel();
 		
-		memberModel.setEmail(email);
+/*		memberModel.setEmail(email);
 		memberModel.setPw(pw);
 		memberModel.setUsername(username);
 		
 		this.memberDAO = new MemberDAO();
 		
-		memberDAO.insert(memberModel);
+		memberDAO.insert(memberModel);*/
 		
 		System.out.println("done");
 	      // View 보내기
