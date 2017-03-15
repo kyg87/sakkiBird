@@ -3,6 +3,7 @@
 #main-table {
     min-height: 500px;
     width: inherit;
+    margin-left: 15px;
 }
 
 #option-field {

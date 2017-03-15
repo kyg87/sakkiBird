@@ -130,7 +130,7 @@ body,html{
 }
 
 #stripes{
-	background: url(img/stripes.svg) no-repeat;
+	background: url(../img/stripes.svg) no-repeat;
 	position:absolute;
 	width:27px;
 	height:20px;
@@ -193,7 +193,7 @@ body,html{
 #fleche-nav-1,#fleche-nav-2,#fleche-nav-3{
 	float:left;
 	margin-top:26px;
-	background: url(img/fleche-nav.svg) no-repeat ;
+	background: url(../img/fleche-nav.svg) no-repeat ;
 	width:5px;
 	height:10px;
 	margin-left:5px;
@@ -520,8 +520,8 @@ body,html{
 	cursor:pointer;
 }
 
-#oldnew-next{background: url(img/next.svg) no-repeat;margin-left:25px;float:left;}
-#oldnew-prev{background: url(img/prev.svg) no-repeat;margin-right:25px;float:right;}
+#oldnew-next{background: url(../img/next.svg) no-repeat;margin-left:25px;float:left;}
+#oldnew-prev{background: url(../img/prev.svg) no-repeat;margin-right:25px;float:right;}
 
 /*----------------------------*/
 /* FOOTER */
@@ -619,7 +619,7 @@ body,html{
     box-shadow: none; 
 	outline: 0;
 	margin: 0;
-	background: url(img/20_search.png) no-repeat  20px 20px ;
+	background: url(../img/icon-search.svg) no-repeat  12px 7px ;
 	vertical-align:center;
 	margin-left:-40px;
 	background-color:#FFF;
