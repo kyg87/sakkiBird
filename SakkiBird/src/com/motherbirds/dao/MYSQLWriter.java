@@ -13,7 +13,7 @@ import java.util.List;
 import com.motherbirds.model.WriterModel;
 public class MYSQLWriter implements WriterDao{
 			  public List<WriterModel> getList(String query) {
-			      String sql = "SELECT  * FROM MEMBER WHERE TITLE LIKE '%"+query+"%'";
+			      String sql = "select * from BOARD_WRITE WHERE TITLE LIKE '%"+query+"%'";
 			      
 			      
 			      List<WriterModel> list = new ArrayList<>();
@@ -31,15 +31,21 @@ public class MYSQLWriter implements WriterDao{
 			         while(rs.next()){
 			            write = new WriterModel();
 			            write.setNum(rs.getInt("NUM"));
+			            write.setTitle(rs.getString("TITLE"));
 			            write.setWriter(rs.getString("WRITER"));
-			            write.setRegDate(rs.getDate("REGDATEe"));
+			            write.setRegDate(rs.getDate("REGDATE"));
 			            write.setEndDate(rs.getDate("ENDDATE"));
-			            write.setContext(rs.getString("CONTEXT"));
-			            write.setContext_vote1(rs.getString("CONTEXT_VOTE1"));
-			            write.setContext_vote2(rs.getString("CONTEXT_VOTE2"));
-			            write.setContext_vote3(rs.getString("CONTEXT_VOTE3"));
-			            write.setContext_vote4(rs.getString("CONTEXT_VOTE4"));
-			            write.setContext_vote5(rs.getString("CONTEXT_VOTE5"));
+			            write.setContent(rs.getString("Content"));
+			            write.setContent_first_choice(rs.getString("Content_first_choice"));
+			            write.setContent_voterate1(rs.getInt("Content_voterate1"));
+			            write.setContent_second_choice(rs.getString("Content_second_choice"));
+			            write.setContent_voterate1(rs.getInt("Content_voterate2"));
+			            write.setContent_third_choice(rs.getString("Content_third_choice"));
+			            write.setContent_voterate1(rs.getInt("Content_voterate3"));
+			            write.setContent_fourth_choice(rs.getString("Content_fourth_choice"));
+			            write.setContent_voterate1(rs.getInt("Content_voterate4"));
+			            write.setContent_fifth_choice(rs.getString("Content_fifth_choice"));
+			            write.setContent_voterate1(rs.getInt("Content_voterate5"));
 			            write.setHit(rs.getInt("HIT"));
 			            
 			            list.add(write);
@@ -60,7 +66,7 @@ public class MYSQLWriter implements WriterDao{
 			      return list;
 			   }
 		   public int add(WriterModel write) {
-		      String sql = "INSERT INTO `motherbird`.`Writer`(`TITLE`,`WRITER`,`REGDATE`, 'ENDATE', `CONTEXT`, 'CONTEXT_Img','Context_vote1', 'Context_vote2', 'Context_vote3', 'Context_vote4', 'Context_vote5') VALUES (?,?,sysdate(),?,?,?,?,?,?,?,?)";
+		      String sql = "INSERT INTO BOARD_WRITE(`TITLE`,`WRITER`,`REGDATE`, 'ENDATE', `Content`, 'Content_Img','Content_vote1', 'Content_vote2', 'Content_vote3', 'Content_vote4', 'Content_vote5') VALUES (?,?,sysdate(),?,?,?,?,?,?,?,?)";
 		            
 		      List<WriterModel> list = new ArrayList<>();
 		      
@@ -73,12 +79,12 @@ public class MYSQLWriter implements WriterDao{
 		         st.setString(1,  write.getTitle());
 		         st.setString(2,  write.getWriter());
 		         st.setDate(3, (Date) write.getEndDate());
-		         st.setString(4,  write.getContext());
-		         st.setString(5,  write.getContext_vote1());
-		         st.setString(6,  write.getContext_vote2());
-		         st.setString(7,  write.getContext_vote3());
-		         st.setString(8,  write.getContext_vote4());
-		         st.setString(9,  write.getContext_vote5());
+		         st.setString(4,  write.getContent());
+		         st.setString(5,  write.getContent_first_choice());
+		         st.setString(6,  write.getContent_second_choice());
+		         st.setString(7,  write.getContent_third_choice());
+		         st.setString(8,  write.getContent_fourth_choice());
+		         st.setString(9,  write.getContent_fifth_choice());
 		         
 		         int result = st.executeUpdate();
 		         

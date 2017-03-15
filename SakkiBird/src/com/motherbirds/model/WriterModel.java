@@ -8,13 +8,95 @@ public class WriterModel {
 	private String Writer;
 	private Date RegDate;
 	private Date EndDate;
-	private String Context;
-	private String Context_vote1;
-	private String Context_vote2;
-	private String Context_vote3;
-	private String Context_vote4;
-	private String Context_vote5;
+	private String Content;
+	private String Content_first_choice;
+	private int Content_voterate1;
+	private String Content_second_choice;
+	private int Content_voterate2;
+	private String Content_third_choice;
+	private int Content_voterate3;
+	private String Content_fourth_choice;
+	private int Content_voterate4;
+	private String Content_fifth_choice;
+	private int Content_voterate5;
 	private int Hit;
+	private String Content_vote;
+	private String Content_img;
+	
+	public String getContent_vote() {
+		return Content_vote;
+	}
+	public void setContent_vote(String Content_vote) {
+		Content_vote = Content_vote;
+	}
+	public String getContent_img() {
+		return Content_img;
+	}
+	public void setContent_img(String Content_img) {
+		Content_img = Content_img;
+	}
+	public String getContent_first_choice() {
+		return Content_first_choice;
+	}
+	public void setContent_first_choice(String Content_first_choice) {
+		Content_first_choice = Content_first_choice;
+	}
+	public String getContent_second_choice() {
+		return Content_second_choice;
+	}
+	public void setContent_second_choice(String Content_second_choice) {
+		Content_second_choice = Content_second_choice;
+	}
+	public String getContent_third_choice() {
+		return Content_third_choice;
+	}
+	public void setContent_third_choice(String Content_third_choice) {
+		Content_third_choice = Content_third_choice;
+	}
+	public String getContent_fourth_choice() {
+		return Content_fourth_choice;
+	}
+	public void setContent_fourth_choice(String Content_fourth_choice) {
+		Content_fourth_choice = Content_fourth_choice;
+	}
+	public String getContent_fifth_choice() {
+		return Content_fifth_choice;
+	}
+	public void setContent_fifth_choice(String Content_fifth_choice) {
+		Content_fifth_choice = Content_fifth_choice;
+	}
+	
+	public int getContent_voterate1() {
+		return Content_voterate1;
+	}
+	public void setContent_voterate1(int Content_voterate1) {
+		Content_voterate1 = Content_voterate1;
+	}
+	public int getContent_voterate2() {
+		return Content_voterate2;
+	}
+	public void setContent_voterate2(int Content_voterate2) {
+		Content_voterate2 = Content_voterate2;
+	}
+	public int getContent_voterate3() {
+		return Content_voterate3;
+	}
+	public void setContent_voterate3(int Content_voterate3) {
+		Content_voterate3 = Content_voterate3;
+	}
+	public int getContent_voterate4() {
+		return Content_voterate4;
+	}
+	public void setContent_voterate4(int Content_voterate4) {
+		Content_voterate4 = Content_voterate4;
+	}
+	public int getContent_voterate5() {
+		return Content_voterate5;
+	}
+	public void setContent_voterate5(int Content_voterate5) {
+		Content_voterate5 = Content_voterate5;
+	}
+
 	
 	public int getNum() {
 		return Num;
@@ -46,42 +128,13 @@ public class WriterModel {
 	public void setEndDate(Date enddate) {
 		EndDate = enddate;
 	}
-	public String getContext() {
-		return Context;
+	public String getContent() {
+		return Content;
 	}
-	public void setContext(String context) {
-		Context = context;
+	public void setContent(String Content) {
+		Content = Content;
 	}
-	public String getContext_vote1() {
-		return Context_vote1;
-	}
-	public void setContext_vote1(String context_vote1) {
-		Context_vote1 = context_vote1;
-	}
-	public String getContext_vote2() {
-		return Context_vote2;
-	}
-	public void setContext_vote2(String context_vote2) {
-		Context_vote2 = context_vote2;
-	}
-	public String getContext_vote3() {
-		return Context_vote3;
-	}
-	public void setContext_vote3(String context_vote3) {
-		Context_vote3 = context_vote3;
-	}
-	public String getContext_vote4() {
-		return Context_vote4;
-	}
-	public void setContext_vote4(String context_vote4) {
-		Context_vote4 = context_vote4;
-	}
-	public String getContext_vote5() {
-		return Context_vote5;
-	}
-	public void setContext_vote5(String context_vote5) {
-		Context_vote5 = context_vote5;
-	}
+
 	public int getHit() {
 		return Hit;
 	}
