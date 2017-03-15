@@ -47,6 +47,7 @@ public class MYSQLWriter implements WriterDao{
 			            write.setContent_fifth_choice(rs.getString("Content_fifth_choice"));
 			            write.setContent_voterate1(rs.getInt("Content_voterate5"));
 			            write.setHit(rs.getInt("HIT"));
+			            write.setContent_img(rs.getString("content_img"));
 			            
 			            list.add(write);
 			         }

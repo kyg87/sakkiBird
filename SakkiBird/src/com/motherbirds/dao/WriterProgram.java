@@ -14,6 +14,7 @@ public class WriterProgram {
 		for (WriterModel w : list){
 			System.out.println(w.getTitle());
 			System.out.println(w.getRegDate());
+			
 		}
 	}
 
