@@ -192,7 +192,7 @@
 
 				<div class="work">
 					<figure class="white">
-						<img src="images/<%=writerModel.getContent_img()%>.jpg" alt="" />
+						<img src="images/<%=writerModel.getContent_img()%>" alt="" />
 						<div id="wrapper-part-info">
 							<div class="part-info-image-single">
 								<div>
