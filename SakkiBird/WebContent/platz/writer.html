@@ -18,7 +18,26 @@
 	<link href="css/write/style.css" type="text/css" rel="stylesheet" />
 
 </head>
+<script type="text/javascript">
+	window.addEventListener("load", function(e) {
+		var regButton = document.querySelector("#reg-button");
+	 	//제목
+		var title = document.querySelector("#TITLE");		
+		//투표
+		//이미지
+		 
+		regButton.onclick=function(){
+			if(title.innerText=="")
+				alert("제목을 입력하세요");
+			if(title.innerText=="")
+				alert("제목을 입력하세요");
+			if(title.innerText=="")
+				alert("제목을 입력하세요");
+		};
+});
 
+
+</script>
 <body>
 
 <a name="ancre"></a>
@@ -91,7 +110,7 @@
 					<thead>
 						<tr>
 							<td>제목</td>
-							<td><input class="box green-box" type="text"
+							<td><input id="TITLE" class="box green-box" type="text"
 								placeholder="제목을입력하세요." /></td>
 						</tr>
 					</thead>
@@ -142,12 +161,12 @@
 					</div>
 					<!-- <input class="btn-style" type="button" value="미리보기" /> -->
 					<div id="image">
-						<img id="thumbnail" src="../images/icons/7.jpg" width="140px" />
+						<img id="thumbnail" src="" width="140px" />
 					</div>
 				</div>
 				<div id="option-bottom">
-					<input class="back-box" type="button" value="목록으로" /> <input
-						class="success-box" type="button" value="등록하기" />
+					<input class="back-box" type="button" value="목록으로" /> 
+					<input id="reg-button" class="success-box" type="button" value="등록하기" />
 				</div>
 
 			</div>
