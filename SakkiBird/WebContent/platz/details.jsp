@@ -313,10 +313,7 @@
 
 		<div id="wrapper-thank">
 			<div class="thank">
-				<div class="thank-text">
-					<span>Thanks you</span>
-					<span>라지현 & 유동근</span>
-				</div>
+				<div class="thank-text">Mother<span style="letter-spacing:-5px;"></span>Birds</div>
 			</div>
 		</div>
 

@@ -67,7 +67,7 @@
     		</div>
             
             <div id="wrapper-title-2">
-            <a href="writer.html"><div class="recent object">WRITE</div></a>
+            <a href="writer.jsp"><div class="recent object">WRITE</div></a>
                 <div id="fleche-nav-2"></div>
     		</div>
             
@@ -96,27 +96,18 @@
     
 		<div class="container object">
 		
-		
-<!-- 슬라이더 -->
 	
-			<div  id="slider-wrapper">	
-					<div class="inner-wrapper">
-						<input checked type="radio" name="slide" class="control"
-							id="Slide1" /> <label for="Slide1" id="s1"></label> <input
-							type="radio" name="slide" class="control" id="Slide2" /> <label
-							for="Slide2" id="s2"></label> <input type="radio" name="slide"
-							class="control" id="Slide3" /> <label for="Slide3" id="s3"></label>
-						<input type="radio" name="slide" class="control" id="Slide4" /> <label
-							for="Slide4" id="s4"></label>
-						<div class="overflow-wrapper">
-							<a class="slide" href=""><img src="http://placehold.it/940x470" /></a> 
-							<a class="slide" href=""><img src="http://placehold.it/940x470" /></a> 
-							<a class="slide" href=""><img src="http://placehold.it/940x470" /></a> 
-							<a class="slide" href=""><img src="http://placehold.it/940x470" /></a> 
-						</div>
-					</div>
-			</div>
-
+			<!-- 슬라이더 -->
+			<section class="pen">
+				<div class="stage">
+					<div class="element michael"></div>
+					<div class="element franklin"></div>
+					<div class="element trevor"></div>
+				</div>
+			</section>
+			<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+			<script src="js/index.js"></script>
+			
 			<section class="work">
 						
 						<%for(WriterModel m : list){ %>
@@ -313,6 +304,18 @@ $('a').on('click', function(e){
 	  $(this).addClass('active');
 	  
 	})
+	
+/* 슬라이더자바스크립트 */
+    $('.element').each(function() {
+     $(this).mouseover(function() {
+         $(this).addClass('active');
+       $('.stage').children('.element').not('.active').addClass('inactive');
+     });
+     $(this).mouseleave(function() {
+         $(this).removeClass('active');
+         $('.stage').children('.element').not('.active').removeClass('inactive');
+     });
+ });
 
 
 
