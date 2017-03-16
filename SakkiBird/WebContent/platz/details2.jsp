@@ -230,23 +230,23 @@
 								</div> -->
 								<div class="radio-container">
 
-									<!-- <h2></h2> 내용--> 
+									<h2>Tomorrow I want some:</h2>
 
 									<ul>
 										<li><input type="radio" id="f-option" name="selector">
-											<label for="f-option">1번</label>
+											<label for="f-option">Pizza</label>
 
 											<div class="check"></div></li>
 
 										<li><input type="radio" id="s-option" name="selector">
-											<label for="s-option">2번</label>
+											<label for="s-option">Boyfriend</label>
 
 											<div class="check">
 												<div class="inside"></div>
 											</div></li>
 
 										<li><input type="radio" id="t-option" name="selector">
-											<label for="t-option">3번</label>
+											<label for="t-option">Cats</label>
 
 											<div class="check">
 												<div class="inside"></div>
@@ -255,52 +255,13 @@
 								</div>
 								<!-------------------- 투표 결과 --------------------------- -->
 
-<!-- 								<div id="vote-style">
-									<dl>
-										<dt>
-											<h2>VOTE Result</h2>
-										</dt>
-										<dd>1. 1번 선택지
-										<dd id="percent">30%</dd>
-										</dd>
-										<dd>
-											<meter class="vote-bar" value="3" min="0" max="10"></meter>
-										</dd>
-
-										<dd>2. 2번 선택지
-										<dd id="percent">10%</dd>
-										</dd>
-										<dd>
-											<meter class="vote-bar" value="1" min="0" max="10"></meter>
-										</dd>
-
-										<dd>3. 3번 선택지
-										<dd id="percent">20%</dd>
-										</dd>
-										<dd>
-											<meter class="vote-bar" value="2" min="0" max="10"></meter>
-
-										</dd>
-
-										<dd>4. 4번 선택지
-										<dd id="percent">30%</dd>
-										</dd>
-										<dd>
-											<meter class="vote-bar" value="3" min="0" max="10"></meter>
-
-										</dd>
-
-										<dd>5. 5번 선택지
-										<dd id="percent">10%</dd>
-										</dd>
-										<dd>
-											<meter class="vote-bar" value="1" min="0" max="10"></meter>
-
-										</dd>
-									</dl>
-									<button id="vote-back">돌아가기</button>
-								</div> -->
 								<div class="vote-container">
+									<div>
+										<label class="question">Who is the next president of
+											USA? <span>Click to vote</span>
+										</label>
+									</div>
+
 									<div class="question">
 										<a href="#">666 votes</a>
 									</div>
