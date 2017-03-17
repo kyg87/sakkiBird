@@ -27,6 +27,7 @@ var createNewTask = function(taskEntered) {
     checkbox.type ="checkbox";
 	inputText.type = "text";
 	inputText.placeholder = "항목을입력하세요.";
+	inputText.name = "select";
     numName.textContent =  (toDoList.children.length +1)+ "번";
 	//ADD ITEMS TO THE LI WE JUST CREATED
 	listItem.appendChild(numName);

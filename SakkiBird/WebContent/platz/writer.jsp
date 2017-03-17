@@ -20,26 +20,6 @@
 	<link href="css/write/style.css" type="text/css" rel="stylesheet" />
 
 </head>
-<script type="text/javascript">
-	window.addEventListener("load", function(e) {
-		var regButton = document.querySelector("#reg-button");
-	 	//제목
-		var title = document.querySelector("#TITLE");		
-		//투표
-		//이미지
-		 
-		regButton.onclick=function(){
-			if(title.innerText=="")
-				alert("제목을 입력하세요");
-			if(title.innerText=="")
-				alert("제목을 입력하세요");
-			if(title.innerText=="")
-				alert("제목을 입력하세요");
-		};
-});
-
-
-</script>
 <body>
 
 <a name="ancre"></a>
@@ -108,70 +88,71 @@
 			<!-- content -->
 			<div id="content">
 
-				<table id="main-table">
-					<thead>
-						<tr>
-							<td>제목</td>
-							<td><input id="TITLE" class="box green-box" type="text"
-								placeholder="제목을입력하세요." /></td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>내용</td>
-							<td><textarea id="content-box" rows="30" cols="80"
-									onclick="if(this.value=='내용을 입력하세요'){this.value=''}">내용을 입력하세요</textarea>
-							</td>
-						</tr>
-					</tbody>
-					<tbody id="toDoList">
-						<tr>
-							<td>1번</td>
-							<td><input id="task" class="box" type="text"
-								placeholder="항목을입력하세요." /></td>
-						</tr>
-						<tr>
-							<td>2번</td>
-							<td><input class="box" type="text" placeholder="항목을입력하세요." />
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="info-add" >
-					<button id="addTaskBtn">항목 추가</button>
+					<form action = "writer-proc.jsp" method="post">>
+						<table id="main-table">
+							<thead>
+								<tr>
+									<td>제목</td>
+									<td><input name ="title" id="TITLE" class="box green-box" type="text"
+										placeholder="제목을입력하세요." /></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>내용</td>
+									<td><textarea name ="content" id="content-box" rows="30" cols="80"
+											onclick="if(this.value=='내용을 입력하세요'){this.value=''}">내용을 입력하세요</textarea>
+									</td>
+								</tr>
+							</tbody>
+							<tbody id="toDoList">
+								<tr>
+									<td>1번</td>
+									<td><input name ="select" id="task" class="box" type="text"
+										placeholder="항목을입력하세요." /></td>
+								</tr>
+								<tr>
+									<td>2번</td>
+									<td><input name ="select" class="box" type="text" placeholder="항목을입력하세요." />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="info-add">
+							<input type="button" id="addTaskBtn" value ="항목 추가"/>
+						</div>
+						<div id="option-field">
+							<div id="time-option">
+								<div id="time-field">
+									<h1 class="hidden">마감입력</h1>
+									<label>마감일시</label>
+								</div>
+								<div id="time-detail">
+									<input class="mini-box " type="datetime-local" />
+								</div>
+							</div>
+							<div id="image-option">
+								<div id="image-field">
+									<h1 class="hidden">사진입력</h1>
+									<label>사진첨부</label>
+								</div>
+								<div id="image-detail">
+									<!-- <input class="mini-box" type="text" placeholder="파일명" />-->
+									<!--<input class="btn-style" type="button" value="찾아보기" />-->
+									<input type="file" id="getfile" class="upload-box">
+								</div>
+							</div>
+							<!-- <input class="btn-style" type="button" value="미리보기" /> -->
+							<div id="image">
+								<img id="thumbnail" src="" width="140px" />
+							</div>
+						</div>
+						<div id="option-bottom">
+							<input class="back-box" type="button" value="목록으로" /> 
+							<input id="reg-button" class="success-box" type="submit" value="등록하기" />
+						</div>
+					</form>
 				</div>
-				<div id="option-field">
-					<div id="time-option">
-						<div id="time-field">
-							<h1 class="hidden">마감입력</h1>
-							<label>마감일시</label>
-						</div>
-						<div id="time-detail">
-							<input class="mini-box " type="datetime-local" />
-						</div>
-					</div>
-					<div id="image-option">
-						<div id="image-field">
-							<h1 class="hidden">사진입력</h1>
-							<label>사진첨부</label>
-						</div>
-						<div id="image-detail">
-							<!-- <input class="mini-box" type="text" placeholder="파일명" />-->
-							<!--<input class="btn-style" type="button" value="찾아보기" />-->
-							<input type="file" id="getfile" class="upload-box">
-						</div>
-					</div>
-					<!-- <input class="btn-style" type="button" value="미리보기" /> -->
-					<div id="image">
-						<img id="thumbnail" src="" width="140px" />
-					</div>
-				</div>
-				<div id="option-bottom">
-					<input class="back-box" type="button" value="목록으로" /> 
-					<input id="reg-button" class="success-box" type="button" value="등록하기" />
-				</div>
-
-			</div>
 			<!-- ENDS content -->
 
 		</div>
@@ -180,54 +161,14 @@
 
 
 	</div>
-	<!-- ENDS WRAPPER -->
-         
-   <!--  <div id="wrapper-oldnew">
-    	<div class="oldnew">
-        	<div class="wrapper-oldnew-prev">
-            	<div id="oldnew-prev"></div>
-        	</div>
-            <div class="wrapper-oldnew-next">
-            	<div id="oldnew-next"></div>
-    		</div>
-        </div>
-	</div>      -->
+
             
 	<div id="wrapper-thank">
     	<div class="thank">
         	 	<div class="thank-text">Mother<span style="letter-spacing:-5px;"></span>Birds</div>
     	</div>
 	</div>
-	    
-	<!-- <div id="main-container-footer">
-		<div class="container-footer">
-        	
-            <div id="row-1f">
-            	<div class="text-row-1f"><span style="font-weight:600;font-size:15px;color:#666;line-height:250%;text-transform:uppercase;letter-spacing:1.5px;">What is Platz</span><br>Platz is a blog showcasing hand-picked free themes, design stuff, free fonts and other resources for web designers.</div>
-            </div>
-            
-            <div id="row-2f">
-            	<div class="text-row-2f"><span style="font-weight:600;font-size:15px;color:#666;line-height:250%;text-transform:uppercase;letter-spacing:1.5px;">How does it work</span><br>Platz offers you all the latest freebies found all over the fourth corners without to pay.</div>
-            </div>
-            
-            <div id="row-3f">
-            	<div class="text-row-3f"><span style="font-weight:600;font-size:15px;color:#666;line-height:250%;text-transform:uppercase;letter-spacing:1.5px;">Get in touch!</span><br>Subscribe our RSS or follow us on Facebook, Google+, Pinterest or Dribbble to keep updated.</div>
-            </div>
-            
-            <div id="row-4f">
-            	<div class="text-row-4f"><span style="font-weight:600;font-size:15px;color:#666;line-height:250%;text-transform:uppercase;letter-spacing:1.5px;">Newsletter</span><br>You will be informed monthly about the latest content avalaible.</div>
 
-				<div id="main_tip_newsletter"> 
-					<form>
-						<input type="text" name="newsletter" id="tip_newsletter_input" list="newsletter" autocomplete=off required>
-					</form>
-				</div>
-            </div>
-            
-		</div>
-	</div> -->
-    
-    
    <div id="wrapper-copyright">
 		<div class="copyright">
     		<div class="copy-text object">Copyright © 2017 어미새와 아기새<!-- <a style="color:#D0D1D4;" href="https://dcrazed.com/">Dcrazed</a> --></div>

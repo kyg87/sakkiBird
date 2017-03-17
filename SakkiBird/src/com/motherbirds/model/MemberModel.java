@@ -5,41 +5,42 @@ import java.util.List;
 
 public class MemberModel {
 
-	 private String ID;
-	 private String EMAIL;
-	 private String PW;
-	 private String USERNAME;
-	 private Date REGDATE;
-	public String getID() {
-		return ID;
+	 private String code;
+	 private String email;
+	 private String pw;
+	 private String userName;
+	 private Date regDate;
+	public String getCode() {
+		return code;
 	}
-	public void setID(String iD) {
-		ID = iD;
+	public void setCode(String code) {
+		this.code = code;
 	}
-	public String getEMAIL() {
-		return EMAIL;
+	public String getEmail() {
+		return email;
 	}
-	public void setEMAIL(String eMAIL) {
-		EMAIL = eMAIL;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getPW() {
-		return PW;
+	public String getPw() {
+		return pw;
 	}
-	public void setPW(String pW) {
-		PW = pW;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
-	public String getUSERNAME() {
-		return USERNAME;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUSERNAME(String uSERNAME) {
-		USERNAME = uSERNAME;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public Date getREGDATE() {
-		return REGDATE;
+	public Date getRegDate() {
+		return regDate;
 	}
-	public void setREGDATE(Date rEGDATE) {
-		REGDATE = rEGDATE;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
+	
 	
 	 
 	 

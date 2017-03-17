@@ -2,11 +2,22 @@
 <%@page import="com.motherbirds.model.WriterModel"%>
 <%@page import="java.util.List"%>
 <%@page import="com.motherbirds.dao.MYSQLWriter"%>
-<% %>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
+request.setCharacterEncoding("UTF-8");
+/* -------------------- 로그인 처리*/
+
+String _userName = request.getParameter("name");
+
+System.out.println(_userName);
+String logOut = "";
+
+if(_userName!=null)
+	logOut = "LOGOUT";
+
+/* -------------------- 메인 처리*/
 String _page =request.getParameter("p");
 
 String _query =request.getParameter("search");
@@ -27,11 +38,7 @@ if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면
 	WriterDao writerDAO = new MYSQLWriter();
 	List<WriterModel> list = writerDAO.getList(pg,query);
 	int size=writerDAO.getSize(query);	
-	for(WriterModel v : list)
-	{
-		 
-		System.out.println(v.getContent_img());
-	}
+
 
 %>
 
@@ -92,9 +99,15 @@ if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면
     		</div>
             
             <div id="wrapper-title-3">
-            <a href="#"><div class="oldies object">LOGIN</div></a>
+            <a href="account.jsp"><div class="oldies object"><%= logOut = logOut =="" ? "LOGIN" : "LOGOUT" %></div></a>
                 <div id="fleche-nav-3"></div>
     		</div>
+    		
+    		  <div id="wrapper-title-3">
+            <a href="#"><div class="oldies object"><%=logOut = logOut == "" ? "" : _userName %></div></a>
+                <div id="fleche-nav-3"></div>
+    		</div>
+    		
             </div>
             <div id="wrapper-bouton-icon">
             	<div id="bouton-ai"><img src="img/48_twitter_circle_color.png" alt="illustrator" title="Illustrator" height="28" width="28"></div>

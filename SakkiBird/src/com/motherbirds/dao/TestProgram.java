@@ -12,7 +12,7 @@ public class TestProgram {
 			List<MemberModel> list = member.getList();
 			
 			for(MemberModel M : list)
-				System.out.println(M.getEMAIL());
+				System.out.println(M.getEmail());
 
 	}
 
