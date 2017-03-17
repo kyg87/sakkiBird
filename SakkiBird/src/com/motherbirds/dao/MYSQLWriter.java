@@ -12,25 +12,73 @@ import java.util.List;
 
 import com.motherbirds.model.WriterModel;
 public class MYSQLWriter implements WriterDao{
-			  public List<WriterModel> getList(String query) {
-			      String sql = "select * from BOARD_WRITE WHERE TITLE LIKE '%"+query+"%'";
-			      
-			      
-			      List<WriterModel> list = new ArrayList<>();
-			      
-			      try {
-			         Class.forName("com.mysql.jdbc.Driver");
-			         
-			         String url = "jdbc:mysql://211.238.142.84:3306/motherbird";
-			         Connection con = DriverManager.getConnection(url, "kyg", "0116");
-			         Statement st = con.createStatement();
-			         ResultSet rs = st.executeQuery(sql);
-			         
-			         WriterModel write = null;
-			         
-			         while(rs.next()){
+	
+	@Override
+	public int getSize(String query) {
+		String sql = "SELECT COUNT(CODE) SIZE FROM BOARD_WRITE WHERE BINARY TITLE LIKE ?";
+	      int size=0;
+	      
+	      try {
+		         Class.forName("com.mysql.jdbc.Driver");
+		         
+		         String url = "jdbc:mysql://211.238.142.84:3306/motherbird";
+		         Connection con = DriverManager.getConnection(url, "kyg", "0116");
+		         PreparedStatement st = con.prepareStatement(sql);
+		         st.setString(1, "%"+query+"%");
+		         
+		         ResultSet rs = st.executeQuery();
+		         if(rs.next())
+		         size=rs.getInt("SIZE");
+		         
+		         rs.close();
+		         st.close();
+		         con.close();
+		                  
+		      } catch (ClassNotFoundException e) {
+		         // TODO Auto-generated catch block
+		         e.printStackTrace();
+		      } catch (SQLException e) {
+		         // TODO Auto-generated catch block
+		         e.printStackTrace();
+		      }
+		      return size;
+		   }
+
+	@Override
+	public List<WriterModel> getList() {
+		// TODO Auto-generated method stub
+		return getList(1,"");
+	}
+
+
+	@Override
+	public List<WriterModel> getList(int page) {
+		// TODO Auto-generated method stub
+		return getList(page,"");
+	}
+
+
+	@Override
+	public List<WriterModel> getList(int page, String query) {
+		String sql = "SELECT* FROM BOARD_WRITE WHERE TITLE LIKE ? limit ?,9";
+		 List<WriterModel> list = new ArrayList<>();
+	      try {
+		         Class.forName("com.mysql.jdbc.Driver");
+		         
+		         String url = "jdbc:mysql://211.238.142.84:3306/motherbird";
+		         Connection con = DriverManager.getConnection(url, "kyg", "0116");
+		         PreparedStatement st = con.prepareStatement(sql);
+		         st.setString(1, "%"+query+"%");
+		         st.setInt(2, 9*(page-1));
+		      	
+		         ResultSet rs = st.executeQuery();
+		         
+		    
+		         WriterModel write=null;
+		         
+		         while(rs.next()){
 			            write = new WriterModel();
-			            write.setNum(rs.getInt("NUM"));
+			            write.setCODE(rs.getString("CODE"));
 			            write.setTitle(rs.getString("TITLE"));
 			            write.setWriter(rs.getString("WRITER"));
 			            write.setRegDate(rs.getDate("REGDATE"));
@@ -51,8 +99,7 @@ public class MYSQLWriter implements WriterDao{
 			            
 			            list.add(write);
 			         }
-			        
-			         
+         
 			         rs.close();
 			         st.close();
 			         con.close();
@@ -64,8 +111,10 @@ public class MYSQLWriter implements WriterDao{
 			         // TODO Auto-generated catch block
 			         e.printStackTrace();
 			      }
-			      return list;
-			   }
+		 
+		return list;
+	}
+
 		   public int add(WriterModel write) {
 		      String sql = "INSERT INTO BOARD_WRITE(`TITLE`,`WRITER`,`REGDATE`, 'ENDATE', `Content`, 'Content_Img','Content_vote1', 'Content_vote2', 'Content_vote3', 'Content_vote4', 'Content_vote5') VALUES (?,?,sysdate(),?,?,?,?,?,?,?,?)";
 		            
@@ -127,7 +176,7 @@ public class MYSQLWriter implements WriterDao{
 		         
 		         if(rs.next()){
 		            write = new WriterModel();
-		            write.setNum(rs.getInt("NUM"));
+		            write.setCODE(rs.getString("CODE"));
 		            write.setTitle(rs.getString("TITLE"));
 		            write.setWriter(rs.getString("WRITER"));
 		            write.setRegDate(rs.getDate("REGDATE"));
@@ -164,5 +213,8 @@ public class MYSQLWriter implements WriterDao{
 		      return write;
 		}
 
-	}
+
+
+}
+
 

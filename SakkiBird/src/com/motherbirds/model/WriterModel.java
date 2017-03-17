@@ -3,7 +3,7 @@ package com.motherbirds.model;
 import java.util.Date;
 
 public class WriterModel {
-	private int Num;
+	private String CODE;
 	private String Title;
 	private String Writer;
 	private Date RegDate;
@@ -22,11 +22,12 @@ public class WriterModel {
 	private int Hit;
 	private String Content_vote;
 	private String Content_img;
-	public int getNum() {
-		return Num;
+
+	public String getCODE() {
+		return CODE;
 	}
-	public void setNum(int num) {
-		Num = num;
+	public void setCODE(String CODE) {
+		CODE = CODE;
 	}
 	public String getTitle() {
 		return Title;

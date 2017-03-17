@@ -1,13 +1,32 @@
+<%@page import="com.motherbirds.dao.WriterDao"%>
 <%@page import="com.motherbirds.model.WriterModel"%>
 <%@page import="java.util.List"%>
 <%@page import="com.motherbirds.dao.MYSQLWriter"%>
+<% %>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
-	MYSQLWriter writerDAO = new MYSQLWriter();
-	List<WriterModel> list = writerDAO.getList("");
-	
+String _page =request.getParameter("p");
+
+String _query =request.getParameter("search");
+
+
+int pg=1;
+String query="";
+
+
+
+if(_page!=null &&!_page.equals("")) // 값이 넘겨 진 것이 있다면 
+	pg=Integer.parseInt(_page);
+
+if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면 
+	query=_query;
+
+
+	WriterDao writerDAO = new MYSQLWriter();
+	List<WriterModel> list = writerDAO.getList(pg,query);
+	int size=writerDAO.getSize(query);	
 	for(WriterModel v : list)
 	{
 		 
@@ -50,7 +69,8 @@
 		<div class="logo"><img src="img/LOGO.png" alt="logo platz" height="38" width="90"></div>
         <div id="main_tip_search">
 			<form> 
-				<input type="text" name="search" id="tip_search_input" list="search" autocomplete=off required>
+				<input type="text" name="search" id="tip_search_input" list="search" value="<%=query%>" autocomplete=off required>
+				<input type="hidden" name="p" value="1" />
 			</form>
 		</div>
         <div id="stripes"></div>
@@ -112,7 +132,7 @@
 						
 						<%for(WriterModel m : list){ %>
 						<figure class="whites">
-							<a href="details.jsp?page=<%=m.getNum()%>">
+							<a href="details.jsp?page=<%=m.getCODE()%>">
 								<img src="images/<%=m.getContent_img()%>" alt="" />
 								<!-- <dl>
 									<dt>Wordpress theme</dt>
@@ -149,12 +169,18 @@
 	
 	
 <!-- 버튼1 -->
+<%
+int last = (size % 10) > 0 ? size / 10+1 : size / 10;
+%>
 <ul class="pagination">
-  <li><a href="#">1</a></li>
+<%for(int i=0;i<last;i++){ %>
+<li><a href="?p=<%=i+1 %>&search=<%=query%>"><%=i+1 %></a></li>
+<%} %>
+<!--   <li><a href="#">1</a></li>
   <li><a href="#">2</a></li>
   <li class="active"><a href="#">3</a></li>
   <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
+  <li><a href="#">5</a></li> -->
 </ul>
 
     
