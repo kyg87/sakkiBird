@@ -100,8 +100,9 @@
 							<tbody>
 								<tr>
 									<td>내용</td>
-									<td><textarea name ="content" id="content-box" rows="30" cols="80"
-											onclick="if(this.value=='내용을 입력하세요'){this.value=''}">내용을 입력하세요</textarea>
+									
+									<td>
+									<textarea name ="content" id="content-box" rows="30" cols="80"></textarea>
 									</td>
 								</tr>
 							</tbody>
@@ -139,7 +140,7 @@
 								<div id="image-detail">
 									<!-- <input class="mini-box" type="text" placeholder="파일명" />-->
 									<!--<input class="btn-style" type="button" value="찾아보기" />-->
-									<input type="file" id="getfile" class="upload-box">
+									<input name ="file" type="file"  id="getfile" class="upload-box">
 								</div>
 							</div>
 							<!-- <input class="btn-style" type="button" value="미리보기" /> -->

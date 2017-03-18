@@ -78,7 +78,7 @@ public class MYSQLWriter implements WriterDao{
 		         
 		         while(rs.next()){
 			            write = new WriterModel();
-			            write.setCODE(rs.getString("CODE"));
+			            write.setCode(rs.getString("CODE"));
 			            write.setTitle(rs.getString("TITLE"));
 			            write.setWriter(rs.getString("WRITER"));
 			            write.setRegDate(rs.getDate("REGDATE"));
@@ -155,7 +155,7 @@ public class MYSQLWriter implements WriterDao{
 		@Override
 		public WriterModel getWriteModel(int num) {
 			// TODO Auto-generated method stub
-			 String sql = "select * from BOARD_WRITE WHERE NUM LIKE ?";
+			 String sql = "select * from BOARD_WRITE WHERE CODE LIKE ?";
 		      
 	         WriterModel write = null;
 		
@@ -176,7 +176,7 @@ public class MYSQLWriter implements WriterDao{
 		         
 		         if(rs.next()){
 		            write = new WriterModel();
-		            write.setCODE(rs.getString("CODE"));
+		            write.setCode(rs.getString("CODE"));
 		            write.setTitle(rs.getString("TITLE"));
 		            write.setWriter(rs.getString("WRITER"));
 		            write.setRegDate(rs.getDate("REGDATE"));
@@ -211,6 +211,84 @@ public class MYSQLWriter implements WriterDao{
 		         e.printStackTrace();
 		      }
 		      return write;
+		}
+
+		@Override
+		public int add(String title, String writer, String content, int selectCount, String[] selects, String fileName) {
+			
+			String codeSql = "SELECT MAX(cast(CODE as unsigned))+1 CODE FROM BOARD_WRITE";
+			String sql = "";
+			
+			switch (selects.length) {
+			case 2:
+				 sql = "INSERT INTO BOARD_WRITE(CODE,TITLE,WRITER, Content, Content_Img, CONTENT_VOTE ,REGDATE, ENDDATE,CONTENT_FIRST_CHOICE, CONTENT_SECOND_CHOICE) "
+							+ "VALUES (?,?,?,?,?,?,NOW(),NOW(),?,?)" ;
+				break;
+			case 3:
+				 sql = "INSERT INTO BOARD_WRITE(CODE,TITLE,WRITER, Content, Content_Img, CONTENT_VOTE ,REGDATE, ENDDATE,CONTENT_FIRST_CHOICE, CONTENT_SECOND_CHOICE, CONTENT_THIRD_CHOICE) "
+							+ "VALUES (?,?,?,?,?,?,NOW(),NOW(),?,?,?)" ;
+				break;
+			case 4:
+				 sql = "INSERT INTO BOARD_WRITE(CODE,TITLE,WRITER, Content, Content_Img, CONTENT_VOTE ,REGDATE, ENDDATE,CONTENT_FIRST_CHOICE, CONTENT_SECOND_CHOICE, CONTENT_THIRD_CHOICE, CONTENT_FOURTH_CHOICE) "
+							+ "VALUES (?,?,?,?,?,?,NOW(),NOW(),?,?,?,?)" ;
+				break;
+			case 5:
+				 sql = "INSERT INTO BOARD_WRITE(CODE,TITLE,WRITER, Content, Content_Img, CONTENT_VOTE ,REGDATE, ENDDATE,CONTENT_FIRST_CHOICE, CONTENT_SECOND_CHOICE, CONTENT_THIRD_CHOICE, CONTENT_FOURTH_CHOICE, CONTENT_FIFTH_CHOICE) "
+							+ "VALUES (?,?,?,?,?,?,NOW(),NOW(),?,?,?,?,?)" ;
+				break;
+	
+			default:
+				break;
+			}
+			
+
+			
+			int result = 0;
+			
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				
+				String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB����
+				Connection con = DriverManager.getConnection(url, "kyg", "0116"); // ����̺� �ε�
+				
+				Statement codeSt = con.createStatement();
+				ResultSet rs = codeSt.executeQuery(codeSql);
+				
+				rs.next();
+				
+				String code = rs.getString("CODE");
+				rs.close();
+				codeSt.close();
+				
+			
+				PreparedStatement st = con.prepareStatement(sql);
+				
+				st.setString(1,code);
+				st.setString(2,title);
+				st.setString(3,writer);
+				st.setString(4,content);
+				st.setString(5, fileName);
+				st.setInt(6,selectCount);
+				
+				for(int i = 0; i < selects.length;i++)
+				{
+					st.setString(7 + i,selects[i]);
+				}
+				
+				
+				result = st.executeUpdate();
+
+				
+				st.close();
+				con.close();
+				
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return result;
 		}
 
 

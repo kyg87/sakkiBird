@@ -10,4 +10,7 @@ public interface WriterDao {
 	WriterModel getWriteModel(int num);
 	
 	int getSize(String query);
+	
+	
+	int add(String title,String writer, String content,int selectCount,String[] selects,String fileName);
 }

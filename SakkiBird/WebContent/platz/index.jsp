@@ -39,6 +39,14 @@ if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면
 	List<WriterModel> list = writerDAO.getList(pg,query);
 	int size=writerDAO.getSize(query);	
 
+	System.out.println(size);
+/*     for(WriterModel v : list)
+    {
+         
+        System.out.println(v.getCode());
+        System.out.println(v.getContent_img());
+    } */
+
 
 %>
 
@@ -145,7 +153,7 @@ if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면
 						
 						<%for(WriterModel m : list){ %>
 						<figure class="whites">
-							<a href="details.jsp?page=<%=m.getCODE()%>">
+							<a href="details.jsp?page=<%=m.getCode()%>">
 								<img src="images/<%=m.getContent_img()%>" alt="" />
 								<!-- <dl>
 									<dt>Wordpress theme</dt>
@@ -183,7 +191,8 @@ if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면
 	
 <!-- 버튼1 -->
 <%
-int last = (size % 10) > 0 ? size / 10+1 : size / 10;
+int last = (size % 9) > 0 ? (size / 10) + 1 : size / 10;
+System.out.println("갯수" + last);
 %>
 <ul class="pagination">
 <%for(int i=0;i<last;i++){ %>
