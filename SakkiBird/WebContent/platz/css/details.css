@@ -507,7 +507,7 @@ body,html{
 .post-send{
 	float:left;
 	width:60%;
-	margin-left:7.5%;
+	/* margin-left:7.5%; */
 	height:auto;
 	margin-bottom:25px;
 }
@@ -515,7 +515,7 @@ body,html{
 #main-post-send{
 	float:left;
 	width:calc(90% - 160px);
-	margin-left:95px;
+	margin-left:50px;
 	height:auto;
 	margin-top:0px;
 }
@@ -602,7 +602,7 @@ textarea.placeholder {
 .title-item{
 	float:left;
 	width:92.5%;
-	margin-left:7.5%;
+	margin-left:4.5%;
 /* 	height:68px; */
 	margin-bottom:10px;
 }
@@ -624,7 +624,7 @@ textarea.placeholder {
 	color:#686868;
 	line-height:125%;
 	height:auto;
-	width:calc(100% - 88px);
+	width:calc(100% - 70px);
 	margin-top:8px;
 }
 

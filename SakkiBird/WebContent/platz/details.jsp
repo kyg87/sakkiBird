@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.motherbirds.model.WriterModel"%>
 <%@page import="com.motherbirds.dao.MYSQLWriter"%>
 <%@page import="com.motherbirds.model.BoardCommentModel"%>
@@ -9,13 +10,49 @@
 	BoardCommentDAO bocodao = new BoardCommentDAO();
 	List<BoardCommentModel> list = bocodao.getList();
 	
-	System.out.println(request.getParameter("page"));
-	
 	MYSQLWriter writerDAO = new MYSQLWriter();
 	WriterModel writerModel = writerDAO.getWriteModel(Integer.parseInt(pageNum));
 	
-	System.out.println(writerModel.getContent_img());
+/* 	System.out.println(writerModel.getContent_img());
+	System.out.println(writerModel.getContent_vote());
+	System.out.println(writerModel.getContent_first_choice());
+	System.out.println(writerModel.getContent_second_choice());
+	System.out.println(writerModel.getContent_third_choice());
+	System.out.println(writerModel.getContent_fourth_choice());
+	System.out.println(writerModel.getContent_fifth_choice()); */
+	
 
+	List<String> selects = new ArrayList<String>();
+	int voteCount = Integer.parseInt(writerModel.getContent_vote());
+	
+ 	switch(voteCount){
+		case 2:
+			selects.add(writerModel.getContent_first_choice());
+			selects.add(writerModel.getContent_second_choice());
+			break;
+		case 3:
+			selects.add(writerModel.getContent_first_choice());
+			selects.add(writerModel.getContent_second_choice());
+			selects.add(writerModel.getContent_third_choice());
+			break;
+		case 4:
+			selects.add(writerModel.getContent_first_choice());
+			selects.add(writerModel.getContent_second_choice());
+			selects.add(writerModel.getContent_third_choice());
+			selects.add(writerModel.getContent_fourth_choice());
+			break;
+		case 5:
+			selects.add(writerModel.getContent_first_choice());
+			selects.add(writerModel.getContent_second_choice());
+			selects.add(writerModel.getContent_third_choice());
+			selects.add(writerModel.getContent_fourth_choice());
+			selects.add(writerModel.getContent_fifth_choice());
+			break;
+	
+	} 
+ 	
+ 	
+ 	
 %>
 
 <%@page language="java" contentType="text/html; charset=UTF-8"
@@ -180,8 +217,8 @@
 			<div id="main-container-image">
 
 				<div class="title-item">
-					<div class="title-icon"></div>
-					<div class="title-text">전광렬, 그가 고통받고있는 이유는??</div>
+					<!-- <div class="title-icon"></div> -->
+					<div class="title-text"><%=writerModel.getTitle() %></div>
 					<div class="title-text-2">Sept 25, 2015 by Onuur</div>
 					
 					<div class="title-text-2"><strong>작성자 : </strong> KwangForever</div>
@@ -196,10 +233,8 @@
 						<div id="wrapper-part-info">
 							<div class="part-info-image-single">
 								<div>
-									<p>안녕하세요 전광렬입니다.</p>
-									<p>저는 지금 고통받고 있습니다. 무엇때문에 고통받고 있을까요?</p>
-									<p></p>
-									<p></p>
+									<p><%=writerModel.getContent() %></p>
+								
 								</div>
 
 								<!-- <div id="radio-btns">
@@ -228,31 +263,34 @@
 										<button>결과보기</button>
 									</div>
 								</div> -->
-								<div class="radio-container">
-
-									<!-- <h2></h2> 내용--> 
-
-									<ul>
-										<li><input type="radio" id="f-option" name="selector">
-											<label for="f-option">1번</label>
-
-											<div class="check"></div></li>
-
-										<li><input type="radio" id="s-option" name="selector">
-											<label for="s-option">2번</label>
-
-											<div class="check">
-												<div class="inside"></div>
-											</div></li>
-
-										<li><input type="radio" id="t-option" name="selector">
-											<label for="t-option">3번</label>
-
-											<div class="check">
-												<div class="inside"></div>
-											</div></li>
-									</ul>
+								
+								
+								<div class="content-box primary clear-fix vMargin">
+									<div class="content-box-header">Poll</div>
+									<div class="content-box-inner">
+									<form action="details-proc.jsp" method="post">
+										<div class="content-box clear-fix poll-box">
+										<%for(int i = 0 ; i < voteCount;i++){ %>
+											<div class="poll-row">
+												<div class="vote-cell">
+													<input id="vote_1" type="radio" value=<%= (i+1) %> name="vote_id">
+												</div>
+												<div class="vote-cell"><%=selects.get(i) %></div>
+											</div>
+										<%} %>	
+											
+											<div class="poll-row">
+											
+												<div class="vote-cell">
+													<input class="action-button green" type="submit"
+														value="Submit vote" name="update">
+												</div>
+											</div>
+										</div>
+									</form>
+									</div>
 								</div>
+						
 								<!-------------------- 투표 결과 --------------------------- -->
 
 <!-- 								<div id="vote-style">
@@ -306,9 +344,9 @@
 									</div>
 									<div id="progress0" class="progress-bar">
 										<span></span>
-										<div class="progress-bar-value"></div>
+										<div class="progress-bar-value" style="width: <%=writerModel.getContent_voterate1()+"%" %> ;background-color: #ff0000"><%=writerModel.getContent_voterate1()+"%"%></div>
 									</div>
-									<div id="progress1" class="progress-bar">
+									<div id="progress1" class="progress-bar"">
 										<span></span>
 										<div class="progress-bar-value red"></div>
 									</div>
@@ -754,15 +792,15 @@ $(document).on('touchend mouseout', '#logo', function(event){
 
 /*FORMULAIRE NEWSLETTER*/
 	
-$("form").on("submit", function(event) {
+/* $("form").on("submit", function(event) {
   event.preventDefault();
   $.post("/burstfly/form-burstfly-modified.asp",$("form").serialize(), function(data) {//alert(data);
 	});
-});
+}); */
 
 </script>
 
-<script type="text/javascript" src="js/content.js"></script>
+<!-- <script type="text/javascript" src="js/content.js"></script> -->
 
 
 

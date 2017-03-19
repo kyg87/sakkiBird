@@ -194,6 +194,7 @@ public class MYSQLWriter implements WriterDao{
 		            write.setContent_voterate1(rs.getInt("Content_voterate5"));
 		            write.setHit(rs.getInt("HIT"));
 		            write.setContent_img(rs.getString("content_img"));
+		            write.setContent_vote(rs.getString("content_vote"));
 		            
 		
 		         }
@@ -257,6 +258,7 @@ public class MYSQLWriter implements WriterDao{
 				rs.next();
 				
 				String code = rs.getString("CODE");
+				
 				rs.close();
 				codeSt.close();
 				

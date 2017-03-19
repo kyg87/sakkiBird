@@ -4,7 +4,6 @@
 <%@page import="com.motherbirds.dao.MYSQLWriter"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%
 request.setCharacterEncoding("UTF-8");
 /* -------------------- 로그인 처리*/
@@ -35,12 +34,12 @@ if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면
 	query=_query;
 
 
-	WriterDao writerDAO = new MYSQLWriter();
-	List<WriterModel> list = writerDAO.getList(pg,query);
-	int size=writerDAO.getSize(query);	
+WriterDao writerDAO = new MYSQLWriter();
+List<WriterModel> list = writerDAO.getList(pg,query);
+int size=writerDAO.getSize(query);	
 
 	System.out.println(size);
-/*     for(WriterModel v : list)
+/*  for(WriterModel v : list)
     {
          
         System.out.println(v.getCode());
@@ -66,12 +65,26 @@ if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면
 	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 	<link href='css/style.css' rel='stylesheet' type='text/css'>
 
-
+<!-- Naver login -->
+ <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 </head>
 
 <body>
-
+<!-- 
+  <div id="naver_id_login"></div>
+  //네이버아이디로로그인 버튼 노출 영역
+  <script type="text/javascript">
+  	var naver_id_login = new naver_id_login("Y6l8Zy4zJ8u_RebKOpFT", "http://192.168.123.108:8080/SakkiBird/platz/login-proc.jsp");
+  	var state = naver_id_login.getUniqState();
+  	naver_id_login.setButton("white", 2,40);
+  	naver_id_login.setDomain("http://motherbirds.com");
+  	naver_id_login.setState(state);
+  	naver_id_login.setPopup();
+  	naver_id_login.init_naver_id_login();
+  </script> 
+ -->
 <a name="ancre"></a>
 
 <!-- CACHE -->

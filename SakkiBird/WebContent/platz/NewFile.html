@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.jquery.com/jquery-1.8.3.min.js"></script>
+  <meta charset="utf-8">
+  <title>자바스크립트 다국어 처리.</title>
+  
+</head>
+<body>
+  <div id="wrap">
+    <h1 data-langNum="0">자바스크립트 다국어 처리</h1>
+    <button data-lang="ko">한국어</button>
+    <button data-lang="ja">일본어</button>
+    <button data-lang="en">영어</button>
+    <hr>
+  
+    <h2 data-langNum="1">안녕하세요</h2>
+    <h2 data-langNum="2">오늘은 금요일 입니다.</h2>
+    <h2 data-langNum="3">불금을 즐겨 보아요.</h2>
+  </div>
+    
+</body>
+<script type="text/javascript">
+//언어팩 선언.
+  $.lang = {};
+
+  $.lang.ko = {
+      0: '자바스크립트 다국어 처리.',
+  	1: '안녕하세요',
+  	2: '오늘은 금요일 입니다.',
+  	3: '불금을 즐겨 보아요.'
+  };
+
+  $.lang.en = {
+      0: 'Javascript Language Localization.',
+  	1: 'Hello.',
+  	2: 'Today is Friday',
+  	3: 'Fire~!!'
+  };
+  	
+  $.lang.ja = {
+      0: 'JavaScriptの言語',
+  	1: 'こんにちは',
+  	2: '今日は金曜日です。',
+  	3: 'ガンバレ~!!'
+  };
+
+  /**
+  * setLanguage 
+  * use $.lang[currentLanguage][languageNumber]
+  */
+  function setLanguage(currentLanguage) {
+    console.log('setLanguage', arguments);
+    
+    $('[data-langNum]').each(function() {
+      var $this = $(this); 
+      $this.html($.lang[currentLanguage][$this.data('langnum')]); 
+    });	
+  }  
+
+  // 언어 변경
+  $('button').click(function() {
+    var lang = $(this).data('lang');
+    setLanguage(lang); 
+  });
+
+  /*
+  추가적으로 유용한 처리.
+  1. 브라우저 언어에 따라 최초 언어 셋팅하기
+  2. 외부에서 URL ?lang=ja 접근시 셋팅하기
+  3. 언어 변경시 쿠키에 언어코드 저장해서 재접속시 쿠키 기준으로 언어 셋팅.
+  */
+  </script>
+</html>
