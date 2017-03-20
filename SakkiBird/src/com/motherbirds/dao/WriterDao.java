@@ -6,6 +6,9 @@ public interface WriterDao {
 	public List<WriterModel> getList();
 	public List<WriterModel> getList(int page);
 	public List<WriterModel> getList(int page,String query);
+	
+	int update(int vote, String code);
+	
 	int add(WriterModel write);
 	WriterModel getWriteModel(int num);
 	

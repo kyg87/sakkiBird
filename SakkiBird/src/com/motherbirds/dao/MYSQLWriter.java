@@ -249,8 +249,8 @@ public class MYSQLWriter implements WriterDao{
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 				
-				String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB����
-				Connection con = DriverManager.getConnection(url, "kyg", "0116"); // ����̺� �ε�
+				String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB占쏙옙占쏙옙
+				Connection con = DriverManager.getConnection(url, "kyg", "0116"); // 占쏙옙占쏙옙遣占� 占싸듸옙
 				
 				Statement codeSt = con.createStatement();
 				ResultSet rs = codeSt.executeQuery(codeSql);
@@ -290,6 +290,39 @@ public class MYSQLWriter implements WriterDao{
 				e.printStackTrace();
 			}
 			
+			return result;
+		}
+
+		@Override
+		public int update(int vote, String code) {
+			String sql = " UPDATE BOARD_WRITE SET CONTENT_VOTERATE? = CONTENT_VOTERATE?+1 WHERE CODE = ?";
+			 int result = 0;
+		      try {
+			         Class.forName("com.mysql.jdbc.Driver");
+			         
+			         String url = "jdbc:mysql://211.238.142.84:3306/motherbird";
+			         Connection con = DriverManager.getConnection(url, "kyg", "0116");
+			         PreparedStatement st = con.prepareStatement(sql);
+			         
+			         st.setInt(1, vote);
+			         st.setInt(2, vote);
+			         st.setString(3, code);
+			      	
+			         result = st.executeUpdate();
+			         
+			    
+			         
+				     st.close();
+				     con.close();
+				                  
+				      } catch (ClassNotFoundException e) {
+				         // TODO Auto-generated catch block
+				         e.printStackTrace();
+				      } catch (SQLException e) {
+				         // TODO Auto-generated catch block
+				         e.printStackTrace();
+				      }
+			 
 			return result;
 		}
 

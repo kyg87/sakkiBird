@@ -15,14 +15,14 @@ public class BoardCommentDAO {
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
-	// µ¥ÀÌÅÍº£ÀÌ½º Á¢¼Ó ¼³Á¤ Á¤º¸
-	/** JDBC DRIVER ÆÐÅ°Áö Á¤º¸ */
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	/** JDBC DRIVER ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 	private final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	/** µ¥ÀÌÅÍº£ÀÌ½º URL */
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ URL */
 	private final String DB_URL = "jdbc:mysql://211.238.142.84:3306/motherbird";
-	/** µ¥ÀÌÅÍº£ÀÌ½º ¾ÆÀÌµð */
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ */
 	private final String DB_ID = "kyg";
-	/** µ¥ÀÌÅÍº£ÀÌ½º ¾ÏÈ£ */
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½È£ */
 	private final String DB_PWD = "0116";
 
 	public List<BoardCommentModel> getList() {
@@ -47,6 +47,7 @@ public class BoardCommentDAO {
 				boardcomment.setCommentHit(rs.getInt("COMMENT_HIT"));
 				boardcomment.setCommentRegdate(rs.getDate("COMMENT_REGDATE"));
 				boardcomment.setCommentImgAdr(rs.getString("COMMENT_IMAGE_ADR"));
+				boardcomment.setCommentArticleNum(rs.getInt("COMMENT_ARTICLE_NUM"));
 				
 				list.add(boardcomment);
 			}
@@ -68,13 +69,13 @@ public class BoardCommentDAO {
 
 	public void insert(BoardCommentModel commentModel) {
 		try {
-			// µ¥ÀÌÅÍº£ÀÌ½º °´Ã¼ »ý¼º
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 			Class.forName(this.JDBC_DRIVER);
 			this.conn = (Connection) DriverManager.getConnection(this.DB_URL, this.DB_ID, this.DB_PWD);
 			this.pstmt = (PreparedStatement) this.conn.prepareStatement("INSERT INTO `motherbird`.`BOARD_COMMENT`"
 					+ "(COMMMENT_NUM, COMMENT_PARENT, COMMENT_WRITER, COMMENT_CONTENT, COMMENT_HIT, COMMENT_REGDATE,"
-					+ "COMMENT_IMAGE_ADR) "
-					+ "VALUES (?, ?, ?, ?, ?, SYSDATE, ?)");
+					+ "COMMENT_IMAGE_ADR , COMMENT_ARTICLE_NUM) "
+					+ "VALUES (?, ?, ?, ?, ?, SYSDATE, ?, ?)");
 
 			this.pstmt.setInt(1, commentModel.getCommentNum());
 			this.pstmt.setInt(2, commentModel.getCommentParent());
@@ -82,13 +83,14 @@ public class BoardCommentDAO {
 			this.pstmt.setString(4, commentModel.getCommentContent());
 			this.pstmt.setInt(5, commentModel.getCommentHit());
 			this.pstmt.setString(6, commentModel.getCommentImgAdr());
+			this.pstmt.setInt(7, commentModel.getCommentArticleNum());
 			
 			this.pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// »ç¿ëÇÑ °´Ã¼ Á¾·á
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 			close(null, this.pstmt, this.conn);
 		}
 	}

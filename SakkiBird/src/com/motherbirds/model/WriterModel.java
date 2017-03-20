@@ -22,6 +22,8 @@ public class WriterModel {
 	private int hit;
 	private String content_vote;
 	private String content_img;
+	private int content_vote_cnt;
+	
 	public String getCode() {
 		return code;
 	}
@@ -135,6 +137,12 @@ public class WriterModel {
 	}
 	public void setContent_img(String content_img) {
 		this.content_img = content_img;
+	}
+	public int getContent_vote_cnt() {
+		return content_vote_cnt;
+	}
+	public void setContent_vote_cnt(int content_vote_cnt) {
+		this.content_vote_cnt = content_vote_cnt;
 	}
 
 	
