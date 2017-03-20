@@ -12,23 +12,17 @@
 	
 	MYSQLWriter writerDAO = new MYSQLWriter();
 	WriterModel writerModel = writerDAO.getWriteModel(Integer.parseInt(pageNum));
-	
-/* 	System.out.println(writerModel.getContent_img());
-	System.out.println(writerModel.getContent_vote());
-	System.out.println(writerModel.getContent_first_choice());
-	System.out.println(writerModel.getContent_second_choice());
-	System.out.println(writerModel.getContent_third_choice());
-	System.out.println(writerModel.getContent_fourth_choice());
-	System.out.println(writerModel.getContent_fifth_choice()); */
-	
+
 	//선택지 문구 리스트
 	List<String> selects = new ArrayList<String>();
 	//선택지 투표수 리스트
 	List<Integer> voteCounts = new ArrayList<Integer>();
 	//투표율
 	List<Float> voteRate = new ArrayList<Float>();
-	
+	//선택지 갯수
 	int voteCount = Integer.parseInt(writerModel.getContent_vote());
+	
+	String[] colors = {"red","orange","yellow","green","blue","aqua"};
 	
  	switch(voteCount){
 		case 2:
@@ -150,6 +144,7 @@
 				<div id="wrapper-title-1">
 					<div class="top-rated object">Top-rated</div>
 					<div id="fleche-nav-1"></div>
+					
 				</div>
 
 				<div id="wrapper-title-2">
@@ -273,61 +268,36 @@
 								
 								</div>
 
-								<!-- <div id="radio-btns">
-									<p>
-										<input type="radio" name="group" /> <label>1번 선택지 1번
-											선택지1번 선택지1번 선택지1번 선택지1번 선택지1번 선택지1번 선택지</label>
-									</p>
-									<p>
-										<input type="radio" name="group" /> <label>2번 선택지2번
-											선택지2번 선택지2번 선택지2번 선택지2번 선택지</label>
-									</p>
-									<p>
-										<input type="radio" name="group" /> <label>3번 선택지3번
-											선택지3번 선택지3번 선택지</label>
-									</p>
-									<p>
-										<input type="radio" name="group" /> <label>4번 선택지4번
-											선택지4번 선택지</label>
-									</p>
-									<p>
-										<input type="radio" name="group" /> <label>5번 선택지</label>
-									</p>
-
-									<div id="vote-btns">
-										<button>투표하기</button>
-										<button>결과보기</button>
-									</div>
-								</div> -->
-								
-								
+							
+								<!-- vote container -->
 								<div class="content-box primary clear-fix vMargin">
 									<div class="content-box-header">Poll</div>
 									<div class="content-box-inner">
-									<form action="details-proc.jsp" method="post">
-										<div class="content-box clear-fix poll-box">
-										<%for(int i = 0 ; i < voteCount;i++){ %>
-											<div class="poll-row">
-												<div class="vote-cell">
-													<input id="vote_1" type="radio" value=<%= (i+1) %> name="vote_id">
+										<form action="details-proc.jsp" method="post">
+											<div class="content-box clear-fix poll-box">
+												<%for(int i = 0 ; i < voteCount;i++){ %>
+												<div class="poll-row">
+													<div class="vote-cell">
+														<input id="vote_1" type="radio" value=<%= (i+1) %> name="vote_id" required="required">
+													</div>
+													<div class="vote-cell"><%=selects.get(i) %></div>
 												</div>
-												<div class="vote-cell"><%=selects.get(i) %></div>
-											</div>
-										<%} %>	
-											
-											<div class="poll-row">
-											
-												<div class="vote-cell">
-													<input class="action-button green" type="submit"
-														value="Submit vote" name="update">
+												<%} %>	
+												
+												<div class="poll-row">
+												
+													<div class="vote-cell">
+														<input class="action-button green" type="submit"
+															value="Submit vote" name="update">
+													</div>
 												</div>
 											</div>
-										</div>
-									</form>
+										</form>
 									</div>
 								</div>
-						
-
+								<!-- vote container End-->
+								
+								<!-- vote Result  -->
 								<div class="vote-container">
 									<div class="question">
 										<a href="#"><%=totalVoteCount%> votes</a>
@@ -335,20 +305,11 @@
 									<%for(int i = 0 ; i < voteCount;i++){ %>
 									<div id="progress0" class="progress-bar">
 										<span></span>
-										<div class="progress-bar-value" style="width: <%=voteRate.get(i)+"%" %> ;background-color: #ff0000"><%=voteRate.get(i)+"%"%></div>
+										<div class="progress-bar-value" style="width: <%=voteRate.get(i)+"%;" %> background-color: <%=colors[i] %>;"><%=voteRate.get(i)+"%"%></div>
 									</div>
 									<%} %>	
-									<!-- 
-									<div id="progress1" class="progress-bar"">
-										<span></span>
-										<div class="progress-bar-value red"></div>
-									</div>
-									<div id="progress2" class="progress-bar">
-										<span></span>
-										<div class="progress-bar-value yellow"></div>
-									</div>
-									 -->
 								</div>
+								<!-- vote Result End -->
 							</div>
 						</div>
 					</figure>
@@ -361,7 +322,7 @@
 								<fieldset>
 									<p>
 										<textarea id="message" name="message" maxlength="500"
-											placeholder="Votre Message" tabindex="5" cols="30" rows="4"></textarea>
+											placeholder="Votre Message" tabindex="5" cols="30" rows="4" required="required"></textarea>
 									</p>
 								</fieldset>
 								<div style="text-align: center;">

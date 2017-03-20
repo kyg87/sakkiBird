@@ -147,7 +147,7 @@
 							</div>
 							<!-- <input class="btn-style" type="button" value="미리보기" /> -->
 							<div id="image">
-								<img id="thumbnail" src="" width="140px" />
+								<img id="thumbnail" src="img/empty.jpg" width="140px" />
 							</div>
 						</div>
 						

@@ -185,13 +185,13 @@ public class MYSQLWriter implements WriterDao{
 		            write.setContent_first_choice(rs.getString("Content_first_choice"));
 		            write.setContent_voterate1(rs.getInt("Content_voterate1"));
 		            write.setContent_second_choice(rs.getString("Content_second_choice"));
-		            write.setContent_voterate1(rs.getInt("Content_voterate2"));
+		            write.setContent_voterate2(rs.getInt("Content_voterate2"));
 		            write.setContent_third_choice(rs.getString("Content_third_choice"));
-		            write.setContent_voterate1(rs.getInt("Content_voterate3"));
+		            write.setContent_voterate3(rs.getInt("Content_voterate3"));
 		            write.setContent_fourth_choice(rs.getString("Content_fourth_choice"));
-		            write.setContent_voterate1(rs.getInt("Content_voterate4"));
+		            write.setContent_voterate4(rs.getInt("Content_voterate4"));
 		            write.setContent_fifth_choice(rs.getString("Content_fifth_choice"));
-		            write.setContent_voterate1(rs.getInt("Content_voterate5"));
+		            write.setContent_voterate5(rs.getInt("Content_voterate5"));
 		            write.setHit(rs.getInt("HIT"));
 		            write.setContent_img(rs.getString("content_img"));
 		            write.setContent_vote(rs.getString("content_vote"));
