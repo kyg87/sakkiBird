@@ -88,13 +88,13 @@
 			<!-- content -->
 			<div id="content">
 
-					<form action = "writer-proc.jsp" method="post">>
+					<form action = "writer-proc.jsp" method="post">
 						<table id="main-table">
 							<thead>
 								<tr>
 									<td>제목</td>
 									<td><input name ="title" id="TITLE" class="box green-box" type="text"
-										placeholder="제목을입력하세요." /></td>
+										placeholder="제목을입력하세요." required/></td>
 								</tr>
 							</thead>
 							<tbody>
@@ -110,11 +110,11 @@
 								<tr>
 									<td>1번</td>
 									<td><input name ="select" id="task" class="box" type="text"
-										placeholder="항목을입력하세요." /></td>
+										placeholder="항목을입력하세요." required/></td>
 								</tr>
 								<tr>
 									<td>2번</td>
-									<td><input name ="select" class="box" type="text" placeholder="항목을입력하세요." />
+									<td><input name ="select" class="box" type="text" placeholder="항목을입력하세요." required/>
 									</td>
 								</tr>
 							</tbody>
@@ -129,7 +129,7 @@
 									<label>마감일시</label>
 								</div>
 								<div id="time-detail">
-									<input class="mini-box " type="datetime-local" />
+									<input class="mini-box " type="datetime-local" required/>
 								</div>
 							</div>
 							<div id="image-option">
@@ -140,7 +140,7 @@
 								<div id="image-detail">
 									<!-- <input class="mini-box" type="text" placeholder="파일명" />-->
 									<!--<input class="btn-style" type="button" value="찾아보기" />-->
-									<input name ="file" type="file"  id="getfile" class="upload-box">
+									<input name ="file" type="file"  id="getfile" class="upload-box" required>
 								</div>
 							</div>
 							<!-- <input class="btn-style" type="button" value="미리보기" /> -->
