@@ -64,7 +64,9 @@ int size=writerDAO.getSize(query);
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,900italic,700italic,700,500italic,400italic,500,300italic,300' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 	<link href='css/style.css' rel='stylesheet' type='text/css'>
-
+	
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <!-- Naver login -->
  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -109,31 +111,31 @@ int size=writerDAO.getSize(query);
 <div id="wrapper-navbar">
 		<div class="navbar object">
     		<div id="wrapper-sorting">
-            <div id="wrapper-title-1">
-            <div class="top-rated object">MAIN</div>
-            	<div id="fleche-nav-1"></div>
-    		</div>
-            
-            <div id="wrapper-title-2">
-            <a href="writer.jsp"><div class="recent object">WRITE</div></a>
-                <div id="fleche-nav-2"></div>
-    		</div>
-            
-            <div id="wrapper-title-3">
-            <a href="account.jsp"><div class="oldies object"><%= logOut = logOut =="" ? "LOGIN" : "LOGOUT" %></div></a>
-                <div id="fleche-nav-3"></div>
-    		</div>
-    		
-    		  <div id="wrapper-title-3">
-            <a href="#"><div class="oldies object"><%=logOut = logOut == "" ? "" : _userName %></div></a>
-                <div id="fleche-nav-3"></div>
-    		</div>
-    		
+	            <div id="wrapper-title-1">
+	            <div class="top-rated object">MAIN</div>
+	            	<div id="fleche-nav-1"></div>
+	    		</div>
+	            
+	            <div id="wrapper-title-2">
+	            <a href="writer.jsp"><div class="recent object">WRITE</div></a>
+	                <div id="fleche-nav-2"></div>
+	    		</div>
+	            
+	            <div id="wrapper-title-3">
+	            <a href="account.jsp"><div class="oldies object"><%= logOut = logOut =="" ? "LOGIN" : "LOGOUT" %></div></a>
+	                <div id="fleche-nav-3"></div>
+	    		</div>
+	    		
+	    		<div id="wrapper-title-3">
+	           <%--  <a href="#"><div class="oldies object"><%=logOut = logOut == "" ? "" : _userName %></div></a>
+	                <div id="fleche-nav-3"></div> --%>
+	    		</div>	
             </div>
             <div id="wrapper-bouton-icon">
-            	<div id="bouton-ai"><img src="img/48_twitter_circle_color.png" alt="illustrator" title="Illustrator" height="28" width="28"></div>
+            	<a href="#"><div class="hidden" id="bouton-ai"><%=logOut = logOut == "" ? "" : _userName %></div></a>
+            	<!-- <div id="bouton-ai"><img src="img/48_twitter_circle_color.png" alt="illustrator" title="Illustrator" height="28" width="28"></div>
             	<div id="bouton-psd"><img src="img/48_facebook_circle_black.png" alt="photoshop" title="Photoshop" height="28" width="28"></div>
-            	<div id="bouton-theme"><img src="img/KakaoTalk.jpg" alt="theme" title="Theme" height="28" width="28"></div>
+            	<div id="bouton-theme"><img src="img/KakaoTalk.jpg" alt="theme" title="Theme" height="28" width="28"></div> -->
             	<!-- <div id="bouton-font"><img src="img/icon-font.svg" alt="font" title="Font" height="28" width="28"></div>
             	<div id="bouton-photo"><img src="img/icon-photo.svg" alt="photo" title="Photo" height="28" width="28"></div>
             	<div id="bouton-premium"><img src="img/icon-premium.svg" alt="premium" title="Premium" height="28" width="28"></div> -->
@@ -192,10 +194,36 @@ int size=writerDAO.getSize(query);
     <div id="wrapper-oldnew">
     	<div class="oldnew">
         	<div class="wrapper-oldnew-prev">
-            	<div id="oldnew-prev"></div>
+            	<!-- <div id="oldnew-prev"></div> -->
         	</div>
             <div class="wrapper-oldnew-next">
-            	<div id="oldnew-next"></div>
+            	<div class="pagination__wrapper">
+  <ul class="pagination">
+    <li><button class="prev" title="previous page">&#10094;</button></li>
+    <li>
+      <button title="first page - page 1">1</button>
+    </li>
+    <li>
+      <span>...</span>
+    </li>
+    <li>
+      <button title="page 8">8</button>
+    </li>
+    <li>
+      <button class="active" title="current page - page 9">9</button>
+    </li>
+    <li>
+      <button title="page 10">10</button>
+    </li>
+    <li>
+      <span>...</span>
+    </li>
+    <li>
+      <button title="last page - page 69">69</button>
+    </li>
+    <li><button class="next" title="next page">&#10095;</button></li>
+  </ul>
+</div>
     		</div>
         </div>
 	</div>     
@@ -203,14 +231,15 @@ int size=writerDAO.getSize(query);
 	
 	
 <!-- 버튼1 -->
-<%
+
+<%-- <%
 int last = (size % 9) > 0 ? (size / 10) + 1 : size / 10;
 System.out.println("갯수" + last);
 %>
 <ul class="pagination">
 <%for(int i=0;i<last;i++){ %>
 <li><a href="?p=<%=i+1 %>&search=<%=query%>"><%=i+1 %></a></li>
-<%} %>
+<%} %> --%>
 <!--   <li><a href="#">1</a></li>
   <li><a href="#">2</a></li>
   <li class="active"><a href="#">3</a></li>
