@@ -21,25 +21,42 @@
 	System.out.println(writerModel.getContent_fourth_choice());
 	System.out.println(writerModel.getContent_fifth_choice()); */
 	
-
+	//선택지 문구 리스트
 	List<String> selects = new ArrayList<String>();
+	//선택지 투표수 리스트
+	List<Integer> voteCounts = new ArrayList<Integer>();
+	//투표율
+	List<Float> voteRate = new ArrayList<Float>();
+	
 	int voteCount = Integer.parseInt(writerModel.getContent_vote());
 	
  	switch(voteCount){
 		case 2:
 			selects.add(writerModel.getContent_first_choice());
 			selects.add(writerModel.getContent_second_choice());
+			
+			voteCounts.add(writerModel.getContent_voterate1());
+			voteCounts.add(writerModel.getContent_voterate2());
 			break;
 		case 3:
 			selects.add(writerModel.getContent_first_choice());
 			selects.add(writerModel.getContent_second_choice());
 			selects.add(writerModel.getContent_third_choice());
+			
+			voteCounts.add(writerModel.getContent_voterate1());
+			voteCounts.add(writerModel.getContent_voterate2());
+			voteCounts.add(writerModel.getContent_voterate3());
 			break;
 		case 4:
 			selects.add(writerModel.getContent_first_choice());
 			selects.add(writerModel.getContent_second_choice());
 			selects.add(writerModel.getContent_third_choice());
 			selects.add(writerModel.getContent_fourth_choice());
+			
+			voteCounts.add(writerModel.getContent_voterate1());
+			voteCounts.add(writerModel.getContent_voterate2());
+			voteCounts.add(writerModel.getContent_voterate3());
+			voteCounts.add(writerModel.getContent_voterate4());
 			break;
 		case 5:
 			selects.add(writerModel.getContent_first_choice());
@@ -47,10 +64,29 @@
 			selects.add(writerModel.getContent_third_choice());
 			selects.add(writerModel.getContent_fourth_choice());
 			selects.add(writerModel.getContent_fifth_choice());
+			
+			voteCounts.add(writerModel.getContent_voterate1());
+			voteCounts.add(writerModel.getContent_voterate2());
+			voteCounts.add(writerModel.getContent_voterate3());
+			voteCounts.add(writerModel.getContent_voterate4());
+			voteCounts.add(writerModel.getContent_voterate5());
+			
 			break;
-	
 	} 
  	
+ 	int totalVoteCount = 0;
+ 	
+ 	for(Integer l : voteCounts){
+ 		System.out.println( "투표 카운트: " + l);
+ 		totalVoteCount += l;
+ 	}
+ 	
+ 	System.out.println("투표수 : " + totalVoteCount);
+ 	
+  	for(Integer l : voteCounts){
+ 		System.out.println("퍼센트 : " + ((float)(l/(float)totalVoteCount)) * 100);
+ 		voteRate.add((float)(l/(float)totalVoteCount) * 100);
+ 	} 
  	
  	
 %>
@@ -291,61 +327,18 @@
 									</div>
 								</div>
 						
-								<!-------------------- 투표 결과 --------------------------- -->
 
-<!-- 								<div id="vote-style">
-									<dl>
-										<dt>
-											<h2>VOTE Result</h2>
-										</dt>
-										<dd>1. 1번 선택지
-										<dd id="percent">30%</dd>
-										</dd>
-										<dd>
-											<meter class="vote-bar" value="3" min="0" max="10"></meter>
-										</dd>
-
-										<dd>2. 2번 선택지
-										<dd id="percent">10%</dd>
-										</dd>
-										<dd>
-											<meter class="vote-bar" value="1" min="0" max="10"></meter>
-										</dd>
-
-										<dd>3. 3번 선택지
-										<dd id="percent">20%</dd>
-										</dd>
-										<dd>
-											<meter class="vote-bar" value="2" min="0" max="10"></meter>
-
-										</dd>
-
-										<dd>4. 4번 선택지
-										<dd id="percent">30%</dd>
-										</dd>
-										<dd>
-											<meter class="vote-bar" value="3" min="0" max="10"></meter>
-
-										</dd>
-
-										<dd>5. 5번 선택지
-										<dd id="percent">10%</dd>
-										</dd>
-										<dd>
-											<meter class="vote-bar" value="1" min="0" max="10"></meter>
-
-										</dd>
-									</dl>
-									<button id="vote-back">돌아가기</button>
-								</div> -->
 								<div class="vote-container">
 									<div class="question">
-										<a href="#">666 votes</a>
+										<a href="#"><%=totalVoteCount%> votes</a>
 									</div>
+									<%for(int i = 0 ; i < voteCount;i++){ %>
 									<div id="progress0" class="progress-bar">
 										<span></span>
-										<div class="progress-bar-value" style="width: <%=writerModel.getContent_voterate1()+"%" %> ;background-color: #ff0000"><%=writerModel.getContent_voterate1()+"%"%></div>
+										<div class="progress-bar-value" style="width: <%=voteRate.get(i)+"%" %> ;background-color: #ff0000"><%=voteRate.get(i)+"%"%></div>
 									</div>
+									<%} %>	
+									<!-- 
 									<div id="progress1" class="progress-bar"">
 										<span></span>
 										<div class="progress-bar-value red"></div>
@@ -354,6 +347,7 @@
 										<span></span>
 										<div class="progress-bar-value yellow"></div>
 									</div>
+									 -->
 								</div>
 							</div>
 						</div>
