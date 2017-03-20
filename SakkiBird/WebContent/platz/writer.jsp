@@ -119,9 +119,11 @@
 								</tr>
 							</tbody>
 						</table>
+						
 						<div class="info-add">
-							<input type="button" id="addTaskBtn" value ="항목 추가"/>
+							<input type="button" id="addTaskBtn" value ="╂"/>
 						</div>
+						
 						<div id="option-field">
 							<div id="time-option">
 								<div id="time-field">
@@ -148,10 +150,12 @@
 								<img id="thumbnail" src="" width="140px" />
 							</div>
 						</div>
+						
 						<div id="option-bottom">
-							<input class="back-box" type="button" value="목록으로" /> 
-							<input id="reg-button" class="success-box" type="submit" value="등록하기" />
+							<input class="back-box btn" type="button" value="목록으로" /> 
+							<input id="reg-button" class="success-box btn" type="button" value="등록하기" />
 						</div>
+						
 					</form>
 				</div>
 			<!-- ENDS content -->

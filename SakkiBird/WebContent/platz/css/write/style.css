@@ -20,58 +20,56 @@
 	background-color: #FFF;
 }
 
-.btn-style{
-	/* color: #fff;
-    background-color: #f0ad4e;
-    border-color: #eea236; */
+#addTaskBtn{
 	display: inline-block;
-    margin-bottom: 0;
-    font-weight: 400;
-    line-height: 1.42857143;
     text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-   
-    padding: 1px 5px;
+    font-family: Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px;
+    font-weight: 100;
+    color: #fff;
+    cursor: pointer;
+    width: 55px;
+    height: 35px;
+    padding: 5px 5px;
+    margin-left:20px;
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    background-color: #658092;
+    float: left;
+    border: none;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
 }
 
 .btn{
-	
-	/* color: #fff;
-    background-color: #f0ad4e;
-    border-color: #eea236; */
 	display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
     text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
+    font-family: Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 12px;
+    font-weight: 100;
+    color: #fff;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;	
+    width: 90px;
+    height: 40px;
+    padding: 5px 5px;
+    margin-left:20px;
+    border-radius: 4px;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    background-color: #658092;
+    float: left;
+    border: none;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
 }
+
 
 .box{
 	display: inline-block;

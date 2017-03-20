@@ -10,12 +10,12 @@ request.setCharacterEncoding("UTF-8");
 
 String _userName = request.getParameter("name");
 
-System.out.println(_userName);
+/* System.out.println(_userName); */
 String logOut = "";
 
 if(_userName!=null)
 	logOut = "LOGOUT";
-
+System.out.println(logOut);
 /* -------------------- 메인 처리*/
 String _page =request.getParameter("p");
 
@@ -189,7 +189,10 @@ int size=writerDAO.getSize(query);
 			</div>
          
          
-         
+<%
+int last = (size % 9) > 0 ? (size / 10) + 1 : size / 10;
+System.out.println("갯수" + last);
+%>       
          
     <div id="wrapper-oldnew">
     	<div class="oldnew">
@@ -200,27 +203,9 @@ int size=writerDAO.getSize(query);
             	<div class="pagination__wrapper">
   <ul class="pagination">
     <li><button class="prev" title="previous page">&#10094;</button></li>
-    <li>
-      <button title="first page - page 1">1</button>
-    </li>
-    <li>
-      <span>...</span>
-    </li>
-    <li>
-      <button title="page 8">8</button>
-    </li>
-    <li>
-      <button class="active" title="current page - page 9">9</button>
-    </li>
-    <li>
-      <button title="page 10">10</button>
-    </li>
-    <li>
-      <span>...</span>
-    </li>
-    <li>
-      <button title="last page - page 69">69</button>
-    </li>
+    <%for(int i=0;i<last;i++){ %>
+     <li><a href="?p=<%=i+1 %>&search=<%=query%>"><button><%=i+1 %></button></a></li>
+	<%} %> 
     <li><button class="next" title="next page">&#10095;</button></li>
   </ul>
 </div>
