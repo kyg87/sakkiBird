@@ -88,7 +88,7 @@
 			<!-- content -->
 			<div id="content">
 
-					<form action = "writer-proc.jsp" method="post">
+					<form action = "writer-proc.jsp" method="post" enctype="multipart/form-data">
 						<table id="main-table">
 							<thead>
 								<tr>
