@@ -12,13 +12,13 @@
 	if(!d.exists())//경로가 존재하지 않는다면
 		d.mkdir();
 	
-	MultipartRequest req = new MultipartRequest(request
+	/* MultipartRequest req = new MultipartRequest(request
 	, path
 	, 1024*1024*10
 	, "UTF-8"
-	, new DefaultFileRenamePolicy());
+	, new DefaultFileRenamePolicy()); */
 
-	/*  request.setCharacterEncoding("UTF-8"); */
+	request.setCharacterEncoding("UTF-8");
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
 	String file = request.getParameter("file");

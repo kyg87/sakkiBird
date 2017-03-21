@@ -88,7 +88,7 @@
 			<!-- content -->
 			<div id="content">
 
-					<form action = "writer-proc.jsp" method="post" enctype="multipart/form-data">
+					<form action = "writer-proc.jsp" method="post">
 						<table id="main-table">
 							<thead>
 								<tr>
@@ -137,7 +137,8 @@
 								<!-- <input class="mini-box" type="text" placeholder="파일명" />-->
 								<!--<input class="btn-style" type="button" value="찾아보기" />-->
 								<input name ="file" type="file"  id="getfile" class="upload-box" required>
-								<input id="detail-img" type="button" value="자세히보기" onChange="fileUpload()"/>
+								   <img id="thumbnail" src="" width="140px" />
+								<!-- <input id="detail-img" type="button" value="자세히보기" onChange="fileUpload()"/> -->
 							</div>
 						</div>
 						
