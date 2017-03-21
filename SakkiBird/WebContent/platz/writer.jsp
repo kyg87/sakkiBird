@@ -100,7 +100,6 @@
 							<tbody>
 								<tr>
 									<td>내용</td>
-									
 									<td>
 									<textarea name ="content" id="content-box" rows="30" cols="80"></textarea>
 									</td>
@@ -153,7 +152,7 @@
 						
 						<div id="option-bottom">
 							<input class="back-box btn" type="button" value="목록으로" /> 
-							<input id="reg-button" class="success-box btn" type="button" value="등록하기" />
+							<input id="reg-button" class="success-box btn" type="submit" value="등록하기" />
 						</div>
 						
 					</form>
