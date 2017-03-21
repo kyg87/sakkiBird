@@ -15,13 +15,13 @@ public class MYSQLWriter implements WriterDao{
 	
 	@Override
 	public int getSize(String query) {
-		String sql = "SELECT COUNT(CODE) SIZE FROM BOARD_WRITE WHERE BINARY TITLE LIKE ? order by Regdate desc";
+		String sql = "SELECT COUNT(CODE) SIZE FROM BOARD_WRITE WHERE BINARY TITLE LIKE ?";
 	      int size=0;
 	      
 	      try {
 		         Class.forName("com.mysql.jdbc.Driver");
 		         
-		         String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		         String url = "jdbc:mysql://211.238.142.84:3306/motherbird";
 		         Connection con = DriverManager.getConnection(url, "kyg", "0116");
 		         PreparedStatement st = con.prepareStatement(sql);
 		         st.setString(1, "%"+query+"%");
@@ -60,12 +60,12 @@ public class MYSQLWriter implements WriterDao{
 
 	@Override
 	public List<WriterModel> getList(int page, String query) {
-		String sql = "SELECT* FROM BOARD_WRITE WHERE TITLE LIKE ? order by Regdate desc limit ?,9 ";
+		String sql = "SELECT* FROM BOARD_WRITE WHERE TITLE LIKE ? limit ?,9";
 		 List<WriterModel> list = new ArrayList<>();
 	      try {
 		         Class.forName("com.mysql.jdbc.Driver");
 		         
-		         String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		         String url = "jdbc:mysql://211.238.142.84:3306/motherbird";
 		         Connection con = DriverManager.getConnection(url, "kyg", "0116");
 		         PreparedStatement st = con.prepareStatement(sql);
 		         st.setString(1, "%"+query+"%");
@@ -123,7 +123,7 @@ public class MYSQLWriter implements WriterDao{
 		      try {
 		         Class.forName("com.mysql.jdbc.Driver");
 		         
-		         String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		         String url = "jdbc:mysql://211.238.142.84:3306/motherbird";
 		         Connection con = DriverManager.getConnection(url, "kyg", "0116");
 		         PreparedStatement st = con.prepareStatement(sql);
 		         st.setString(1,  write.getTitle());
@@ -163,7 +163,7 @@ public class MYSQLWriter implements WriterDao{
 		      try {
 		         Class.forName("com.mysql.jdbc.Driver");
 		         
-		         String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		         String url = "jdbc:mysql://211.238.142.84:3306/motherbird";
 		         Connection con = DriverManager.getConnection(url, "kyg", "0116");
 		         PreparedStatement st = con.prepareStatement(sql);
 		         
@@ -300,7 +300,7 @@ public class MYSQLWriter implements WriterDao{
 		      try {
 			         Class.forName("com.mysql.jdbc.Driver");
 			         
-			         String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+			         String url = "jdbc:mysql://211.238.142.84:3306/motherbird";
 			         Connection con = DriverManager.getConnection(url, "kyg", "0116");
 			         PreparedStatement st = con.prepareStatement(sql);
 			         
