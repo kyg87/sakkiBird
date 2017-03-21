@@ -8,7 +8,7 @@
 
 #option-field {
     margin-top: 20px;
-    height: 100px;
+    min-height: 50px;
     display: inline-block;
     text-align:center;
 }
@@ -16,13 +16,14 @@
 #option-bottom {
     height: 60px;
     text-align: center;
-    margin-left:385px;
+    padding-left:385px;
+   
 }
 
 #wrapper{
 	width: 1000px;
 	margin: 0px auto;
-	min-height: 700px;
+	min-height: 750px;
 	font-size: 14px;
 	line-height: 1.5em;
 	border-radius: 10px;

@@ -30,6 +30,5 @@
 	if(result > 0)
 		System.out.println("Done");
 	 	response.sendRedirect("index.jsp"); 
-	
 
 %>

@@ -19,20 +19,20 @@
 
 </head>
 <script type="text/javascript">
+
 	window.addEventListener("load", function(e) {
 		var regButton = document.querySelector("#reg-button");
 	 	//제목
 		var title = document.querySelector("#TITLE");		
 		//투표
+		var Vote = document.querySelector(".VOTE");
 		//이미지
 		 
 		regButton.onclick=function(){
-			if(title.innerText=="")
+			if(title.value=="")
 				alert("제목을 입력하세요");
-			if(title.innerText=="")
-				alert("제목을 입력하세요");
-			if(title.innerText=="")
-				alert("제목을 입력하세요");
+			
+		
 		};
 });
 
@@ -125,12 +125,12 @@
 					<tbody id="toDoList">
 						<tr>
 							<td>1번</td>
-							<td><input id="task" class="box" type="text"
+							<td><input class="VOTE" id="task" class="box" type="text"
 								placeholder="항목을입력하세요." /></td>
 						</tr>
 						<tr>
 							<td>2번</td>
-							<td><input class="box" type="text" placeholder="항목을입력하세요." />
+							<td><input class="VOTE" class="box" type="text" placeholder="항목을입력하세요." />
 							</td>
 						</tr>
 					</tbody>

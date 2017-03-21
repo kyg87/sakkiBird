@@ -119,36 +119,28 @@
 							</tbody>
 						</table>
 						
+						
 						<div class="info-add">
 							<input type="button" id="addTaskBtn" value ="╂"/>
 						</div>
 						
+						
 						<div id="option-field">
 							<div id="time-option">
-								<div id="time-field">
-									<h1 class="hidden">마감입력</h1>
-									<label>마감일시</label>
-								</div>
-								<div id="time-detail">
-									<input class="mini-box " type="datetime-local" required/>
-								</div>
+								<h1 class="hidden">마감입력</h1>
+								<label>마감일시</label>
+								<input class="mini-box " type="datetime-local" required/>
 							</div>
 							<div id="image-option">
-								<div id="image-field">
-									<h1 class="hidden">사진입력</h1>
-									<label>사진첨부</label>
-								</div>
-								<div id="image-detail">
-									<!-- <input class="mini-box" type="text" placeholder="파일명" />-->
-									<!--<input class="btn-style" type="button" value="찾아보기" />-->
-									<input name ="file" type="file"  id="getfile" class="upload-box" required>
-								</div>
-							</div>
-							<!-- <input class="btn-style" type="button" value="미리보기" /> -->
-							<div id="image">
-								<img id="thumbnail" src="img/empty.jpg" width="140px" />
+								<h1 class="hidden">사진입력</h1>
+								<label>사진첨부</label>
+								<!-- <input class="mini-box" type="text" placeholder="파일명" />-->
+								<!--<input class="btn-style" type="button" value="찾아보기" />-->
+								<input name ="file" type="file"  id="getfile" class="upload-box" required>
+								<input id="detail-img" type="button" value="자세히보기" onChange="fileUpload()"/>
 							</div>
 						</div>
+						
 						
 						<div id="option-bottom">
 							<input class="back-box btn" type="button" value="목록으로" /> 
@@ -205,8 +197,19 @@
 	
 	<script>
 	
+window.addEventListener("load",function(e){
+	var detailImg=document.querySelector("#detail-img")
 
+	detailImg.onclick=function(){
 
+		alert("사진올라감");		
+	}
+
+});
+	
+	
+	
+	
 
 
 /* PRELOADER */
