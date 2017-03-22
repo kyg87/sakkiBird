@@ -1,6 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page session = "true"%>
+
 <%
 
 %>
@@ -101,34 +101,34 @@
 		<div class="login-form">
 		<form action="login-proc.jsp" method="post">
 			<div class="sign-in-htm">
-					<div class="group">
-						<label for="user" class="label">Email</label>
-						<input name = "email" id="user" type="text" class="input">
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Password</label>
-						<input name = "pw" id="pass" type="password" class="input" data-type="password">
-					</div>
-					<div class="group">
-						<input id="check" type="checkbox" class="check" checked>
-						<label for="check"><span class="icon"></span>로그인 상태 유지</label>
-					</div>
-					<div class="group">
-						<input type="submit" class="button" value="로그인">
-					</div>
-					<div class="hr"></div>
-					<div class="foot-lnk">
-						<a href="#forgot">아이디를 까묵?</a>
-					</div>
-					<div class="foot-lnk">
-						<a href="#forgot">비밀번호를 까묵?</a>
-					</div>
-					
-					<div class="foot-lnk">
-					<a href=""><img class= "img1" src="../images/페북.png"/></a>
-					<a href=""><img class= "img1" src="../images/트위터.png"/></a>
-					<a href=""><img class= "img1" src="../images/까똑.png"/></a>
-					</div>
+			<form>
+				<div class="group">
+					<label for="user" class="label">Email</label>
+					<input name = "email" id="user" type="text" class="input">
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+					<input name = "pw" id="pass" type="password" class="input" data-type="password">
+				</div>
+				<div class="group">
+					<input id="check" type="checkbox" class="check" checked>
+					<label for="check"><span class="icon"></span>로그인 상태 유지</label>
+				</div>
+				<div class="group">
+					<input type="submit" class="button" value="로그인">
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+					<a href="#forgot">아이디를 까묵?</a>
+				</div>
+				<div class="foot-lnk">
+					<a href="#forgot">비밀번호를 까묵?</a>
+				</div>
+				
+				<div class="foot-lnk">
+				<a href=""><img class= "img1" src="../images/페북.png"/></a>
+				<a href=""><img class= "img1" src="../images/트위터.png"/></a>
+				<a href=""><img class= "img1" src="../images/까똑.png"/></a>
 				</div>
                 </form>
 			</div>
@@ -156,11 +156,15 @@
 						</div>
 						<div class="hr"></div>
 						<div class="foot-lnk">
-							<!-- for="tab-1" -->MotherBird에 오신것을 환영합니다
+							<label>
+								<!-- for="tab-1" -->MotherBird에 오신것을 환영합니다</a>
 						</div>
 					</div>
 				</form>
 			</div>
 	</div>
+</div>
+  
+  
 </body>
 </html>

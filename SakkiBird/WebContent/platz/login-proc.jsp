@@ -1,9 +1,8 @@
-<%@page import="com.motherbirds.dao.MemberInter"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page import="com.motherbirds.model.MemberModel"%>
 <%@page import="com.motherbirds.dao.MemberDAO"%>
-<%@page contentType="text/html; charset=UTF-8" %>
-<%@page session = "true"%>
+<%@ page contentType="text/html; charset=euc-kr" %>
+
 
 
 <%
@@ -11,16 +10,16 @@
 	String email = request.getParameter("email");
 	String pw = request.getParameter("pw");	
 	
-	session.setAttribute("email", email);
-	session.setAttribute("pw", pw);
-	
-	
-	MemberInter dao = new MemberDAO();
+	MemberDAO dao = new MemberDAO();
 	
 	MemberModel member = dao.get(email, pw);
 	
+
+	
 	if(member != null){
-		response.sendRedirect("index.jsp");
+		
+		String encoded = URLEncoder.encode(member.getUserName());
+		response.sendRedirect("index.jsp?name=" + encoded);
 	}
 	else
 		response.sendRedirect("account.jsp");
