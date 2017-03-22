@@ -174,4 +174,75 @@ public class MemberDAO implements MemberInter{
 		return member;
 	}
 
+public Boolean existEmail(String email){
+		
+		String sql = "SELECT * FROM MEMBER where EMAIL = ?";
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB占쏙옙占쏙옙
+			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // 占쏙옙占쏙옙遣占� 占싸듸옙
+			
+			PreparedStatement st = con.prepareStatement(sql);			
+			
+			st.setString(1, email);
+			
+
+			ResultSet rs = st.executeQuery();
+			
+			if(rs.next()){
+			
+				return true;
+
+			}
+			
+			st.close();
+			con.close();
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	
+		return false;
+	}
+	
+		public Boolean existuserName(String user){
+		
+		String sql = "SELECT * FROM MEMBER where USERNAME = ?";
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB占쏙옙占쏙옙
+			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // 占쏙옙占쏙옙遣占� 占싸듸옙
+			
+			PreparedStatement st = con.prepareStatement(sql);			
+			
+			st.setString(1, user);
+			
+
+			ResultSet rs = st.executeQuery();
+			
+			if(rs.next()){
+			
+				return true;
+
+			}
+			
+			st.close();
+			con.close();
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	
+		return false;
+}
 }
