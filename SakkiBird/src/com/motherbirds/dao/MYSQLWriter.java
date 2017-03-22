@@ -249,8 +249,8 @@ public class MYSQLWriter implements WriterDao{
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 				
-				String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB占쏙옙占쏙옙
-				Connection con = DriverManager.getConnection(url, "kyg", "0116"); // 占쏙옙占쏙옙遣占� 占싸듸옙
+				String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB�뜝�룞�삕�뜝�룞�삕
+				Connection con = DriverManager.getConnection(url, "kyg", "0116"); // �뜝�룞�삕�뜝�룞�삕�겂�뜝占� �뜝�떥�벝�삕
 				
 				Statement codeSt = con.createStatement();
 				ResultSet rs = codeSt.executeQuery(codeSql);
@@ -324,6 +324,12 @@ public class MYSQLWriter implements WriterDao{
 				      }
 			 
 			return result;
+		}
+
+		@Override
+		public String lastcode() {
+			// TODO Auto-generated method stub
+			return null;
 		}
 
 

@@ -1,3 +1,11 @@
+<%@page import="com.motherbirds.dao.WriterDao"%>
+<%@page import="com.motherbirds.model.WriterModel"%>
+<%@page import="com.motherbirds.model.BoardFile"%>
+<%@page import="java.util.Enumeration"%>
+<%@page import="com.motherbirds.dao.BoardFileDao"%>
+<%@page import="com.motherbirds.dao.MYSQLBoardFile"%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="java.io.File"%>
 <%@page import="com.motherbirds.dao.MYSQLWriter"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
@@ -12,17 +20,17 @@
 	if(!d.exists())//경로가 존재하지 않는다면
 		d.mkdir();
 	
-	/* MultipartRequest req = new MultipartRequest(request
+	 MultipartRequest req = new MultipartRequest(request
 	, path
 	, 1024*1024*10
 	, "UTF-8"
-	, new DefaultFileRenamePolicy()); */
+	, new DefaultFileRenamePolicy()); 
 
-	request.setCharacterEncoding("UTF-8");
-	String title = request.getParameter("title");
-	String content = request.getParameter("content");
-	String file = request.getParameter("file");
-	String[] selects = request.getParameterValues("select");
+	/* req.setCharacterEncoding("UTF-8"); */
+	String title = req.getParameter("title");
+	String content = req.getParameter("content");
+	String file = req.getParameter("file");
+	String[] selects = req.getParameterValues("select");
 	
 	System.out.printf("title: "+title);
 	System.out.println();
@@ -46,5 +54,23 @@
 	if(result > 0)
 		System.out.println("Done");
 	 	response.sendRedirect("index.jsp");
+	 	
+	String boardCode = dao.lastcode();
 
+	BoardFileDao noticeFileDao = new MYSQLBoardFile();
+
+	Enumeration fnames = req.getFileNames();
+
+	while (fnames.hasMoreElements()) {
+		String f = (String) fnames.nextElement();
+		String fname = req.getFilesystemName(f);
+
+		BoardFile file = new BoardFile();
+		file.setBoardCode(boardCode);
+		file.setSrc(fname);
+		noticeFileDao.add(file);
+
+		out.println("<br/>" + f);
+		out.println("<br/>" + fname);
+	}
 %>
