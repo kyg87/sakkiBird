@@ -4,18 +4,18 @@
 <%@page import="com.motherbirds.dao.MYSQLWriter"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page session = "true"%>
 <%
 request.setCharacterEncoding("UTF-8");
 /* -------------------- 로그인 처리*/
-String _userEmail = (String)session.getAttribute("email");
-String _userPw = (String)session.getAttribute("pw");
 
-String userSession = "";
+String _userName = request.getParameter("name");
 
-if(_userEmail==null)
-	userSession = "LOGOUT";
+/* System.out.println(_userName); */
+String logOut = "";
 
+if(_userName!=null)
+	logOut = "LOGOUT";
+System.out.println(logOut);
 /* -------------------- 메인 처리*/
 String _page =request.getParameter("p");
 
@@ -36,7 +36,7 @@ if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면
 
 WriterDao writerDAO = new MYSQLWriter();
 List<WriterModel> list = writerDAO.getList(pg,query);
-int size=writerDAO.getSize(query);
+int size=writerDAO.getSize(query);	
 
 	System.out.println(size);
 /*  for(WriterModel v : list)
@@ -112,7 +112,7 @@ int size=writerDAO.getSize(query);
 		<div class="navbar object">
     		<div id="wrapper-sorting">
 	            <div id="wrapper-title-1">
-	            <a href="index.jsp"><div class="top-rated object">MAIN</div></a>
+	            <div class="top-rated object">MAIN</div>
 	            	<div id="fleche-nav-1"></div>
 	    		</div>
 	            
@@ -122,12 +122,7 @@ int size=writerDAO.getSize(query);
 	    		</div>
 	            
 	            <div id="wrapper-title-3">
-	            <a href="account.jsp"><div class="oldies object">
-	            <%-- <%= userSession = userSession.equals("LOGOUT") ? "LOGIN" : "LOGOUT" %> --%>
-	            <%if(userSession.equals("LOGOUT")){ %>LOGIN</a>
-	            <%}else{  %><a href="index.jsp">LOGOUT <% session.invalidate(); %></a>
-	            <%} %>
-	            </div>
+	            <a href="account.jsp"><div class="oldies object"><%= logOut = logOut =="" ? "LOGIN" : "LOGOUT" %></div></a>
 	                <div id="fleche-nav-3"></div>
 	    		</div>
 	    		
@@ -137,12 +132,7 @@ int size=writerDAO.getSize(query);
 	    		</div>	
             </div>
             <div id="wrapper-bouton-icon">
-            	<a href="account.jsp"><div class="oldies object" id="bouton-ai">
-            	<%if(userSession.equals("LOGOUT")){ %>환영합니다. 로그인해주세요.</a>
-            	<%} %>
-	            </div>
-	            </a>
-            	
+            	<a href="#"><div class="hidden" id="bouton-ai"><%=logOut = logOut == "" ? "" : _userName %></div></a>
             	<!-- <div id="bouton-ai"><img src="img/48_twitter_circle_color.png" alt="illustrator" title="Illustrator" height="28" width="28"></div>
             	<div id="bouton-psd"><img src="img/48_facebook_circle_black.png" alt="photoshop" title="Photoshop" height="28" width="28"></div>
             	<div id="bouton-theme"><img src="img/KakaoTalk.jpg" alt="theme" title="Theme" height="28" width="28"></div> -->
@@ -199,7 +189,10 @@ int size=writerDAO.getSize(query);
 			</div>
          
          
-         
+<%
+int last = (size % 9) > 0 ? (size / 10) + 1 : size / 10;
+System.out.println("갯수" + last);
+%>       
          
     <div id="wrapper-oldnew">
     	<div class="oldnew">
@@ -210,27 +203,9 @@ int size=writerDAO.getSize(query);
             	<div class="pagination__wrapper">
   <ul class="pagination">
     <li><button class="prev" title="previous page">&#10094;</button></li>
-    <li>
-      <button title="first page - page 1">1</button>
-    </li>
-    <li>
-      <span>...</span>
-    </li>
-    <li>
-      <button title="page 8">8</button>
-    </li>
-    <li>
-      <button class="active" title="current page - page 9">9</button>
-    </li>
-    <li>
-      <button title="page 10">10</button>
-    </li>
-    <li>
-      <span>...</span>
-    </li>
-    <li>
-      <button title="last page - page 69">69</button>
-    </li>
+    <%for(int i=0;i<last;i++){ %>
+     <li><a href="?p=<%=i+1 %>&search=<%=query%>"><button><%=i+1 %></button></a></li>
+	<%} %> 
     <li><button class="next" title="next page">&#10095;</button></li>
   </ul>
 </div>
