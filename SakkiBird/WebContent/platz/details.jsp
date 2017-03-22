@@ -1,3 +1,4 @@
+<%@page import="com.motherbirds.dao.WriterDao"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.motherbirds.model.WriterModel"%>
 <%@page import="com.motherbirds.dao.MYSQLWriter"%>
@@ -6,19 +7,27 @@
 <%@page import="com.motherbirds.dao.BoardCommentDAO"%>
 
 <%
+
+	WriterDao vtdao = new MYSQLWriter();	
+	List<WriterModel> wmList = vtdao.getList();
+	
+	String checkResult = request.getParameter("vote");
+	System.out.print(checkResult);
+
 	String pageNum = request.getParameter("page");
 	BoardCommentDAO bocodao = new BoardCommentDAO();
-	List<BoardCommentModel> list = bocodao.getList();
+	List<BoardCommentModel> bcList = bocodao.getList();
 	
 	MYSQLWriter writerDAO = new MYSQLWriter();
 	WriterModel writerModel = writerDAO.getWriteModel(Integer.parseInt(pageNum));
 
+	
 	//선택지 문구 리스트
 	List<String> selects = new ArrayList<String>();
 	//선택지 투표수 리스트
 	List<Integer> voteCounts = new ArrayList<Integer>();
 	//투표율
-	List<Float> voteRate = new ArrayList<Float>();
+	List<String> voteRate = new ArrayList<String>();
 	//선택지 갯수
 	int voteCount = Integer.parseInt(writerModel.getContent_vote());
 	
@@ -78,9 +87,9 @@
  	System.out.println("투표수 : " + totalVoteCount);
  	
   	for(Integer l : voteCounts){
- 		System.out.println("퍼센트 : " + ((float)(l/(float)totalVoteCount)) * 100);
- 		voteRate.add((float)(l/(float)totalVoteCount) * 100);
- 	} 
+ 		System.out.printf("퍼센트 : %f", ((float)(l/(float)totalVoteCount)) * 100);
+ 		voteRate.add(String.format("%.2f", (float)(l/(float)totalVoteCount) * 100));
+ 	}
  	
  	
 %>
@@ -108,6 +117,13 @@
 	rel='stylesheet' type='text/css'>
 <link rel='stylesheet' href='css/details.css'>
 <link rel='stylesheet' href='css/content/style.css'>
+
+<script>
+
+	
+	
+</script>
+
 
 </head>
 
@@ -291,6 +307,7 @@
 															value="Submit vote" name="update">
 													</div>
 												</div>
+												<input type="hidden" name ="pageNum" value=<%=pageNum%> />
 											</div>
 										</form>
 									</div>
@@ -303,6 +320,9 @@
 										<a href="#"><%=totalVoteCount%> votes</a>
 									</div>
 									<%for(int i = 0 ; i < voteCount;i++){ %>
+									<div class = "vote-selects">
+										<span><%=selects.get(i) %></span>
+									</div>
 									<div id="progress0" class="progress-bar">
 										<span></span>
 										<div class="progress-bar-value" style="width: <%=voteRate.get(i)+"%;" %> background-color: <%=colors[i] %>;"><%=voteRate.get(i)+"%"%></div>
@@ -332,7 +352,7 @@
 						</div>
 					</div>
 
-					<%for(BoardCommentModel bcm:list){ %>
+					<%for(BoardCommentModel bcm:bcList){ %>
 					<div class="post-reply">
 						<div class="image-reply-post"></div>
 						<div class="name-reply-post"><%=bcm.getCommentWriter() %></div>

@@ -46,7 +46,7 @@
 }
 
 #vote-style h2{
-	font-family:±¼¸² ±¼¸²Ã¼;
+	font-family:짹쩌쨍짼 짹쩌쨍짼횄쩌;
 	text-align:center;
 }
 
@@ -135,7 +135,7 @@
 	overflow:auto;
 	zoom: 1;
 }
-/* 투표 결과창*/
+/* �닾�몴 寃곌낵李�*/
 .progress-bar{
   display:inline-block;
   margin:1em;
@@ -152,6 +152,9 @@
   user-select: none;
   background-color: rgba(0,0, 0,1);
   box-shadow: 0px 1px 2px #888888;
+}
+.vote-selects > span{
+	margin-left:20px;
 }
 .progress-bar-value{
   z-index:0;
@@ -215,7 +218,7 @@
 }
 
 
-/*투표 하는곳  */
+/*�닾�몴 �븯�뒗怨�  */
 .poll-row {
 	background: #161616;
 	border-bottom: 1px dotted #262626;
