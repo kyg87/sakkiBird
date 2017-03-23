@@ -223,19 +223,19 @@ public class MYSQLWriter implements WriterDao{
 			switch (selects.length) {
 			case 2:
 				 sql = "INSERT INTO BOARD_WRITE(CODE,TITLE,WRITER, Content, Content_Img, CONTENT_VOTE ,REGDATE, ENDDATE,CONTENT_FIRST_CHOICE, CONTENT_SECOND_CHOICE) "
-							+ "VALUES (?,?,?,?,?,?,NOW(),NOW(),?,?)" ;
+							+ "VALUES (?,?,?,?,?,?,NOW(),DATE_ADD( now() , interval + 1 day),?,?)" ;
 				break;
 			case 3:
 				 sql = "INSERT INTO BOARD_WRITE(CODE,TITLE,WRITER, Content, Content_Img, CONTENT_VOTE ,REGDATE, ENDDATE,CONTENT_FIRST_CHOICE, CONTENT_SECOND_CHOICE, CONTENT_THIRD_CHOICE) "
-							+ "VALUES (?,?,?,?,?,?,NOW(),NOW(),?,?,?)" ;
+							+ "VALUES (?,?,?,?,?,?,NOW(),DATE_ADD( now() , interval + 1 day),?,?,?)" ;
 				break;
 			case 4:
 				 sql = "INSERT INTO BOARD_WRITE(CODE,TITLE,WRITER, Content, Content_Img, CONTENT_VOTE ,REGDATE, ENDDATE,CONTENT_FIRST_CHOICE, CONTENT_SECOND_CHOICE, CONTENT_THIRD_CHOICE, CONTENT_FOURTH_CHOICE) "
-							+ "VALUES (?,?,?,?,?,?,NOW(),NOW(),?,?,?,?)" ;
+							+ "VALUES (?,?,?,?,?,?,NOW(),DATE_ADD( now() , interval + 1 day),?,?,?,?)" ;
 				break;
 			case 5:
 				 sql = "INSERT INTO BOARD_WRITE(CODE,TITLE,WRITER, Content, Content_Img, CONTENT_VOTE ,REGDATE, ENDDATE,CONTENT_FIRST_CHOICE, CONTENT_SECOND_CHOICE, CONTENT_THIRD_CHOICE, CONTENT_FOURTH_CHOICE, CONTENT_FIFTH_CHOICE) "
-							+ "VALUES (?,?,?,?,?,?,NOW(),NOW(),?,?,?,?,?)" ;
+							+ "VALUES (?,?,?,?,?,?,NOW(),DATE_ADD( now() , interval + 1 day),?,?,?,?,?)" ;
 				break;
 	
 			default:
