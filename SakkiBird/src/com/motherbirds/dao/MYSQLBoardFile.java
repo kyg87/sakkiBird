@@ -22,8 +22,8 @@ public class MYSQLBoardFile implements BoardFileDao{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String url = "jdbc:mysql://211.238.142.84/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
-			Connection con = DriverManager.getConnection(url, "newlec", "sclass");
+			String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+	         Connection con = DriverManager.getConnection(url, "kyg", "0116");
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, boardCode);
 
@@ -34,8 +34,8 @@ public class MYSQLBoardFile implements BoardFileDao{
 			while (rs.next()) {
 				file = new BoardFile();
 				file.setCode(rs.getString("CODE"));
-				file.setBoardCode(rs.getString("BOARD_CODE"));
 				file.setSrc(rs.getString("SRC"));
+				file.setBoardCode(rs.getString("BOARD_CODE"));
 				list.add(file);
 			}
 
@@ -69,8 +69,8 @@ public class MYSQLBoardFile implements BoardFileDao{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String url = "jdbc:mysql://211.238.142.84/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
-			Connection con = DriverManager.getConnection(url, "newlec", "sclass");
+			String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+	        Connection con = DriverManager.getConnection(url, "kyg", "0116");
 			Statement codeSt = con.createStatement();
 			ResultSet rs = codeSt.executeQuery(codeSql);
 			rs.next();

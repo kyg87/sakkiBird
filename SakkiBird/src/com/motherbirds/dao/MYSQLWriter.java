@@ -258,7 +258,7 @@ public class MYSQLWriter implements WriterDao{
 				rs.next();
 				
 				String code = rs.getString("CODE");
-				
+				if(code == null) code = "1";
 				rs.close();
 				codeSt.close();
 				
@@ -328,8 +328,32 @@ public class MYSQLWriter implements WriterDao{
 
 		@Override
 		public String lastcode() {
-			// TODO Auto-generated method stub
-			return null;
+			String sql = "SELECT max(cast(code as unsigned)) CODE FROM BOARD_WRITE";
+			String code="0";
+
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+
+				String url = "jdbc:mysql://211.238.142.84/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+				Connection con = DriverManager.getConnection(url, "newlec", "sclass");
+				Statement st = con.createStatement();
+				ResultSet rs = st.executeQuery(sql);
+				
+				if (rs.next())
+					code = rs.getString("CODE");
+
+				rs.close();
+				st.close();
+				con.close();
+
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return code;
 		}
 
 

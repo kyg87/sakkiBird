@@ -1,13 +1,13 @@
+
 <%@page import="com.motherbirds.dao.WriterDao"%>
-<%@page import="com.motherbirds.model.WriterModel"%>
 <%@page import="com.motherbirds.model.BoardFile"%>
 <%@page import="java.util.Enumeration"%>
-<%@page import="com.motherbirds.dao.BoardFileDao"%>
 <%@page import="com.motherbirds.dao.MYSQLBoardFile"%>
+<%@page import="com.motherbirds.dao.BoardFileDao"%>
+<%@page import="com.motherbirds.dao.MYSQLWriter"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="java.io.File"%>
-<%@page import="com.motherbirds.dao.MYSQLWriter"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -46,17 +46,12 @@
 	System.out.println();
 	
 	
-	MYSQLWriter dao = new MYSQLWriter();
+	WriterDao dao = new MYSQLWriter();
 	
-	int result = dao.add(title, "", content, selects.length, selects, file);
-	
-	
-	if(result > 0)
-		System.out.println("Done");
-	 	response.sendRedirect("index.jsp");
+	int result = dao.add(title, "세은", content, selects.length, selects, file);
 	 	
 	String boardCode = dao.lastcode();
-
+	System.out.println(boardCode);
 	BoardFileDao noticeFileDao = new MYSQLBoardFile();
 
 	Enumeration fnames = req.getFileNames();
@@ -65,12 +60,17 @@
 		String f = (String) fnames.nextElement();
 		String fname = req.getFilesystemName(f);
 
-		BoardFile file = new BoardFile();
-		file.setBoardCode(boardCode);
-		file.setSrc(fname);
-		noticeFileDao.add(file);
+		BoardFile file2 = new BoardFile();
+		file2.setBoardCode(boardCode);
+		file2.setSrc(fname);
+		noticeFileDao.add(file2);
 
 		out.println("<br/>" + f);
 		out.println("<br/>" + fname);
 	}
+	
+	if(result > 0)
+		System.out.println("Done");
+	 	response.sendRedirect("index.jsp");
+	
 %>
