@@ -48,7 +48,10 @@
 	
 	WriterDao dao = new MYSQLWriter();
 	
-	int result = dao.add(title, "세은", content, selects.length, selects, file);
+	
+	String getFilesystemName = req.getFilesystemName("file");
+	
+	int result = dao.add(title, "세은", content, selects.length, selects, getFilesystemName);
 	 	
 	String boardCode = dao.lastcode();
 	System.out.println(boardCode);
