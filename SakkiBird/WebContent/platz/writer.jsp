@@ -137,7 +137,7 @@
 								<!-- <input class="mini-box" type="text" placeholder="파일명" />-->
 								<!--<input class="btn-style" type="button" value="찾아보기" />-->
 								<input name ="file" type="file"  id="getfile" class="upload-box" required>
-								   <img id="thumbnail" src="" width="140px" />
+								   <img id="thumbnail" src="" width="70px" height="30px"/>
 								<!-- <input id="detail-img" type="button" value="자세히보기" onChange="fileUpload()"/> -->
 							</div>
 						</div>
