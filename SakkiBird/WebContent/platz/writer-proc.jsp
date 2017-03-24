@@ -32,6 +32,9 @@
 	String file = req.getParameter("file");
 	String[] selects = req.getParameterValues("select");
 	
+	
+	System.out.println(path);
+	
 	System.out.printf("title: "+title);
 	System.out.println();
 	System.out.printf("content: "+content);
@@ -42,14 +45,16 @@
 	System.out.println(selects[i]);
 	
 
-	System.out.printf("file: "+file);
-	System.out.println();
+
 	
 	
 	WriterDao dao = new MYSQLWriter();
 	
 	
 	String getFilesystemName = req.getFilesystemName("file");
+	
+	System.out.printf("file: "+getFilesystemName);
+	System.out.println();
 	
 	int result = dao.add(title, "세은", content, selects.length, selects, getFilesystemName);
 	 	

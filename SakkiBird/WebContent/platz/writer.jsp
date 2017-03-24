@@ -126,11 +126,11 @@
 						
 						
 						<div id="option-field">
-							<div id="time-option">
+	<!-- 						<div id="time-option">
 								<h1 class="hidden">마감입력</h1>
 								<label>마감일시</label>
 								<input class="mini-box " type="datetime-local" required/>
-							</div>
+							</div> -->
 							<div id="image-option">
 								<h1 class="hidden">사진입력</h1>
 								<label>사진첨부</label>

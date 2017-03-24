@@ -16,18 +16,18 @@ public class BoardCommentDAO {
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
-	// �뜝�룞�삕�뜝�룞�삕�뜝�떢釉앹삕�뜝�떛�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕
-	/** JDBC DRIVER �뜝�룞�삕�궎�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 */
+	
+	
 	private final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	/** �뜝�룞�삕�뜝�룞�삕�뜝�떢釉앹삕�뜝�떛�룞�삕 URL */
+	
 	private final String DB_URL = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
-	/** �뜝�룞�삕�뜝�룞�삕�뜝�떢釉앹삕�뜝�떛�룞�삕 �뜝�룞�삕�뜝�떛�벝�삕 */
+	
 	private final String DB_ID = "kyg";
-	/** �뜝�룞�삕�뜝�룞�삕�뜝�떢釉앹삕�뜝�떛�룞�삕 �뜝�룞�삕�샇 */
+	
 	private final String DB_PWD = "0116";
 
-	public List<BoardCommentModel> getList() {
-		String sql = "SELECT  * FROM BOARD_COMMENT";
+	public List<BoardCommentModel> getList(String article_num) {
+		String sql = "SELECT  * FROM BOARD_COMMENT WHERE COMMENT_ARTICLE_CODE = ?";
 		List<BoardCommentModel> list = new ArrayList<>();
 
 		try {			
@@ -35,6 +35,9 @@ public class BoardCommentDAO {
 			Class.forName(this.JDBC_DRIVER);
 			this.conn = (Connection) DriverManager.getConnection(this.DB_URL, this.DB_ID, this.DB_PWD);
 			PreparedStatement st = (PreparedStatement) conn.prepareStatement(sql);
+			
+			st.setString(1, article_num);
+			
 			ResultSet rs = st.executeQuery();
 
 			BoardCommentModel boardcomment = null;
@@ -49,7 +52,7 @@ public class BoardCommentDAO {
 				boardcomment.setCommentHit(rs.getInt("COMMENT_HIT"));
 				boardcomment.setCommentRegdate(rs.getDate("COMMENT_REGDATE"));
 				boardcomment.setCommentImgAdr(rs.getString("COMMENT_IMAGE_ADR"));
-				boardcomment.setCommentArticleNum(rs.getInt("COMMENT_ARTICLE_NUM"));
+				boardcomment.setCommentArticleCode(rs.getString("COMMENT_ARTICLE_CODE"));
 				
 				list.add(boardcomment);
 			}
@@ -81,7 +84,7 @@ public class BoardCommentDAO {
 			
 			this.pstmt = (PreparedStatement) this.conn.prepareStatement("INSERT INTO `motherbird`.`BOARD_COMMENT`"
 					+ "(COMMENT_CODE, COMMMENT_NUM, COMMENT_PARENT, COMMENT_WRITER, COMMENT_CONTENT, COMMENT_HIT, COMMENT_REGDATE,"
-					+ "COMMENT_IMAGE_ADR , COMMENT_ARTICLE_NUM) "
+					+ "COMMENT_IMAGE_ADR , COMMENT_ARTICLE_CODE) "
 					+ "VALUES (?, ?, ?, ?, ?, ?, SYSDATE, ?, ?)");
 
 			this.pstmt.setString(1, commentModel.getCommentCode());
@@ -91,7 +94,7 @@ public class BoardCommentDAO {
 			this.pstmt.setString(5, commentModel.getCommentContent());
 			this.pstmt.setInt(6, commentModel.getCommentHit());
 			this.pstmt.setString(7, commentModel.getCommentImgAdr());
-			this.pstmt.setInt(8, commentModel.getCommentArticleNum());
+			this.pstmt.setString(8, commentModel.getCommentArticleCode());
 			
 			this.pstmt.executeUpdate();
 
@@ -103,13 +106,14 @@ public class BoardCommentDAO {
 		}
 	}
 	
-	public int addComment(String comment) {
-		String codeSql = "SELECT MAX(cast(CODE as unsigned))+1 CODE FROM BOARD_WRITE";
+	public int addComment(String comment,String aticle_code) {
+		String codeSql = "SELECT MAX(cast(COMMENT_CODE as unsigned))+1 CODE FROM BOARD_COMMENT";
 		int result = 0;
 		try {
 		
 			Class.forName(this.JDBC_DRIVER);
-
+			this.conn = (Connection) DriverManager.getConnection(this.DB_URL, this.DB_ID, this.DB_PWD);
+			
 			Statement codeSt = conn.createStatement();
 			ResultSet rs = codeSt.executeQuery(codeSql);
 			
@@ -124,7 +128,7 @@ public class BoardCommentDAO {
 			
 			this.pstmt = (PreparedStatement) this.conn.prepareStatement("INSERT INTO BOARD_COMMENT(COMMENT_CODE, COMMENT_NUM, COMMENT_PARENT,"
 					+ " COMMENT_WRITER, COMMENT_CONTENT, COMMENT_HIT, COMMENT_REGDATE,"
-					+ "COMMENT_IMAGE_ADR , COMMENT_ARTICLE_NUM) "
+					+ "COMMENT_IMAGE_ADR , COMMENT_ARTICLE_CODE) "
 					+ "VALUES (?, ?, ?, ?, ?, ?, NOW(), ?, ?)");
 
 			this.pstmt.setString(1, code);
@@ -134,7 +138,7 @@ public class BoardCommentDAO {
 			this.pstmt.setString(5, comment);
 			this.pstmt.setInt(6, 9966);
 			this.pstmt.setString(7, "test/test2.img");
-			this.pstmt.setInt(8, 1001);
+			this.pstmt.setString(8, aticle_code);
 			
 			result = this.pstmt.executeUpdate();
 

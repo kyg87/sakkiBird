@@ -202,7 +202,7 @@ public class MYSQLWriter implements WriterDao{
 		   
 		   
 		@Override
-		public WriterModel getWriteModel(int num) {
+		public WriterModel getWriteModel(String num) {
 			// TODO Auto-generated method stub
 			 String sql = "select * from BOARD_WRITE WHERE CODE LIKE ?";
 		      
@@ -216,7 +216,7 @@ public class MYSQLWriter implements WriterDao{
 		         Connection con = DriverManager.getConnection(url, "kyg", "0116");
 		         PreparedStatement st = con.prepareStatement(sql);
 		         
-		      	 st.setInt(1, num);
+		      	 st.setString(1, num);
 		      	
 		         ResultSet rs = st.executeQuery();
 		         
@@ -298,8 +298,8 @@ public class MYSQLWriter implements WriterDao{
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 				
-				String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲
-				Connection con = DriverManager.getConnection(url, "kyg", "0116"); // 占쎈쐻占쎈짗占쎌굲占쎈쐻占쎈짗占쎌굲占쎄쾫占쎈쐻�뜝占� 占쎈쐻占쎈뼢占쎈쿈占쎌굲
+				String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB�뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援�
+				Connection con = DriverManager.getConnection(url, "kyg", "0116"); // �뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럥�맶�뜝�럥吏쀥뜝�럩援꿨뜝�럡苡ュ뜝�럥�맶占쎈쐻�뜝占� �뜝�럥�맶�뜝�럥堉℡뜝�럥荑덂뜝�럩援�
 				
 				Statement codeSt = con.createStatement();
 				ResultSet rs = codeSt.executeQuery(codeSql);
@@ -383,8 +383,8 @@ public class MYSQLWriter implements WriterDao{
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 
-				String url = "jdbc:mysql://211.238.142.84/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
-				Connection con = DriverManager.getConnection(url, "newlec", "sclass");
+				String url = "jdbc:mysql://211.238.142.84/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+				Connection con = DriverManager.getConnection(url, "kyg", "0116");
 				Statement st = con.createStatement();
 				ResultSet rs = st.executeQuery(sql);
 				

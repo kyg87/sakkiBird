@@ -11,7 +11,7 @@ public class BoardCommentModel {
 	private Date commentRegdate;
 	private int commentHit;
 	private String commentImgAdr;
-	private int commentArticleNum;
+	private String commentArticleCode;
 	private String commentCode; 
 	
 	
@@ -46,6 +46,14 @@ public class BoardCommentModel {
 	public String getCommentContent() {
 		return commentContent;
 	}
+	public String getCommentArticleCode() {
+		return commentArticleCode;
+	}
+
+	public void setCommentArticleCode(String commentArticleCode) {
+		this.commentArticleCode = commentArticleCode;
+	}
+
 	public void setCommentContent(String commentContent) {
 		this.commentContent = commentContent;
 	}
@@ -67,12 +75,7 @@ public class BoardCommentModel {
 	public void setCommentImgAdr(String commentImgAdr) {
 		this.commentImgAdr = commentImgAdr;
 	}
-	public int getCommentArticleNum() {
-		return commentArticleNum;
-	}
-	public void setCommentArticleNum(int commentArticleNum) {
-		this.commentArticleNum = commentArticleNum;
-	}	
+
 	
 	
 }

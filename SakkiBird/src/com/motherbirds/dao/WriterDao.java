@@ -13,7 +13,7 @@ public interface WriterDao {
 	int update(int vote, String code);
 	
 	int add(WriterModel write);
-	WriterModel getWriteModel(int num);
+	WriterModel getWriteModel(String num);
 	
 	int getSize(String query);
 	

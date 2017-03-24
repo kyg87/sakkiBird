@@ -18,7 +18,7 @@
 	String comment = request.getParameter("message");
 	
 	if(comment != null){
-		BCDao.addComment(comment);
+		BCDao.addComment(comment,pageNum);
 		response.sendRedirect("details.jsp?page="+pageNum);
 	}
 	
@@ -26,7 +26,7 @@
 	
 	else{
 		WriterDao vote = new MYSQLWriter();
-		WriterModel model = vote.getWriteModel(Integer.parseInt(pageNum));
+		WriterModel model = vote.getWriteModel(pageNum);
 		
 		int result = vote.update(Integer.parseInt(voteId), pageNum);
 		

@@ -16,10 +16,10 @@
 
 	String pageNum = request.getParameter("page");
 	BoardCommentDAO bocodao = new BoardCommentDAO();
-	List<BoardCommentModel> bcList = bocodao.getList();
+	List<BoardCommentModel> bcList = bocodao.getList(pageNum);
 	
 	MYSQLWriter writerDAO = new MYSQLWriter();
-	WriterModel writerModel = writerDAO.getWriteModel(Integer.parseInt(pageNum));
+	WriterModel writerModel = writerDAO.getWriteModel(pageNum);
 
 	
 	//선택지 문구 리스트
@@ -90,7 +90,14 @@
  	
   	for(Integer l : voteCounts){
  		System.out.printf("퍼센트 : %f", ((float)(l/(float)totalVoteCount)) * 100);
- 		voteRate.add(String.format("%.2f", (float)(l/(float)totalVoteCount) * 100));
+ 		if(l != 0)
+ 		{
+ 			voteRate.add(String.format("%.2f", (float)(l/(float)totalVoteCount) * 100));
+ 		}
+ 		else 
+ 		{
+ 			voteRate.add("0");
+ 		}
  	}
  	
  	
@@ -270,11 +277,11 @@
 				<div class="title-item">
 					<!-- <div class="title-icon"></div> -->
 					<div class="title-text"><%=writerModel.getTitle() %></div>
-					<div class="title-text-2">Sept 25, 2015 by Onuur</div>
+					<!-- <div class="title-text-2">Sept 25, 2015 by Onuur</div> -->
 					
-					<div class="title-text-2"><strong>작성자 : </strong> KwangForever</div>
-					<div class="title-text-2"><strong>작성 시간 : </strong> 2017/02/15 17:52</div>
-					<div class="title-text-2"><strong>마감 시간 : </strong> 2017/03/09 18:00</div>
+					<div class="title-text-2"><strong>작성자 : </strong> <%=writerModel.getWriter() %></div>
+					<div class="title-text-2"><strong>작성 시간 : </strong> <%=writerModel.getRegDate() %></div>
+					<div class="title-text-2"><strong>마감 시간 : </strong> <%=writerModel.getEndDate() %></div>
 				</div>
 	
 
