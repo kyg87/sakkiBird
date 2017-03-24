@@ -1,3 +1,5 @@
+<%@page import="com.motherbirds.dao.MYSQLRank"%>
+<%@page import="com.motherbirds.dao.WriterRank"%>
 <%@page import="com.motherbirds.dao.WriterDao"%>
 <%@page import="com.motherbirds.model.WriterModel"%>
 <%@page import="java.util.List"%>
@@ -36,15 +38,25 @@ if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면
 
 WriterDao writerDAO = new MYSQLWriter();
 List<WriterModel> list = writerDAO.getList(pg,query);
+List<WriterModel> list2 = writerDAO.getList();
 int size=writerDAO.getSize(query);	
-
 	System.out.println(size);
-/*  for(WriterModel v : list)
+	
+	
+
+	int result = writerDAO.hit(_page);
+
+
+	
+
+
+	
+/*   for(WriterModel v : list)
     {
          
         System.out.println(v.getCode());
         System.out.println(v.getContent_img());
-    } */
+    }  */
 
 
 %>
@@ -156,9 +168,17 @@ int size=writerDAO.getSize(query);
 			<!-- 슬라이더 -->
 			<section class="pen">
 				<div class="stage">
-					<div class="element michael"></div>
-					<div class="element franklin"></div>
-					<div class="element trevor"></div>
+					<%for(WriterModel r : list2){ %>
+					
+						<div class="element michael">
+						<a href="details.jsp?page=<%=r.getCode()%>">
+							<img src="images/<%=r.getContent_img()%>" alt="" style="max-width: 100%; height: 330px;" />
+							<%=r.getTitle() %></a>
+					</div>
+<!-- 					<div class="element franklin"></div>
+					<div class="element trevor"></div> -->
+				<%} %>	
+					
 				</div>
 			</section>
 			<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -190,7 +210,7 @@ int size=writerDAO.getSize(query);
          
          
 <%
-int last = (size % 9) > 0 ? (size / 10) + 1 : size / 10;
+int last = (size % 9) > 0 ? (size / 9) + 1 : size / 9;
 System.out.println("갯수" + last);
 %>       
          
