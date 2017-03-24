@@ -29,6 +29,8 @@
 	//투표율
 	List<String> voteRate = new ArrayList<String>();
 	//선택지 갯수
+	
+	
 	int voteCount = Integer.parseInt(writerModel.getContent_vote());
 	
 	String[] colors = {"red","orange","yellow","green","blue","aqua"};
@@ -92,6 +94,8 @@
  	}
  	
  	
+  	
+  	
 %>
 
 <%@page language="java" contentType="text/html; charset=UTF-8"
@@ -332,21 +336,21 @@
 								<!-- vote Result End -->
 							</div>
 						</div>
-					</figure>
+					</figure>					
 
 					<div class="post-send">
 						<div id="main-post-send">
-							<div id="title-post-send">Add your comment</div>
-							<form id="contact" method="post"
-								action="/onclickprod/formsubmit_op.asp">
+							<div id="title-post-send"><%int cnt = 0; %> 댓글<%for(BoardCommentModel bcm:bcList){cnt++; }%> [ <%=cnt %> ] </div>
+							<form id="contact" method="post" action="details-proc.jsp">
 								<fieldset>
 									<p>
-										<textarea id="message" name="message" maxlength="500"
-											placeholder="Votre Message" tabindex="5" cols="30" rows="4" required="required"></textarea>
+										<textarea id="message_id" name="message" maxlength="500"
+											placeholder="댓글을 입력하세요." tabindex="5" cols="30" rows="4" required="required"></textarea>
 									</p>
 								</fieldset>
 								<div style="text-align: center;">
 									<input type="submit" name="envoi" value="Envoyer" />
+									<input type="hidden" name ="pageNum" value=<%=pageNum%> />
 								</div>
 							</form>
 						</div>
