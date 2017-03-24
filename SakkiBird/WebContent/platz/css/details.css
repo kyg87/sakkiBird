@@ -169,7 +169,7 @@ body,html{
 .top-rated{color:#666;margin-left:15px;font-weight:500;}
 .recent,.oldies{color: #CCC;margin-left:80px;font-weight:500;margin-left:40px;}
 
-.top-rated:hover,.recent:hover,.oldies:hover{color:#666;opacity:1;}
+.top-rated:hover,.recent:hover,.oldies:hover,.rated:hover,.top-recent:hover{color:#666;opacity:1;}
 
 #fleche-nav-1,#fleche-nav-2,#fleche-nav-3{
 	float:left;
@@ -923,7 +923,7 @@ textarea.placeholder {
 }
 }
 
-/* Small viewports — Old monitors, netbooks, tablets (landscape), etc. */
+/* Small viewports �� Old monitors, netbooks, tablets (landscape), etc. */
  
 @media only screen and (max-width: 965px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -969,7 +969,7 @@ textarea.placeholder {
 
 }
 
-/* Smaller viewports — more tablets, old monitors */
+/* Smaller viewports �� more tablets, old monitors */
  
 @media only screen and (max-width: 860px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -985,7 +985,7 @@ textarea.placeholder {
 
 }
 
-/* Even smaller viewports — more tablets, etc. */
+/* Even smaller viewports �� more tablets, etc. */
  
 @media only screen and (max-width: 740px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
