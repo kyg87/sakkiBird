@@ -15,14 +15,14 @@ public class BoardCommentDAO {
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
-	// �����ͺ��̽� ���� ���� ����
-	/** JDBC DRIVER ��Ű�� ���� */
+	// 占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙
+	/** JDBC DRIVER 占쏙옙키占쏙옙 占쏙옙占쏙옙 */
 	private final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	/** �����ͺ��̽� URL */
+	/** 占쏙옙占쏙옙占싶븝옙占싱쏙옙 URL */
 	private final String DB_URL = "jdbc:mysql://211.238.142.84:3306/motherbird";
-	/** �����ͺ��̽� ���̵� */
+	/** 占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙占싱듸옙 */
 	private final String DB_ID = "kyg";
-	/** �����ͺ��̽� ��ȣ */
+	/** 占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙호 */
 	private final String DB_PWD = "0116";
 
 	public List<BoardCommentModel> getList() {
@@ -40,6 +40,7 @@ public class BoardCommentDAO {
 
 			while (rs.next()) {
 				boardcomment = new BoardCommentModel();
+				boardcomment.setCommentIdx(rs.getInt("COMMENT_IDX"));
 				boardcomment.setCommentNum(rs.getInt("COMMENT_NUM"));
 				boardcomment.setCommentParent(rs.getInt("COMMENT_PARENT"));
 				boardcomment.setCommentWriter(rs.getString("COMMENT_WRITER"));
@@ -69,28 +70,64 @@ public class BoardCommentDAO {
 
 	public void insert(BoardCommentModel commentModel) {
 		try {
-			// �����ͺ��̽� ��ü ����
+			// 占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙체 占쏙옙占쏙옙
 			Class.forName(this.JDBC_DRIVER);
 			this.conn = (Connection) DriverManager.getConnection(this.DB_URL, this.DB_ID, this.DB_PWD);
-			this.pstmt = (PreparedStatement) this.conn.prepareStatement("INSERT INTO `motherbird`.`BOARD_COMMENT`"
-					+ "(COMMMENT_NUM, COMMENT_PARENT, COMMENT_WRITER, COMMENT_CONTENT, COMMENT_HIT, COMMENT_REGDATE,"
+			/*this.pstmt = (PreparedStatement) this.conn.prepareStatement("INSERT INTO `motherbird`.`BOARD_COMMENT`"
+					+ "(COMMENT_IDX, COMMMENT_NUM, COMMENT_PARENT, COMMENT_WRITER, COMMENT_CONTENT, COMMENT_HIT, COMMENT_REGDATE,"
 					+ "COMMENT_IMAGE_ADR , COMMENT_ARTICLE_NUM) "
-					+ "VALUES (?, ?, ?, ?, ?, SYSDATE, ?, ?)");
+					+ "VALUES (?, ?, ?, ?, ?, ?, SYSDATE, ?, ?)");*/
+			
+			this.pstmt = (PreparedStatement) this.conn.prepareStatement("INSERT INTO `motherbird`.`BOARD_COMMENT`"
+					+ "(COMMENT_IDX, COMMMENT_NUM, COMMENT_PARENT, COMMENT_WRITER, COMMENT_CONTENT, COMMENT_HIT, COMMENT_REGDATE,"
+					+ "COMMENT_IMAGE_ADR , COMMENT_ARTICLE_NUM) "
+					+ "VALUES (?, ?, ?, ?, ?, ?, SYSDATE, ?, ?)");
 
-			this.pstmt.setInt(1, commentModel.getCommentNum());
-			this.pstmt.setInt(2, commentModel.getCommentParent());
-			this.pstmt.setString(3, commentModel.getCommentWriter());
-			this.pstmt.setString(4, commentModel.getCommentContent());
-			this.pstmt.setInt(5, commentModel.getCommentHit());
-			this.pstmt.setString(6, commentModel.getCommentImgAdr());
-			this.pstmt.setInt(7, commentModel.getCommentArticleNum());
+			this.pstmt.setInt(1, commentModel.getCommentIdx());
+			this.pstmt.setInt(2, commentModel.getCommentNum());
+			this.pstmt.setInt(3, commentModel.getCommentParent());
+			this.pstmt.setString(4, commentModel.getCommentWriter());
+			this.pstmt.setString(5, commentModel.getCommentContent());
+			this.pstmt.setInt(6, commentModel.getCommentHit());
+			this.pstmt.setString(7, commentModel.getCommentImgAdr());
+			this.pstmt.setInt(8, commentModel.getCommentArticleNum());
 			
 			this.pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// ����� ��ü ����
+			// 占쏙옙占쏙옙占� 占쏙옙체 占쏙옙占쏙옙
+			close(null, this.pstmt, this.conn);
+		}
+	}
+	
+	public void addComment(String comment) {
+		try {
+			// 占쏙옙占쏙옙占싶븝옙占싱쏙옙 占쏙옙체 占쏙옙占쏙옙
+			Class.forName(this.JDBC_DRIVER);
+			this.conn = (Connection) DriverManager.getConnection(this.DB_URL, this.DB_ID, this.DB_PWD);			
+			
+			this.pstmt = (PreparedStatement) this.conn.prepareStatement("INSERT INTO BOARD_COMMENT(COMMENT_IDX, COMMENT_NUM, COMMENT_PARENT,"
+					+ " COMMENT_WRITER, COMMENT_CONTENT, COMMENT_HIT, COMMENT_REGDATE,"
+					+ "COMMENT_IMAGE_ADR , COMMENT_ARTICLE_NUM) "
+					+ "VALUES (?, ?, ?, ?, ?, ?, NOW(), ?, ?)");
+
+			this.pstmt.setInt(1, 9);
+			this.pstmt.setInt(2, 6);
+			this.pstmt.setInt(3, 0);
+			this.pstmt.setString(4, "test34");
+			this.pstmt.setString(5, comment);
+			this.pstmt.setInt(6, 9966);
+			this.pstmt.setString(7, "test/test2.img");
+			this.pstmt.setInt(8, 1001);
+			
+			this.pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 占쏙옙占쏙옙占� 占쏙옙체 占쏙옙占쏙옙
 			close(null, this.pstmt, this.conn);
 		}
 	}
@@ -117,6 +154,6 @@ public class BoardCommentDAO {
 				e.printStackTrace();
 			}
 		}
-	}
+	}	
 
 }
