@@ -12,16 +12,19 @@ public class BoardCommentModel {
 	private int commentHit;
 	private String commentImgAdr;
 	private int commentArticleNum;
-	private int commentIdx; 
+	private String commentCode; 
 	
 	
 	
-	public int getCommentIdx() {
-		return commentIdx;
+
+	public String getCommentCode() {
+		return commentCode;
 	}
-	public void setCommentIdx(int commentMaxIdx) {
-		this.commentIdx = commentMaxIdx;
+
+	public void setCommentCode(String commentCode) {
+		this.commentCode = commentCode;
 	}
+
 	public int getCommentNum() {
 		return commentNum;
 	}

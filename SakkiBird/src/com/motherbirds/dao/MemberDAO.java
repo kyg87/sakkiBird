@@ -22,9 +22,9 @@ public class MemberDAO {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String url = "jdbc:mysql://211.238.142.84:3306/motherbird";// DB����
-			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // ����̺�
-																				// �ε�
+			String url = "jdbc:mysql://211.238.142.84:3306/motherbird";
+			Connection con = DriverManager.getConnection(url, "kyg", "0116"); 
+																				
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 
@@ -61,9 +61,9 @@ public class MemberDAO {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String url = "jdbc:mysql://211.238.142.84:3306/motherbird";// DB����
-			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // ����̺�
-																				// �ε�
+			String url = "jdbc:mysql://211.238.142.84:3306/motherbird";// DB占쏙옙占쏙옙
+			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // 占쏙옙占쏙옙遣占�
+																				// 占싸듸옙
 			PreparedStatement st = con.prepareStatement(sql);
 			int result = st.executeUpdate();
 			
@@ -96,8 +96,8 @@ public class MemberDAO {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB����
-			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // ����̺� �ε�
+			String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB占쏙옙占쏙옙
+			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // 占쏙옙占쏙옙遣占� 占싸듸옙
 			
 			Statement codeSt = con.createStatement();
 			ResultSet rs = codeSt.executeQuery(codeSql);
@@ -143,8 +143,8 @@ public class MemberDAO {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB����
-			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // ����̺� �ε�
+			String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB占쏙옙占쏙옙
+			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // 占쏙옙占쏙옙遣占� 占싸듸옙
 			
 			PreparedStatement st = con.prepareStatement(sql);			
 			
@@ -182,8 +182,8 @@ public Boolean existEmail(String email){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB占쏙옙占쏙옙
-			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // 占쏙옙占쏙옙遣占� 占싸듸옙
+			String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB�뜝�룞�삕�뜝�룞�삕
+			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // �뜝�룞�삕�뜝�룞�삕�겂�뜝占� �뜝�떥�벝�삕
 			
 			PreparedStatement st = con.prepareStatement(sql);			
 			
@@ -218,8 +218,8 @@ public Boolean existEmail(String email){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB占쏙옙占쏙옙
-			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // 占쏙옙占쏙옙遣占� 占싸듸옙
+			String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB�뜝�룞�삕�뜝�룞�삕
+			Connection con = DriverManager.getConnection(url, "kyg", "0116"); // �뜝�룞�삕�뜝�룞�삕�겂�뜝占� �뜝�떥�벝�삕
 			
 			PreparedStatement st = con.prepareStatement(sql);			
 			
