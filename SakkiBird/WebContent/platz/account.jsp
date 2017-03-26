@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 
 <%
+  String validate = request.getParameter("validate");
+	
+  System.out.println(validate);
 
 %>
 <!DOCTYPE html>

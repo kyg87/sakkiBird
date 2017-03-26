@@ -178,14 +178,14 @@ body,html{
 	text-transform: uppercase;
 	letter-spacing:1.5px;
 }
-/* writer의 MAIN버튼 */
+/* writer�쓽 MAIN踰꾪듉 */
 .rated{color:#CCC;margin-left:15px;font-weight:500;}
-/* writer의 WRITE버튼 */
+/* writer�쓽 WRITE踰꾪듉 */
 .top-recent{color: #666;margin-left:80px;font-weight:500;margin-left:40px;}
 
-/* index의 MAIN버튼 */
+/* index�쓽 MAIN踰꾪듉 */
 .top-rated{color:#666;margin-left:15px;font-weight:500;}
-/* index의 WRITE,LOGIN버튼 */
+/* index�쓽 WRITE,LOGIN踰꾪듉 */
 .recent,.oldies{color: #CCC;margin-left:80px;font-weight:500;margin-left:40px;}
 
 .top-rated:hover,.recent:hover,.oldies:hover,.top-recent:hover,.ratde:hover{color:#666;opacity:1;}
@@ -213,7 +213,7 @@ body,html{
 #wrapper-bouton-icon{display:block;}
 #bouton-ai,#bouton-psd,#bouton-photo,#bouton-font,#bouton-theme,#bouton-premium{
 	float:right;
-	width:28px;
+/* 	width:28px; */
 	height:28px;
 	margin-top:16px;
 	margin-right:15px;
@@ -750,7 +750,7 @@ body,html{
 
 
 
-/* Small viewports �뜝占� Old monitors, netbooks, tablets (landscape), etc. */
+/* Small viewports 占쎈쐻�뜝占� Old monitors, netbooks, tablets (landscape), etc. */
  
 @media only screen and (max-width: 965px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -788,7 +788,7 @@ body,html{
 }
 }
 
-/* Smaller viewports �뜝占� more tablets, old monitors */
+/* Smaller viewports 占쎈쐻�뜝占� more tablets, old monitors */
  
 @media only screen and (max-width: 860px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -800,7 +800,7 @@ body,html{
 }
 }
 
-/* Even smaller viewports �뜝占� more tablets, etc. */
+/* Even smaller viewports 占쎈쐻�뜝占� more tablets, etc. */
  
 @media only screen and (max-width: 740px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -876,7 +876,7 @@ body,html{
 
 
 
-/*---------------------------------------- 슬라이더 */
+/*---------------------------------------- �뒳�씪�씠�뜑 */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 
 /* body {
@@ -1229,7 +1229,7 @@ body,html{
 
 
 
-/*버튼이미지*/
+/*踰꾪듉�씠誘몄�*/
 /* 
 .pagination {
   display: block;
@@ -1292,7 +1292,7 @@ body,html{
 
 
 
-/*버튼이미지2*/
+/*踰꾪듉�씠誘몄�2*/
 
 progress, sub, sup {
   vertical-align: baseline;

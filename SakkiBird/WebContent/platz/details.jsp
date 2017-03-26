@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.motherbirds.dao.WriterDao"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.motherbirds.model.WriterModel"%>
@@ -12,7 +13,7 @@
 	List<WriterModel> wmList = vtdao.getList();
 	
 	String checkResult = request.getParameter("vote");
-	System.out.print(checkResult);
+	/* System.out.print(checkResult); */
 
 	String pageNum = request.getParameter("page");
 	BoardCommentDAO bocodao = new BoardCommentDAO();
@@ -82,14 +83,14 @@
  	int totalVoteCount = 0;
  	
  	for(Integer l : voteCounts){
- 		System.out.println( "투표 카운트: " + l);
+ 		/* System.out.println( "투표 카운트: " + l); */
  		totalVoteCount += l;
  	}
  	
- 	System.out.println("투표수 : " + totalVoteCount);
+ 	/* System.out.println("투표수 : " + totalVoteCount); */
  	
   	for(Integer l : voteCounts){
- 		System.out.printf("퍼센트 : %f", ((float)(l/(float)totalVoteCount)) * 100);
+ 		/* System.out.printf("퍼센트 : %f", ((float)(l/(float)totalVoteCount)) * 100); */
  		if(l != 0)
  		{
  			voteRate.add(String.format("%.2f", (float)(l/(float)totalVoteCount) * 100));
@@ -100,9 +101,19 @@
  		}
  	}
  	
- 	
+  	//투표 유무 체크
+   	boolean isVoted =  writerDAO.isVote(pageNum, (String)request.getSession().getAttribute("member"));
   	
-  	
+  	if(request.getAttribute("result") != null)
+  	{
+   		if((int)request.getAttribute("result") > 0) isVoted = true; 
+  	}
+/* 	System.out.println("result : " + request.getAttribute("result"));
+  	System.out.println("isVoted : " + isVoted);
+
+	System.out.println("motherbirds.com" +request.getRequestURI()+"?page="+pageNum);
+
+	String currentURL = "motherbirds.com" +request.getRequestURI()+"?page="+pageNum;  */
 %>
 
 <%@page language="java" contentType="text/html; charset=UTF-8"
@@ -139,7 +150,61 @@
 </head>
 
 <body>
+<!-- sns -->
+	<button id="facebook">facebook</button>
+	<button id="twitter">twitter</button>
+	
+	<script type="text/javascript">
 
+var  facebook = document.querySelector("#facebook")
+	,twitter = document.querySelector("#twitter")
+	/* ,me2day = document.querySelector("#me2day")
+	,yozm = document.querySelector("#yozm") */
+
+	,thisUrl = "<%="motherbirds.com/platz/details.jsp?" +"page="+pageNum %>"
+	,msg = "테스트 페이지를 SNS에 연동합니다. http://motherbirds.com/platz/index.jsp"
+	,tag = "motherbirds"
+
+facebook.addEventListener("click", function(){
+	goSns('facebook', thisUrl, msg, tag);
+}, false);
+
+twitter.addEventListener("click", function(){
+	goSns('twitter', thisUrl, msg, tag);
+}, false);
+
+/* me2day.addEventListener("click", function(){
+	goSns('me2day', thisUrl, msg, tag);
+}, false);
+
+yozm.addEventListener("click", function(){
+	goSns('yozm', thisUrl, msg, tag);
+}, false); */
+
+
+function goSns(site, url, msg, tag) {
+	var goUrl;
+	if (site == "facebook"){
+		
+		// 페이스북
+		goUrl = "http://www.facebook.com/sharer.php?u=" + url + "&t=" + encodeURIComponent(msg);
+	}else if(site == "twitter"){
+		
+		// 트위터
+		goUrl = "http://twitter.com/home?status=" + encodeURIComponent(msg) + " " + encodeURIComponent(url);
+	}/* else if(site == "me2day"){
+		
+		// me2day
+		goUrl = "http://me2day.net/posts/new?new_post[body]=" + encodeURIComponent(msg) + " " + encodeURIComponent(url) + "&new_post[tags]=" + encodeURIComponent(tag);
+	}else if(site == "yozm"){
+	
+		// 요즘
+		goUrl = "http://yozm.daum.net/api/popup/prePost?link=" + encodeURIComponent(url)+ "&prefix=" + encodeURIComponent(msg) + "&parameter=" + encodeURIComponent(msg);
+	} */
+	top.location.href = goUrl;
+}
+</script>
+<!-- sns end -->
 	<a name="ancre"></a>
 
 	<!-- CACHE -->
@@ -287,7 +352,7 @@
 
 				<div class="work">
 					<figure class="white">
-						<img src="images/<%=writerModel.getContent_img()%>" alt="" />
+						<img src="/upload/<%=writerModel.getContent_img()%>" alt="" />
 						<div id="wrapper-part-info">
 							<div class="part-info-image-single">
 								<div>
@@ -295,7 +360,7 @@
 								
 								</div>
 
-							
+							<%if(!isVoted){ %>
 								<!-- vote container -->
 								<div class="content-box primary clear-fix vMargin">
 									<div class="content-box-header">Poll</div>
@@ -323,6 +388,7 @@
 										</form>
 									</div>
 								</div>
+								<%} else{%>
 								<!-- vote container End-->
 								
 								<!-- vote Result  -->
@@ -340,6 +406,7 @@
 									</div>
 									<%} %>	
 								</div>
+								<%} %>
 								<!-- vote Result End -->
 							</div>
 						</div>

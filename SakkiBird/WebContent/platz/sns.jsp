@@ -18,7 +18,7 @@ var  facebook = document.querySelector("#facebook")
 	,yozm = document.querySelector("#yozm") */
 
 	,thisUrl = "http://motherbirds.com/platz/details.jsp?page=1018"
-	,msg = "테스트 페이지를 SNS에 연동합니다. http://goo.gl/MxddN"
+	,msg = "테스트 페이지를 SNS에 연동합니다. http://motherbirds.com/platz/index.jsp"
 	,tag = "romeoh"
 
 facebook.addEventListener("click", function(){

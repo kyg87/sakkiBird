@@ -1,5 +1,10 @@
+<%@page import="com.motherbirds.model.MemberModel"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+
+	System.out.println(request.getSession().getAttribute("member")); 
+%>
 <!DOCTYPE HTML>
 <html>
 
@@ -145,6 +150,7 @@
 						
 						<div id="option-bottom">
 							<input class="back-box btn" type="button" value="목록으로" /> 
+						<%-- 	<input name="userName" type="hidden" value=<%=member.getUserName() %> />  --%>
 							<input id="reg-button" class="success-box btn" type="submit" value="등록하기" />
 						</div>
 						

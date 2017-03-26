@@ -138,7 +138,7 @@ public class MemberDAO {
 		String sql = "SELECT * FROM MEMBER where EMAIL = ? and PW = ?" ;
 		
 		MemberModel member = null;
-		int result = 0;
+
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

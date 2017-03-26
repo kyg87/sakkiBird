@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.motherbirds.model.MemberModel;
 import com.motherbirds.model.WriterModel;
 public class MYSQLWriter implements WriterDao{
 	
@@ -228,8 +229,8 @@ public class MYSQLWriter implements WriterDao{
 		            write.setCode(rs.getString("CODE"));
 		            write.setTitle(rs.getString("TITLE"));
 		            write.setWriter(rs.getString("WRITER"));
-		            write.setRegDate(rs.getDate("REGDATE"));
-		            write.setEndDate(rs.getDate("ENDDATE"));
+		            write.setRegDate(rs.getTimestamp("REGDATE"));
+		            write.setEndDate(rs.getTimestamp("ENDDATE"));
 		            write.setContent(rs.getString("Content"));
 		            write.setContent_first_choice(rs.getString("Content_first_choice"));
 		            write.setContent_voterate1(rs.getInt("Content_voterate1"));
@@ -436,6 +437,87 @@ public class MYSQLWriter implements WriterDao{
 				 
 				return result;
 			}
+
+		
+		@Override
+		public int voteAdd(String board_code,String userName) {
+			String codeSql = "SELECT MAX(cast(CODE as unsigned))+1 CODE FROM VOTE_MEMBER";
+			String sql = "INSERT INTO VOTE_MEMBER(CODE,BOARD_CODE,MEMBER_USERNAME) VALUES(?,?,?)";
+	
+			int result = 0;
+			
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				
+				String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // 
+				Connection con = DriverManager.getConnection(url, "kyg", "0116"); //
+				
+				Statement codeSt = con.createStatement();
+				ResultSet rs = codeSt.executeQuery(codeSql);
+				
+				rs.next();
+				
+				String code = rs.getString("CODE");
+				if(code == null) code = "1";
+				rs.close();
+				codeSt.close();
+				
+			
+				PreparedStatement st = con.prepareStatement(sql);
+				
+				st.setString(1,code);
+				st.setString(2, board_code);
+				st.setString(3,userName);
+				
+				result = st.executeUpdate();
+
+				
+				st.close();
+				con.close();
+				
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return result;
+		}
+
+		@Override
+		public Boolean isVote(String articleNum, String userName) {
+			String sql = "SELECT * FROM VOTE_MEMBER where BOARD_CODE = ? and MEMBER_USERNAME = ?" ;
+			
+			Boolean isVoted = false;
+	
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				
+				String url = "jdbc:mysql://211.238.142.84:3306/motherbird?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8"; // DB占쏙옙占쏙옙
+				Connection con = DriverManager.getConnection(url, "kyg", "0116"); // 占쏙옙占쏙옙遣占� 占싸듸옙
+				
+				PreparedStatement st = con.prepareStatement(sql);			
+				
+				st.setString(1, articleNum);
+				st.setString(2, userName);
+
+				ResultSet rs = st.executeQuery();
+				
+				if(rs.next()){
+					isVoted = true;
+				}
+				
+				st.close();
+				con.close();
+				
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			return isVoted;
+		}
 
 
 

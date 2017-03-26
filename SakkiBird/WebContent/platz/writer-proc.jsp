@@ -30,6 +30,7 @@
 	String title = req.getParameter("title");
 	String content = req.getParameter("content");
 	String file = req.getParameter("file");
+	String userName = req.getParameter("userName");
 	String[] selects = req.getParameterValues("select");
 	
 	
@@ -56,7 +57,7 @@
 	System.out.printf("file: "+getFilesystemName);
 	System.out.println();
 	
-	int result = dao.add(title, "세은", content, selects.length, selects, getFilesystemName);
+	int result = dao.add(title, userName, content, selects.length, selects, getFilesystemName);
 	 	
 	String boardCode = dao.lastcode();
 	System.out.println(boardCode);

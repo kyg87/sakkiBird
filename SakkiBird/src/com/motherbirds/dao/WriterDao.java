@@ -11,7 +11,8 @@ public interface WriterDao {
 	public List<WriterModel> getList(int page,String query);
 	
 	int update(int vote, String code);
-	
+	int voteAdd(String code,String userName);
+	Boolean isVote(String articleNum,String userName);
 	int add(WriterModel write);
 	WriterModel getWriteModel(String num);
 	

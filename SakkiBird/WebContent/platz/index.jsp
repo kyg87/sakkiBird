@@ -1,5 +1,6 @@
-<%@page import="com.motherbirds.dao.MYSQLRank"%>
-<%@page import="com.motherbirds.dao.WriterRank"%>
+<%-- <%@page import="com.motherbirds.dao.MYSQLRank"%>
+<%@page import="com.motherbirds.dao.WriterRank"%> --%>
+<%@page import="com.motherbirds.model.MemberModel"%>
 <%@page import="com.motherbirds.dao.WriterDao"%>
 <%@page import="com.motherbirds.model.WriterModel"%>
 <%@page import="java.util.List"%>
@@ -7,58 +8,46 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-request.setCharacterEncoding("UTF-8");
-/* -------------------- 로그인 처리*/
-
-String _userName = request.getParameter("name");
-
-/* System.out.println(_userName); */
-String logOut = "";
-
-if(_userName!=null)
-	logOut = "LOGOUT";
-System.out.println(logOut);
-/* -------------------- 메인 처리*/
-String _page =request.getParameter("p");
-
-String _query =request.getParameter("search");
-
-
-int pg=1;
-String query="";
-
-
-
-if(_page!=null &&!_page.equals("")) // 값이 넘겨 진 것이 있다면 
-	pg=Integer.parseInt(_page);
-
-if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면 
-	query=_query;
-
-
-WriterDao writerDAO = new MYSQLWriter();
-List<WriterModel> list = writerDAO.getList(pg,query);
-List<WriterModel> list2 = writerDAO.getList();
-int size=writerDAO.getSize(query);	
-	System.out.println(size);
+	request.setCharacterEncoding("UTF-8");
 	
 	
-
-	int result = writerDAO.hit(_page);
+	
+	/* -------------------- 메인 처리*/
+	String _page =request.getParameter("p");
+	
+	String _query =request.getParameter("search");
+	
+	
+	int pg=1;
+	String query="";
+	
+	
+	
+	if(_page!=null &&!_page.equals("")) // 값이 넘겨 진 것이 있다면 
+		pg=Integer.parseInt(_page);
+	
+	if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면 
+		query=_query;
+	
+	
+	WriterDao writerDAO = new MYSQLWriter();
+	List<WriterModel> list = writerDAO.getList(pg,query);
+	List<WriterModel> list2 = writerDAO.getList();
+	int size=writerDAO.getSize(query);	
+		System.out.println(size);
+	
+		String userName = "";
+	
+	System.out.println("name :" + request.getSession().getAttribute("member"));
+/* 	System.out.println("name :" +request.getSession().getAttribute("name")); */
+	/* -------------------- 로그인 처리*/
 
 
 	
 
 
+	/* System.out.println(userName.equals("")); */
 	
-/*   for(WriterModel v : list)
-    {
-         
-        System.out.println(v.getCode());
-        System.out.println(v.getContent_img());
-    }  */
-
-
 %>
 
 <!DOCTYPE HTML>
@@ -80,8 +69,8 @@ int size=writerDAO.getSize(query);
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <!-- Naver login -->
- <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
- <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+ 	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 </head>
 
@@ -129,22 +118,35 @@ int size=writerDAO.getSize(query);
 	    		</div>
 	            
 	            <div id="wrapper-title-2">
+	            <%-- <%	response.sendRedirect("writer.jsp"); %> --%>
 	            <a href="writer.jsp"><div class="recent object">WRITE</div></a>
 	                <div id="fleche-nav-2"></div>
 	    		</div>
-	            
-	            <div id="wrapper-title-3">
-	            <a href="account.jsp"><div class="oldies object"><%= logOut = logOut =="" ? "LOGIN" : "LOGOUT" %></div></a>
+	            <%String isLogin =""; %>
+	            	<div id="wrapper-title-3">
+	            <%if(request.getSession().getAttribute("member") == null ){ %>
+	            	<a href="account.jsp"><div class="oldies object">LOGIN</div></a>
 	                <div id="fleche-nav-3"></div>
-	    		</div>
+	            <%} else { %>
+	            
+	            <%-- <%request.getSession().invalidate(); %> --%>
+	                
+	                <a href="logout.jsp"><div class="oldies object">LOGOUT</div></a>
+	                <div id="fleche-nav-3"></div>
+	            
+	            <%} %>
+	    			</div>
 	    		
-	    		<div id="wrapper-title-3">
-	           <%--  <a href="#"><div class="oldies object"><%=logOut = logOut == "" ? "" : _userName %></div></a>
-	                <div id="fleche-nav-3"></div> --%>
-	    		</div>	
+	  
             </div>
-            <div id="wrapper-bouton-icon">
-            	<a href="#"><div class="hidden" id="bouton-ai"><%=logOut = logOut == "" ? "" : _userName %></div></a>
+            <%if(request.getSession().getAttribute("member") != null){ %>
+            <div id="login-user">
+            	<!-- <a href="#"> -->
+            		<div class="hidden" id="bouton-ai">
+            			<%=request.getSession().getAttribute("member") + "님 환영합니다." %>
+            		</div>
+            	<!-- </a> -->
+            	
             	<!-- <div id="bouton-ai"><img src="img/48_twitter_circle_color.png" alt="illustrator" title="Illustrator" height="28" width="28"></div>
             	<div id="bouton-psd"><img src="img/48_facebook_circle_black.png" alt="photoshop" title="Photoshop" height="28" width="28"></div>
             	<div id="bouton-theme"><img src="img/KakaoTalk.jpg" alt="theme" title="Theme" height="28" width="28"></div> -->
@@ -152,6 +154,7 @@ int size=writerDAO.getSize(query);
             	<div id="bouton-photo"><img src="img/icon-photo.svg" alt="photo" title="Photo" height="28" width="28"></div>
             	<div id="bouton-premium"><img src="img/icon-premium.svg" alt="premium" title="Premium" height="28" width="28"></div> -->
 			</div>
+			<%} %>
     	</div>
 </div>
 
@@ -189,7 +192,7 @@ int size=writerDAO.getSize(query);
 						<%for(WriterModel m : list){ %>
 						<figure class="whites">
 							<a href="details.jsp?page=<%=m.getCode()%>">
-								<img src="images/<%=m.getContent_img()%>" alt="" />
+								<img src="/upload/<%=m.getContent_img()%>" alt="" />
 								<!-- <dl>
 									<dt>Wordpress theme</dt>
 									<dd>Symphony is a responsive one page website template designed with sketches and coded with html5 and php. Freebie released by Lacoste Xavier.</dd>	
@@ -307,7 +310,9 @@ System.out.println("갯수" + last);
 
 
 <!-- SCRIPT -->
-
+	<script type="text/javascript">
+	
+	</script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
     <script type="text/javascript" src="js/jquery.localScroll.min.js"></script>

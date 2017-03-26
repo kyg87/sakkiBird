@@ -106,7 +106,7 @@ public class BoardCommentDAO {
 		}
 	}
 	
-	public int addComment(String comment,String aticle_code) {
+	public int addComment(String comment,String aticle_code,String userName) {
 		String codeSql = "SELECT MAX(cast(COMMENT_CODE as unsigned))+1 CODE FROM BOARD_COMMENT";
 		int result = 0;
 		try {
@@ -134,7 +134,7 @@ public class BoardCommentDAO {
 			this.pstmt.setString(1, code);
 			this.pstmt.setInt(2, 6);
 			this.pstmt.setInt(3, 0);
-			this.pstmt.setString(4, "test34");
+			this.pstmt.setString(4, userName);
 			this.pstmt.setString(5, comment);
 			this.pstmt.setInt(6, 9966);
 			this.pstmt.setString(7, "test/test2.img");
