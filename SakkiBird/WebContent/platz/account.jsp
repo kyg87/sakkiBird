@@ -80,6 +80,24 @@
         {return false;}
         return true;
     }
+     
+	function warringText()
+ 	{
+		alert("준비중입니다.죄송합니다.");
+ 	}
+    window.addEventListener("load", function(e) {
+    /* 	var sns = document.querySelector("#sns");
+    	
+    	 sns.onclick = function(){
+    		alert("!!!!!!!!");
+    	}; */
+    	
+    	
+   		var sns = function(){
+   		alert("!!!!!!!!");
+   	};	
+    	
+    });
  </script>
 <script type="text/javascript"
 	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js"
@@ -134,16 +152,16 @@
 							</div>
 							<div class="hr"></div>
 							<div class="foot-lnk">
-								<a href="#forgot">아이디를 까묵?</a>
+								<a href="#forgot" onclick = "warringText()">아이디를 까묵?</a>
 							</div>
 							<div class="foot-lnk">
-								<a href="#forgot">비밀번호를 까묵?</a>
+								<a href="#forgot" onclick = "warringText()">비밀번호를 까묵?</a>
 							</div>
 
-							<div class="foot-lnk">
-								<a href=""><img class="img1" src="img/페북.png" /></a> <a
-									href=""><img class="img1" src="img/트위터.png" /></a> <a
-									href=""><img class="img1" src="img/까똑.png" /></a>
+							<div  class="foot-lnk">
+								<a href=""><img class="img1" src="img/페북.png" onclick = "warringText()"/></a> <a
+									href=""><img class="img1" src="img/트위터.png" onclick = "warringText()" /></a> <a
+									href=""><img class="img1" src="img/까똑.png" onclick = "warringText()"/></a>
 							</div>
 						</form>
 					</div>
