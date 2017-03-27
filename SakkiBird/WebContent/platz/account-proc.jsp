@@ -9,16 +9,17 @@
 	String pw = request.getParameter("pw");
 
 	MemberDAO dao = new MemberDAO();
-
+	
+	
 	if (dao.existEmail(email)) {
 		
 		System.out.println("이메일 이미 있다");
-		response.sendRedirect("account.jsp");
+		response.sendRedirect("account.jsp?validate=false");
 	} else {
 
 		if (dao.existuserName(user)) {
 			System.out.println("이름이 중복 ");
-			response.sendRedirect("account.jsp");
+			response.sendRedirect("account.jsp?validate=false");
 		} else {
 
 			int result = dao.add(email, pw, user);
@@ -30,6 +31,7 @@
 				session.setAttribute("member", member);
 
 				response.sendRedirect("index.jsp");
+				
 				
 			}
 		}
