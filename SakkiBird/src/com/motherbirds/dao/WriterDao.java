@@ -17,7 +17,7 @@ public interface WriterDao {
 	WriterModel getWriteModel(String num);
 	
 	int getSize(String query);
-	
+	int hit(String code);
 	
 	int add(String title,String writer, String content,int selectCount,String[] selects,String fileName);
 }

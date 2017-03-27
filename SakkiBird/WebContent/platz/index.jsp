@@ -1,5 +1,3 @@
-<%-- <%@page import="com.motherbirds.dao.MYSQLRank"%>
-<%@page import="com.motherbirds.dao.WriterRank"%> --%>
 <%@page import="com.motherbirds.model.MemberModel"%>
 <%@page import="com.motherbirds.dao.WriterDao"%>
 <%@page import="com.motherbirds.model.WriterModel"%>
@@ -253,7 +251,7 @@ System.out.println("갯수" + last);
   <li class="active"><a href="#">3</a></li>
   <li><a href="#">4</a></li>
   <li><a href="#">5</a></li> -->
-</ul>
+<!-- </ul> -->
 
     
        

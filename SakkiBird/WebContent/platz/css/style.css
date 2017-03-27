@@ -178,14 +178,14 @@ body,html{
 	text-transform: uppercase;
 	letter-spacing:1.5px;
 }
-/* writer�쓽 MAIN踰꾪듉 */
+/* writer占쎌벥 MAIN甕곌쑵�뱣 */
 .rated{color:#CCC;margin-left:15px;font-weight:500;}
-/* writer�쓽 WRITE踰꾪듉 */
+/* writer占쎌벥 WRITE甕곌쑵�뱣 */
 .top-recent{color: #666;margin-left:80px;font-weight:500;margin-left:40px;}
 
-/* index�쓽 MAIN踰꾪듉 */
+/* index占쎌벥 MAIN甕곌쑵�뱣 */
 .top-rated{color:#666;margin-left:15px;font-weight:500;}
-/* index�쓽 WRITE,LOGIN踰꾪듉 */
+/* index占쎌벥 WRITE,LOGIN甕곌쑵�뱣 */
 .recent,.oldies{color: #CCC;margin-left:80px;font-weight:500;margin-left:40px;}
 
 .top-rated:hover,.recent:hover,.oldies:hover,.top-recent:hover,.ratde:hover{color:#666;opacity:1;}
@@ -750,7 +750,7 @@ body,html{
 
 
 
-/* Small viewports 占쎈쐻�뜝占� Old monitors, netbooks, tablets (landscape), etc. */
+/* Small viewports �뜝�럥�맶占쎈쐻�뜝占� Old monitors, netbooks, tablets (landscape), etc. */
  
 @media only screen and (max-width: 965px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -788,7 +788,7 @@ body,html{
 }
 }
 
-/* Smaller viewports 占쎈쐻�뜝占� more tablets, old monitors */
+/* Smaller viewports �뜝�럥�맶占쎈쐻�뜝占� more tablets, old monitors */
  
 @media only screen and (max-width: 860px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -800,7 +800,7 @@ body,html{
 }
 }
 
-/* Even smaller viewports 占쎈쐻�뜝占� more tablets, etc. */
+/* Even smaller viewports �뜝�럥�맶占쎈쐻�뜝占� more tablets, etc. */
  
 @media only screen and (max-width: 740px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -876,7 +876,7 @@ body,html{
 
 
 
-/*---------------------------------------- �뒳�씪�씠�뜑 */
+/*---------------------------------------- 占쎈뮩占쎌뵬占쎌뵠占쎈쐭 */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 
 /* body {
@@ -956,7 +956,7 @@ body,html{
   transition: all 0.25s ease-in-out;
 }
 .element {
-  background: green;
+/*   background: green; */
   width: 202px;
   -webkit-transform-origin: 50% 50%;
   height: inherit;
@@ -990,7 +990,7 @@ body,html{
   transition: all 0.25s ease-in-out;
   opacity: 0.4;
 }
-.element.franklin {
+/* .element.franklin {
   background: url('http://www.eduardmayer.de/codepen-css-resources/images/gta/franklin.jpeg') 45% 0 no-repeat;
   background-size: cover;
 }
@@ -1001,7 +1001,7 @@ body,html{
 .element.trevor {
   background: url('http://www.eduardmayer.de/codepen-css-resources/images/gta/trevor.jpeg') 45% 0 no-repeat;
   background-size: cover;
-}
+} */
 .element:last-of-type {
   margin: 0;
 }
@@ -1229,7 +1229,7 @@ body,html{
 
 
 
-/*踰꾪듉�씠誘몄�*/
+/*甕곌쑵�뱣占쎌뵠沃섎챷占�*/
 /* 
 .pagination {
   display: block;
@@ -1292,7 +1292,7 @@ body,html{
 
 
 
-/*踰꾪듉�씠誘몄�2*/
+/*甕곌쑵�뱣占쎌뵠沃섎챷占�2*/
 
 progress, sub, sup {
   vertical-align: baseline;
