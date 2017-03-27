@@ -188,7 +188,7 @@ body,html{
 /* index占쎌벥 WRITE,LOGIN甕곌쑵�뱣 */
 .recent,.oldies{color: #CCC;margin-left:80px;font-weight:500;margin-left:40px;}
 
-.top-rated:hover,.recent:hover,.oldies:hover,.top-recent:hover,.ratde:hover{color:#666;opacity:1;}
+.top-rated:hover,.recent:hover,.oldies:hover,.top-recent:hover,.rated:hover{color:#666;opacity:1;}
 
 /* #fleche-nav-1,#fleche-nav-2,#fleche-nav-3{
 	float:left;
