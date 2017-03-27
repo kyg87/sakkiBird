@@ -53,12 +53,12 @@
     		<div id="wrapper-sorting">
             <div id="wrapper-title-1">
            <a href="index.jsp"> <div class="rated object">MAIN</div></a>
-            	<div id="fleche-nav-1"></div>
+            	<div id="fleche-nav-2"></div>
     		</div>
             
             <div id="wrapper-title-2">
-            <a href="writer.html"><div class="top-recent object">WRITE</div></a>
-                <div id="fleche-nav-2"></div>
+            <a href="writer.html"><div class="top-recent object">WRITE</div></a>                
+                <div id="fleche-nav-1"></div>
     		</div>
             
             <div id="wrapper-title-3">
