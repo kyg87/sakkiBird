@@ -47,7 +47,7 @@ public class MYSQLWriter implements WriterDao{
 
 	@Override
 	public List<WriterModel> getList() {
-		String sql = "select * from BOARD_WRITE order by HIT desc limit 0,3 ";
+		String sql = "select * from BOARD_WRITE order by content_voterate1+content_voterate2+content_voterate3+content_voterate4+content_voterate5 desc limit 0,3 ";
 		
 		 List<WriterModel> list = new ArrayList<>();
 	      try {

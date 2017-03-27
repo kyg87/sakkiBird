@@ -169,16 +169,20 @@
 			<!-- 슬라이더 -->
 			<section class="pen">
 				<div class="stage">
+				
 					<%for(WriterModel r : list2){ %>
 					
 						<div class="element michael">
 						<a href="details.jsp?page=<%=r.getCode()%>">
 							<img src="images/<%=r.getContent_img()%>" alt="" style="max-width: 100%; height: 330px;" />
+							<br/>
 							<%=r.getTitle() %></a>
-					</div>
+								
+						</div>
+						<%} %>
 <!-- 					<div class="element franklin"></div>
 					<div class="element trevor"></div> -->
-				<%} %>	
+						
 					
 				</div>
 			</section>

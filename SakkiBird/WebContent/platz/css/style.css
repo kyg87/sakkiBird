@@ -993,12 +993,14 @@ body,html{
 /* .element.franklin {
   background: url('http://www.eduardmayer.de/codepen-css-resources/images/gta/franklin.jpeg') 45% 0 no-repeat;
   background-size: cover;
-}
+}*/
+
 .element.michael {
-  background: url('http://www.eduardmayer.de/codepen-css-resources/images/gta/michael.jpeg') 45% 0 no-repeat;
-  background-size: cover;
+	
+	font-weight : bold;
+	text-align: center;
 }
-.element.trevor {
+/* .element.trevor {
   background: url('http://www.eduardmayer.de/codepen-css-resources/images/gta/trevor.jpeg') 45% 0 no-repeat;
   background-size: cover;
 } */
