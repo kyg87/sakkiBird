@@ -6,6 +6,7 @@
 <%@page import="com.motherbirds.model.BoardCommentModel"%>
 <%@page import="java.util.List"%>
 <%@page import="com.motherbirds.dao.BoardCommentDAO"%>
+<%@taglib prefix = "cc" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
 
@@ -365,7 +366,7 @@ function goSns(site, url, msg, tag) {
 								<div class="content-box primary clear-fix vMargin">
 									<div class="content-box-header">Poll</div>
 									<div class="content-box-inner">
-										<form action="details-proc.jsp" method="post">
+										<form action="details" method="post">
 											<div class="content-box clear-fix poll-box">
 												<%for(int i = 0 ; i < voteCount;i++){ %>
 												<div class="poll-row">
@@ -415,8 +416,15 @@ function goSns(site, url, msg, tag) {
 					<div class="post-send">
 						<div id="main-post-send">
 							<div id="title-post-send"><%int cnt = 0; %> 댓글<%for(BoardCommentModel bcm:bcList){cnt++; }%> [ <%=cnt %> ] </div>
-							<form id="contact" method="post" action="details-proc.jsp">
+							<form id="contact" method="post" action="details">
 								<fieldset>
+								
+									<cc:if test = "${not empty validate && not validate }">
+										<tr>
+											<td colspan = "2" style = "">아이디 또는 비밀번호가 유효하지 않습니다.</td>
+										</tr>
+									</cc:if>
+								
 									<p>
 										<textarea id="message_id" name="message" maxlength="500"
 											placeholder="댓글을 입력하세요." tabindex="5" cols="30" rows="4" required="required"></textarea>
