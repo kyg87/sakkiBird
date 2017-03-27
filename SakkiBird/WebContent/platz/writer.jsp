@@ -51,7 +51,33 @@
 <div id="wrapper-navbar">
 		<div class="navbar object">
     		<div id="wrapper-sorting">
-            <div id="wrapper-title-1">
+    		<div id="wrapper-title-2">
+	            <div class="rated object">MAIN</div>
+	            	<div id="fleche-nav-2"></div>
+	    		</div>
+	            
+	            
+	             <div id="wrapper-title-1">
+	            <%-- <%	response.sendRedirect("writer.jsp"); %> --%>
+	            <a href="writer.jsp"><div class="top-recent object">WRITE</div></a>
+	                
+	                <div id="fleche-nav-1"></div>
+	    		</div>
+	            <%String isLogin =""; %>
+	            	<div id="wrapper-title-3">
+	            <%if(request.getSession().getAttribute("member") == null ){ %>
+	            	<a href="account.jsp"><div class="oldies object">LOGIN</div></a>
+	                <div id="fleche-nav-3"></div>
+	            <%} else { %>
+	            
+	            <%-- <%request.getSession().invalidate(); %> --%>
+	                
+	                <a href="logout.jsp"><div class="oldies object">LOGOUT</div></a>
+	                <div id="fleche-nav-3"></div>
+	            
+	            <%} %>
+	    			</div>
+           <!--  <div id="wrapper-title-1">
            <a href="index.jsp"> <div class="rated object">MAIN</div></a>
             	<div id="fleche-nav-2"></div>
     		</div>
@@ -64,7 +90,7 @@
             <div id="wrapper-title-3">
             <a href="#"><div class="oldies object">LOGIN</div></a>
                 <div id="fleche-nav-3"></div>
-    		</div>
+    		</div> -->
             </div>
             <div id="wrapper-bouton-icon">
             	<div id="bouton-ai"><img src="img/48_twitter_circle_color.png" alt="illustrator" title="Illustrator" height="28" width="28"></div>
