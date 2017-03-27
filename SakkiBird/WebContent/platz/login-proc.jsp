@@ -36,8 +36,8 @@
 	}
 	else
 	{
-		request.setAttribute("validate", validate);
-		request.getRequestDispatcher("account.jsp").forward(request, response);
+		/* request.setAttribute("validate", validate); */
+		response.sendRedirect("account.jsp?validate=false");
 	}
 	
 		/* response.sendRedirect("account.jsp"); */
