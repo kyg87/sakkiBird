@@ -69,7 +69,7 @@ public class BoardCommentController extends HttpServlet {
 			if(result > 0)
 			{
 				if(request.getSession().getAttribute("member") != null){
-					response.sendRedirect("details.jsp?page="+pageNum);	
+					response.sendRedirect("details?page="+pageNum);	
 				}
 				else{
 					request.setAttribute("result", result);
