@@ -6,6 +6,12 @@
 	String validate = request.getParameter("validate");
 
 	System.out.println(validate);
+	
+	String returnURL = "";
+	returnURL = request.getParameter("return-url");
+	
+	
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -103,7 +109,9 @@
 	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js"
 	charset="utf-8"></script>
 <script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	src="http://code.jquery.com/jquery-1.11.3.min.js">
+</script>
+
 </head>
 
 <body>
@@ -163,6 +171,7 @@
 									href=""><img class="img1" src="img/트위터.png" onclick = "warringText()" /></a> <a
 									href=""><img class="img1" src="img/까똑.png" onclick = "warringText()"/></a>
 							</div>
+							<input type = "hidden" name = "returnURL" value = "<%=returnURL %>" />
 						</form>
 					</div>
 

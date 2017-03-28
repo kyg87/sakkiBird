@@ -9,7 +9,7 @@
 	request.setCharacterEncoding("UTF-8");
 	String email = request.getParameter("email");
 	String pw = request.getParameter("pw");	
-	
+	String returnURL = null;
 	MemberDAO dao = new MemberDAO();
 	
 	MemberModel member = dao.get(email, pw);
@@ -17,12 +17,14 @@
 	session = request.getSession();
 	
 	boolean validate = true;
+	returnURL = request.getParameter("returnURL");
 	
-	if(member == null){
+	
+	if(member == null && returnURL.equals("null")){
 		
 		validate = false;
 	}
-	else
+	else if(member != null)
 	{
 		session.setAttribute("member", member.getUserName());
 		session.setMaxInactiveInterval(60*60);
@@ -32,11 +34,24 @@
 	
 	if(validate)
 	{
-		response.sendRedirect("index.jsp");
+		
+		System.out.println("url :" + request.getParameter("returnURL"));
+		if(!returnURL.equals("null")){
+			if(member == null){
+				response.sendRedirect("account.jsp?validate=false&return-url="+returnURL);
+				
+			}
+			else
+				response.sendRedirect(returnURL);
+		}
+		else
+			response.sendRedirect("index.jsp");
+		
 	}
 	else
 	{
 		/* request.setAttribute("validate", validate); */
+		System.out.print("왜 못ㅁ넘어오지??");
 		response.sendRedirect("account.jsp?validate=false");
 	}
 	

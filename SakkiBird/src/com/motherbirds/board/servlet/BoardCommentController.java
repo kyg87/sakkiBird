@@ -18,14 +18,20 @@ import com.motherbirds.model.WriterModel;
 @WebServlet("/platz/details")
 public class BoardCommentController extends HttpServlet {
 	
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
 		BoardCommentDAO BCDao = new BoardCommentDAO();
 		String pageNum = request.getParameter("pageNum");
 		WriterDao vote = new MYSQLWriter();
 		WriterModel model = vote.getWriteModel(pageNum);
 
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
+		
+		
 		
 		String voteId = request.getParameter("vote_id");
 		System.out.print(pageNum);
@@ -46,7 +52,8 @@ public class BoardCommentController extends HttpServlet {
 			
 			else if(session.getAttribute("member") == null)
 			{
-				response.getWriter().println("<script>alert('로그인해라'); location.href='details.jsp?page="+pageNum+"'</script>");
+				/*response.getWriter().println("<script>alert('로그인해라'); location.href='details.jsp?page="+pageNum+"'</script>");*/
+				response.sendRedirect("../platz/account.jsp?return-url=details.jsp?page="+pageNum);
 			}
 			
 		}
@@ -69,7 +76,7 @@ public class BoardCommentController extends HttpServlet {
 			if(result > 0)
 			{
 				if(request.getSession().getAttribute("member") != null){
-					response.sendRedirect("details?page="+pageNum);	
+					response.sendRedirect("details.jsp?page="+pageNum);	
 				}
 				else{
 					request.setAttribute("result", result);

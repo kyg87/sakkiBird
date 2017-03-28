@@ -9,6 +9,45 @@
 <%@taglib prefix = "cc" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%
+request.setCharacterEncoding("UTF-8");
+
+
+
+/* -------------------- 메인 처리*/
+String _page =request.getParameter("p");
+
+String _query =request.getParameter("search");
+
+
+int pg=1;
+String query="";
+
+
+
+if(_page!=null &&!_page.equals("")) // 값이 넘겨 진 것이 있다면 
+	pg=Integer.parseInt(_page);
+
+if(_query!=null &&!_query.equals("")) // 값이 넘겨 진 것이 있다면 
+	query=_query;
+
+
+WriterDao writerDao = new MYSQLWriter();
+List<WriterModel> list = writerDao.getList(pg,query);
+List<WriterModel> list2 = writerDao.getList();
+int size=writerDao.getSize(query);	
+	System.out.println(size);
+
+	String userName = "";
+
+System.out.println("name :" + request.getSession().getAttribute("member"));
+/* 	System.out.println("name :" +request.getSession().getAttribute("name")); */
+/* -------------------- 로그인 처리*/
+
+
+
+
+
+
 
 	WriterDao vtdao = new MYSQLWriter();	
 	List<WriterModel> wmList = vtdao.getList();
@@ -214,122 +253,67 @@ function goSns(site, url, msg, tag) {
 	<!-- HEADER -->
 
 	<div id="wrapper-header">
-		<div id="main-header" class="object">
-			<a href="index.jsp"><div id="logo">
-					<img src="img/logo-burst.svg" alt="logo burstfly" height="38"
-						width="90">
-				</div></a>
-			<div id="main_tip_search">
-				<form>
-					<input type="text" name="search" id="tip_search_input"
-						list="search" autocomplete=off required>
-				</form>
-			</div>
-			<div id="stripes"></div>
+	<div id="main-header" class="object">
+		<div class="logo"><img src="img/LOGO.png" alt="logo platz" height="38" width="90"></div>
+        <div id="main_tip_search">
+			<form> 
+				<input type="text" name="search" id="tip_search_input" list="search" value="<%=query%>" autocomplete=off required>
+				<input type="hidden" name="p" value="1" />
+			</form>
 		</div>
-	</div>
+        <div id="stripes"></div>
+    </div>
+</div>
+<!-- NAVBAR -->
 
-	<!-- NAVBAR -->
-
-	<div id="wrapper-navbar">
+<div id="wrapper-navbar">
 		<div class="navbar object">
-			<div id="wrapper-sorting">
-				<div id="wrapper-title-1">
-					<div class="top-rated object">Top-rated</div>
-					<div id="fleche-nav-1"></div>
-					
-				</div>
-
-				<div id="wrapper-title-2">
-					<a href="#"><div class="recent object">Recent</div></a>
-					<div id="fleche-nav-2"></div>
-				</div>
-
-				<div id="wrapper-title-3">
-					<a href="#"><div class="oldies object">Oldies</div></a>
-					<div id="fleche-nav-3"></div>
-				</div>
+    		<div id="wrapper-sorting">
+	            <div id="wrapper-title-1">
+	            <a href="index.jsp"><div class="top-rated object">MAIN</div></a>
+	            	<div id="fleche-nav-1"></div>
+	    		</div>
+	            
+	            <div id="wrapper-title-2">
+	            <%-- <%	response.sendRedirect("writer.jsp"); %> --%>
+	            <a href="writer.jsp"><div class="recent object">WRITE</div></a>
+	                <div id="fleche-nav-2"></div>
+	    		</div>
+	            <%String isLogin =""; %>
+	            	<div id="wrapper-title-3">
+	            <%if(request.getSession().getAttribute("member") == null ){ %>
+	            	<a href="account.jsp"><div class="oldies object">LOGIN</div></a>
+	                <div id="fleche-nav-3"></div>
+	            <%} else { %>
+	            
+	            <%-- <%request.getSession().invalidate(); %> --%>
+	                
+	                <a href="logout.jsp"><div class="oldies object">LOGOUT</div></a>
+	                <div id="fleche-nav-3"></div>
+	            
+	            <%} %>
+	    			</div>
+	    		
+	  
+            </div>
+            <%if(request.getSession().getAttribute("member") != null){ %>
+            <div id="login-user">
+            	<!-- <a href="#"> -->
+            		<div class="hidden" id="bouton-ai">
+            			<%=request.getSession().getAttribute("member") + "님 환영합니다." %>
+            		</div>
+            	<!-- </a> -->
+            	
+            	<!-- <div id="bouton-ai"><img src="img/48_twitter_circle_color.png" alt="illustrator" title="Illustrator" height="28" width="28"></div>
+            	<div id="bouton-psd"><img src="img/48_facebook_circle_black.png" alt="photoshop" title="Photoshop" height="28" width="28"></div>
+            	<div id="bouton-theme"><img src="img/KakaoTalk.jpg" alt="theme" title="Theme" height="28" width="28"></div> -->
+            	<!-- <div id="bouton-font"><img src="img/icon-font.svg" alt="font" title="Font" height="28" width="28"></div>
+            	<div id="bouton-photo"><img src="img/icon-photo.svg" alt="photo" title="Photo" height="28" width="28"></div>
+            	<div id="bouton-premium"><img src="img/icon-premium.svg" alt="premium" title="Premium" height="28" width="28"></div> -->
 			</div>
-			<div id="wrapper-bouton-icon">
-				<div id="bouton-ai">
-					<img src="img/icon-ai.svg" alt="illustrator" title="Illustrator"
-						height="28" width="28">
-				</div>
-				<div id="bouton-psd">
-					<img src="img/icon-psd.svg" alt="photoshop" title="Photoshop"
-						height="28" width="28">
-				</div>
-				<div id="bouton-theme">
-					<img src="img/icon-themes.svg" alt="theme" title="Theme"
-						height="28" width="28">
-				</div>
-				<div id="bouton-font">
-					<img src="img/icon-font.svg" alt="font" title="Font" height="28"
-						width="28">
-				</div>
-				<div id="bouton-photo">
-					<img src="img/icon-photo.svg" alt="photo" title="Photo" height="28"
-						width="28">
-				</div>
-				<div id="bouton-premium">
-					<img src="img/icon-premium.svg" alt="premium" title="Premium"
-						height="28" width="28">
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- FILTER -->
-
-	<div id="main-container-menu" class="object">
-		<div class="container-menu">
-
-			<div id="main-cross">
-				<div id="cross-menu"></div>
-			</div>
-
-			<div id="main-small-logo">
-				<div class="small-logo"></div>
-			</div>
-
-			<div id="main-premium-ressource">
-				<div class="premium-ressource">
-					<a href="#">Premium Resources</a>
-				</div>
-			</div>
-
-			<div id="main-themes">
-				<div class="themes">
-					<a href="#">Latest themes</a>
-				</div>
-			</div>
-
-			<div id="main-psd">
-				<div class="psd">
-					<a href="#">PSD Goodies</a>
-				</div>
-			</div>
-
-			<div id="main-ai">
-				<div class="ai">
-					<a href="#">Illustrator freebies</a>
-				</div>
-			</div>
-
-			<div id="main-font">
-				<div class="font">
-					<a href="#">Free fonts</a>
-				</div>
-			</div>
-
-			<div id="main-photo">
-				<div class="photo">
-					<a href="#">Free stock photos</a>
-				</div>
-			</div>
-
-		</div>
-	</div>
+			<%} %>
+    	</div>
+</div>
 
 
 	<!-- PORTFOLIO -->
@@ -431,7 +415,7 @@ function goSns(site, url, msg, tag) {
 									</p>
 								</fieldset>
 								<div style="text-align: center;">
-									<input type="submit" name="envoi" value="Envoyer" />
+									<input type="submit" name="envoi" value="등록" />
 									<input type="hidden" name ="pageNum" value=<%=pageNum%> />
 								</div>
 							</form>
@@ -457,71 +441,21 @@ function goSns(site, url, msg, tag) {
 			</div>
 		</div>
 
-		<div id="main-container-footer">
-			<div class="container-footer">
-
-				<div id="row-1f">
-					<div class="text-row-1f">
-						<span
-							style="font-weight: 600; font-size: 15px; color: #666; line-height: 250%; text-transform: uppercase; letter-spacing: 1.5px;">What
-							is Burstfly</span><br>Burstfly is just a blog showcasing
-						hand-picked free themes, design stuff, free fonts and other
-						resources for web designers.
-					</div>
-				</div>
-
-				<div id="row-2f">
-					<div class="text-row-2f">
-						<span
-							style="font-weight: 600; font-size: 15px; color: #666; line-height: 250%; text-transform: uppercase; letter-spacing: 1.5px;">How
-							does it work</span><br>Burstfly offers you all the latest freebies
-						found all over the fourth corners without to pay.
-					</div>
-				</div>
-
-				<div id="row-3f">
-					<div class="text-row-3f">
-						<span
-							style="font-weight: 600; font-size: 15px; color: #666; line-height: 250%; text-transform: uppercase; letter-spacing: 1.5px;">Get
-							in touch!</span><br>Subscribe our RSS or follow us on Facebook,
-						Google+, Pinterest or Dribbble to keep updated.
-					</div>
-				</div>
-
-				<div id="row-4f">
-					<div class="text-row-4f">
-						<span
-							style="font-weight: 600; font-size: 15px; color: #666; line-height: 250%; text-transform: uppercase; letter-spacing: 1.5px;">Newsletter</span><br>You
-						will be informed monthly about the latest content avalaible.
-					</div>
-
-					<div id="main_tip_newsletter">
-						<form>
-							<input type="text" name="newsletter" id="tip_newsletter_input"
-								list="newsletter" autocomplete=off required>
-						</form>
-					</div>
-				</div>
-
-			</div>
-		</div>
+		
 
 
-		<div id="wrapper-copyright">
-			<div class="copyright">
-				<div class="copy-text object">
-					Copyright © 2016. Template by <a style="color: #D0D1D4;"
-						href="http://designscrazed.org/">Dcrazed</a>
-				</div>
-
-				<div class="wrapper-navbouton">
-					<div class="google object">g</div>
-					<div class="facebook object">f</div>
-					<div class="linkin object">i</div>
-					<div class="dribbble object">d</div>
-				</div>
-			</div>
-		</div>
+		 <div id="wrapper-copyright">
+		<div class="copyright">
+    		<div class="copy-text object">Copyright © 2017 어미새와 아기새<!-- <a style="color:#D0D1D4;" href="https://dcrazed.com/">Dcrazed</a> --></div>
+    		
+			<!-- <div class="wrapper-navbouton">
+    			<div class="google object">g</div>
+    			<div class="facebook object">f</div>
+    			<div class="linkin object">i</div>
+    			<div class="dribbble object">d</div>
+    		</div> -->
+    	</div>
+    </div>
 
 	</div>
 
