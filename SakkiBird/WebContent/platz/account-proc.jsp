@@ -28,7 +28,7 @@
 			if (result > 0)
 			{
 				MemberModel member = dao.get(email, pw);
-				session.setAttribute("member", member);
+				session.setAttribute("member", member.getUserName());
 
 				response.sendRedirect("index.jsp");
 				
