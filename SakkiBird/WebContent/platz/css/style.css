@@ -36,6 +36,8 @@ Text Domain: platz
          url('font/socialico_plus-webfont.svg#socialico_plusregular') format('svg');
 }
 
+
+
 /*-------------------------*/
 /* DON'T TOUCH  */
 /*-------------------------*/
@@ -226,7 +228,7 @@ body,html{
     -ms-transition: all 0.2s ease-in-out;
 }
 
-#bouton-ai:hover,#bouton-psd:hover,#bouton-photo:hover,#bouton-font:hover,#bouton-theme:hover,#bouton-premium:hover{opacity:0.5;transform: scale(1.2);}
+#bouton-psd:hover,#bouton-photo:hover,#bouton-font:hover,#bouton-theme:hover,#bouton-premium:hover{opacity:0.5;transform: scale(1.2);}
 
 #bouton-ai img,#bouton-psd img,#bouton-photo img,#bouton-font img,#bouton-theme img,#bouton-premium img{width:100%;height:100%;}
 
