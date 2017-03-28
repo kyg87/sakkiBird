@@ -69,7 +69,7 @@
 <!-- Naver login -->
  	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
+	
 </head>
 
 <body>
@@ -110,14 +110,31 @@
 <div id="wrapper-navbar">
 		<div class="navbar object">
     		<div id="wrapper-sorting">
-	            <div id="wrapper-title-1">
-	            <div class="top-rated object">MAIN</div>
+	        	<div id="wrapper-title-1">
+	        	<div class="top-rated object">MAIN</div>
 	            	<div id="fleche-nav-1"></div>
 	    		</div>
 	            
-	            <div id="wrapper-title-2">
-	            <%-- <%	response.sendRedirect("writer.jsp"); %> --%>
-	            <a href="writer.jsp"><div class="recent object">WRITE</div></a>
+				<div id="wrapper-title-2">
+				<%-- <%	response.sendRedirect("writer.jsp"); %> --%>
+	            <a id="auth" href="writer.jsp">
+	            <script>
+				
+	            var auther = document.querySelector("#auth");
+	               	auther.onclick = function(){
+						<%
+	               		if(request.getSession().getAttribute("member") == null){
+	               		%>
+							alert("글을 쓰시려면 로그인 해주세요.");
+							return false;
+						<%	
+						};
+						%>
+					};
+	           	
+	            </script>
+	            	<div class="recent object">WRITE</div>
+	            </a>
 	                <div id="fleche-nav-2"></div>
 	    		</div>
 	            <%String isLogin =""; %>
