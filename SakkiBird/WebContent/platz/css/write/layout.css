@@ -4,21 +4,22 @@
     min-height: 500px;
     width: inherit;
     margin-left: 15px;
+    text-aling:center;
+    display:inline-block;
 }
 
 #option-field {
-    margin-top: 20px;
-    min-height: 80px;
-    display: inline-block;
+    padding-top:40px;
+    min-height: 60px;
     text-align:center;
-    float: left;
+   display:inline-block;
 }
 
 #option-bottom {
     height: 60px;
     text-align: center;
     padding-left:385px;
-   
+   display: block;
 }
 
 #wrapper{

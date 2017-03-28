@@ -52,14 +52,14 @@
 		<div class="navbar object">
     		<div id="wrapper-sorting">
     		<div id="wrapper-title-2">
-	            <div class="rated object">MAIN</div>
+	            <a href="index.jsp"><div class="rated object">MAIN</div></a>
 	            	<div id="fleche-nav-2"></div>
 	    		</div>
 	            
 	            
 	             <div id="wrapper-title-1">
 	            <%-- <%	response.sendRedirect("writer.jsp"); %> --%>
-	            <a href="writer.jsp"><div class="top-recent object">WRITE</div></a>
+	            <div class="top-recent object">WRITE</div>
 	                
 	                <div id="fleche-nav-1"></div>
 	    		</div>
@@ -77,29 +77,25 @@
 	            
 	            <%} %>
 	    			</div>
-           <!--  <div id="wrapper-title-1">
-           <a href="index.jsp"> <div class="rated object">MAIN</div></a>
-            	<div id="fleche-nav-2"></div>
-    		</div>
-            
-            <div id="wrapper-title-2">
-            <a href="writer.html"><div class="top-recent object">WRITE</div></a>                
-                <div id="fleche-nav-1"></div>
-    		</div>
-            
-            <div id="wrapper-title-3">
-            <a href="#"><div class="oldies object">LOGIN</div></a>
-                <div id="fleche-nav-3"></div>
-    		</div> -->
             </div>
-            <div id="wrapper-bouton-icon">
-            	<div id="bouton-ai"><img src="img/48_twitter_circle_color.png" alt="illustrator" title="Illustrator" height="28" width="28"></div>
+            
+           <%if(request.getSession().getAttribute("member") != null){ %>
+            <div id="login-user">
+            	<!-- <a href="#"> -->
+            		<div class="hidden" id="bouton-ai">
+            			<%=request.getSession().getAttribute("member") + "님 환영합니다." %>
+            		</div>
+            	<!-- </a> -->
+            	
+            	<!-- <div id="bouton-ai"><img src="img/48_twitter_circle_color.png" alt="illustrator" title="Illustrator" height="28" width="28"></div>
             	<div id="bouton-psd"><img src="img/48_facebook_circle_black.png" alt="photoshop" title="Photoshop" height="28" width="28"></div>
-            	<div id="bouton-theme"><img src="img/KakaoTalk.jpg" alt="theme" title="Theme" height="28" width="28"></div>
+            	<div id="bouton-theme"><img src="img/KakaoTalk.jpg" alt="theme" title="Theme" height="28" width="28"></div> -->
             	<!-- <div id="bouton-font"><img src="img/icon-font.svg" alt="font" title="Font" height="28" width="28"></div>
             	<div id="bouton-photo"><img src="img/icon-photo.svg" alt="photo" title="Photo" height="28" width="28"></div>
             	<div id="bouton-premium"><img src="img/icon-premium.svg" alt="premium" title="Premium" height="28" width="28"></div> -->
 			</div>
+			<%} %>
+    	</div>
     	</div>
 </div>
 
@@ -155,21 +151,15 @@
 							<input type="button" id="addTaskBtn" value ="╂"/>
 						</div>
 						
+					</div>
+						
 						
 						<div id="option-field">
-	<!-- 						<div id="time-option">
-								<h1 class="hidden">마감입력</h1>
-								<label>마감일시</label>
-								<input class="mini-box " type="datetime-local" required/>
-							</div> -->
 							<div id="image-option">
 								<h1 class="hidden">사진입력</h1>
 								<label>사진첨부</label>
-								<!-- <input class="mini-box" type="text" placeholder="파일명" />-->
-								<!--<input class="btn-style" type="button" value="찾아보기" />-->
 								<input name ="file" type="file"  id="getfile" class="upload-box" required>
 								   <img id="thumbnail" src="" width="70px" height="30px"/>
-								<!-- <input id="detail-img" type="button" value="자세히보기" onChange="fileUpload()"/> -->
 							</div>
 						</div>
 						
@@ -184,7 +174,6 @@
 				</div>
 			<!-- ENDS content -->
 
-		</div>
 		<!-- ENDS MAIN -->
 
 
