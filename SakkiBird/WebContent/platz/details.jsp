@@ -270,13 +270,13 @@ function goSns(site, url, msg, tag) {
 		<div class="navbar object">
     		<div id="wrapper-sorting">
 	        	<div id="wrapper-title-1">
-	        	 <a href="index.jsp"><div class="top-rated object">MAIN</div></a>
+	        	<div class="top-rated object">MAIN</div>
 	            	<div id="fleche-nav-2"></div>
 	    		</div>
 	            
 				<div id="wrapper-title-2">
 				<%-- <%	response.sendRedirect("writer.jsp"); %> --%>
-	            <a id="auth" href="writer.jsp">
+	            <a id="auth" href="account.jsp">
 	            <script>
 				
 	            var auther = document.querySelector("#auth");
@@ -293,6 +293,7 @@ function goSns(site, url, msg, tag) {
 	           	
 	            </script>
 	            	<div class="recent object">WRITE</div>
+	            
 	            </a>
 	                <div id="fleche-nav-2"></div>
 	    		</div>

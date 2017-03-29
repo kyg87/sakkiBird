@@ -95,7 +95,7 @@
 
 <div id="wrapper-header">
 	<div id="main-header" class="object">
-		<div class="logo"><img src="img/llogo.png" alt="logo platz" height="35" width="130"></div>
+		<div class="logo"><img src="img/LOGO.png" alt="logo platz" height="38" width="90"></div>
         <div id="main_tip_search">
 			<form> 
 				<input type="text" name="search" id="tip_search_input" list="search" value="<%=query%>" autocomplete=off required>
@@ -183,26 +183,27 @@
 		<div class="container object">
 		
 	
-			<!-- 슬라이더 -->
-			<%-- <section class="pen">
+		<%-- 	<!-- 슬라이더 -->
+			<section class="pen">
 				<div class="stage">
 				
 					<%for(WriterModel r : list2){ %>
 					
 						<div class="element michael">
 						<a href="details.jsp?page=<%=r.getCode()%>">
-							<img src="images/<%=r.getContent_img()%>" alt="" style="width: 400px; height: 330px;" />
+							<img src="images/<%=r.getContent_img()%>" alt="" style="max-width: 100%; height: 330px;" />
 							<br/>
 							<%=r.getTitle() %></a>
 								
 						</div>
 						<%} %>
-<!-- 					<div class="element franklin"></div>
+					<!-- <div class="element franklin"></div>
 					<div class="element trevor"></div> -->
 						
 					
 				</div>
 			</section> --%>
+			
 			<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 			<script src="js/index.js"></script>
 			
@@ -425,16 +426,16 @@ $('a').on('click', function(e){
 	})
 	
 /* 슬라이더자바스크립트 */
-    $('.element').each(function() {
+  /*   $('.element').each(function() {
      $(this).mouseover(function() {
-         $(this).addClass('active');
+        $(this).addClass('active');
        $('.stage').children('.element').not('.active').addClass('inactive');
      });
      $(this).mouseleave(function() {
          $(this).removeClass('active');
          $('.stage').children('.element').not('.active').removeClass('inactive');
      });
- });
+ }); */
 
 
 
