@@ -95,7 +95,7 @@
 
 <div id="wrapper-header">
 	<div id="main-header" class="object">
-		<div class="logo"><img src="img/LOGO.png" alt="logo platz" height="38" width="90"></div>
+		<div class="logo"><img src="img/llogo.png" alt="logo platz" height="38" width="90"></div>
         <div id="main_tip_search">
 			<form> 
 				<input type="text" name="search" id="tip_search_input" list="search" value="<%=query%>" autocomplete=off required>
@@ -117,23 +117,36 @@
 	            
 				<div id="wrapper-title-2">
 				<%-- <%	response.sendRedirect("writer.jsp"); %> --%>
+	            <%
+           			if(request.getSession().getAttribute("member") == null){
+           		%>	            
 	            <a id="auth" href="account.jsp">
 	            <script>
 				
 	            var auther = document.querySelector("#auth");
 	               	auther.onclick = function(){
-						<%
-	               		if(request.getSession().getAttribute("member") == null){
-	               		%>
+						
 							alert("글을 쓰시려면 로그인 해주세요.");
 							return false;
-						<%	
-						}
-						%>
 					};
-	           	
-	            </script>
-	            	<div class="recent object">WRITE</div>
+				</script>
+				<%
+           		}else{
+				%>
+				<a id="auth" href="writer.jsp">
+	            <script>
+				
+	            var auther = document.querySelector("#auth");
+	               	auther.onclick = function(){
+						
+	               			alert("글을 쓰러 갑니다.");
+							return false;
+					};
+				</script>
+				<%
+           		};
+				%>
+				  	<div class="recent object">WRITE</div>
 	            
 	            </a>
 	                <div id="fleche-nav-2"></div>

@@ -276,22 +276,36 @@ function goSns(site, url, msg, tag) {
 	            
 				<div id="wrapper-title-2">
 				<%-- <%	response.sendRedirect("writer.jsp"); %> --%>
+				
+	            <%
+           			if(request.getSession().getAttribute("member") == null){
+           		%>	            
 	            <a id="auth" href="account.jsp">
 	            <script>
 				
 	            var auther = document.querySelector("#auth");
 	               	auther.onclick = function(){
-						<%
-	               		if(request.getSession().getAttribute("member") == null){
-	               		%>
+						
 							alert("글을 쓰시려면 로그인 해주세요.");
 							return false;
-						<%	
-						};
-						%>
 					};
-	           	
-	            </script>
+				</script>
+				<%
+           		}else{
+				%>
+				<a id="auth" href="writer.jsp">
+	            <script>
+				
+	            var auther = document.querySelector("#auth");
+	               	auther.onclick = function(){
+						
+	               			alert("글을 쓰러 갑니다.");
+							return false;
+					};
+				</script>
+				<%
+           		};
+				%>
 	            	<div class="recent object">WRITE</div>
 	            
 	            </a>
