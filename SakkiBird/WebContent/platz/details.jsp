@@ -191,7 +191,7 @@ System.out.println("name :" + request.getSession().getAttribute("member"));
 
 <body>
 <!-- sns -->
-	<button id="facebook">facebook</button>
+<%-- 	<button id="facebook">facebook</button>
 	<button id="twitter">twitter</button>
 	
 	<script type="text/javascript">
@@ -249,18 +249,18 @@ function goSns(site, url, msg, tag) {
 
 	<!-- CACHE -->
 	<div class="cache"></div>
-
+ --%>
 	<!-- HEADER -->
 
-	<div id="wrapper-header">
+<div id="wrapper-header">
 	<div id="main-header" class="object">
-		<div class="logo"><img src="img/LOGO.png" alt="logo platz" height="38" width="90"></div>
-        <div id="main_tip_search">
+		<div class="logo"><img src="img/llogo.png" alt="logo platz" height="38" width="90"></div>
+        <%-- <div id="main_tip_search">
 			<form> 
 				<input type="text" name="search" id="tip_search_input" list="search" value="<%=query%>" autocomplete=off required>
 				<input type="hidden" name="p" value="1" />
 			</form>
-		</div>
+		</div> --%>
         <div id="stripes"></div>
     </div>
 </div>
@@ -269,14 +269,31 @@ function goSns(site, url, msg, tag) {
 <div id="wrapper-navbar">
 		<div class="navbar object">
     		<div id="wrapper-sorting">
-	            <div id="wrapper-title-1">
-	            <a href="index.jsp"><div class="top-rated object">MAIN</div></a>
-	            	<div id="fleche-nav-1"></div>
+	        	<div id="wrapper-title-1">
+	        	<div class="top-rated object">MAIN</div>
+	            	<div id="fleche-nav-2"></div>
 	    		</div>
 	            
-	            <div id="wrapper-title-2">
-	            <%-- <%	response.sendRedirect("writer.jsp"); %> --%>
-	            <a href="writer.jsp"><div class="recent object">WRITE</div></a>
+				<div id="wrapper-title-2">
+				<%-- <%	response.sendRedirect("writer.jsp"); %> --%>
+	            <a id="auth" href="writer.jsp">
+	            <script>
+				
+	            var auther = document.querySelector("#auth");
+	               	auther.onclick = function(){
+						<%
+	               		if(request.getSession().getAttribute("member") == null){
+	               		%>
+							alert("글을 쓰시려면 로그인 해주세요.");
+							return false;
+						<%	
+						};
+						%>
+					};
+	           	
+	            </script>
+	            	<div class="recent object">WRITE</div>
+	            </a>
 	                <div id="fleche-nav-2"></div>
 	    		</div>
 	            <%String isLogin =""; %>
@@ -348,7 +365,7 @@ function goSns(site, url, msg, tag) {
 							<%if(!isVoted){ %>
 								<!-- vote container -->
 								<div class="content-box primary clear-fix vMargin">
-									<div class="content-box-header">Poll</div>
+									<div class="content-box-header"></div>
 									<div class="content-box-inner">
 										<form action="details" method="post">
 											<div class="content-box clear-fix poll-box">

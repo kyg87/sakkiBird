@@ -95,7 +95,7 @@
 
 <div id="wrapper-header">
 	<div id="main-header" class="object">
-		<div class="logo"><img src="img/LOGO.png" alt="logo platz" height="38" width="90"></div>
+		<div class="logo"><img src="img/llogo.png" alt="logo platz" height="35" width="130"></div>
         <div id="main_tip_search">
 			<form> 
 				<input type="text" name="search" id="tip_search_input" list="search" value="<%=query%>" autocomplete=off required>
@@ -191,7 +191,7 @@
 					
 						<div class="element michael">
 						<a href="details.jsp?page=<%=r.getCode()%>">
-							<img src="images/<%=r.getContent_img()%>" alt="" style="max-width: 100%; height: 330px;" />
+							<img src="images/<%=r.getContent_img()%>" alt="" style="width: 400px; height: 330px;" />
 							<br/>
 							<%=r.getTitle() %></a>
 								
