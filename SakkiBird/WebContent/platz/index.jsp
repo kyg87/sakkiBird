@@ -184,7 +184,7 @@
 		
 	
 			<!-- 슬라이더 -->
-			<section class="pen">
+			<%-- <section class="pen">
 				<div class="stage">
 				
 					<%for(WriterModel r : list2){ %>
@@ -202,7 +202,7 @@
 						
 					
 				</div>
-			</section>
+			</section> --%>
 			<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 			<script src="js/index.js"></script>
 			
