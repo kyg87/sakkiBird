@@ -339,6 +339,8 @@ function goSns(site, url, msg, tag) {
 
 		<div class="container object">
 
+		<div id="content-box">
+		
 			<div id="main-container-image">
 
 				<div class="title-item">
@@ -354,10 +356,10 @@ function goSns(site, url, msg, tag) {
 
 				<div class="work">
 					<figure class="white">
-						<img src="/upload/<%=writerModel.getContent_img()%>" alt="" />
+						<img src="/upload/<%=writerModel.getContent_img()%>" alt="" style="min-height: 300px, min-width:600px;"/>
 						<div id="wrapper-part-info">
 							<div class="part-info-image-single">
-								<div>
+								<div style="margin-top:20px; min-height:100px;">
 									<p><%=writerModel.getContent() %></p>
 								
 								</div>
@@ -411,8 +413,12 @@ function goSns(site, url, msg, tag) {
 								<%} %>
 								<!-- vote Result End -->
 							</div>
-						</div>
-					</figure>					
+					
+
+					</figure>	
+					</div>			
+					
+				</div>	
 
 					<div class="post-send">
 						<div id="main-post-send">
