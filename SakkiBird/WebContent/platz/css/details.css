@@ -185,9 +185,9 @@ body,html{
 #wrapper-bouton-icon{display:block;}
 #bouton-ai,#bouton-psd,#bouton-photo,#bouton-font,#bouton-theme,#bouton-premium{
 	float:right;
-	width:28px;
+/* 	width:28px; */
 	height:28px;
-	margin-top:16px;
+	margin-top:19px;
 	margin-right:15px;
 	cursor:pointer;
 	opacity:1;
@@ -287,9 +287,11 @@ body,html{
     float:left;
     width:100%;
     height:auto;
-	background-color:#F4F4F4;
+	/* background-color:#F4F4F4; */
 	margin-top:25px;
 	opacity:0;
+
+	background-color: #FFF;
 
 }
 
@@ -579,8 +581,8 @@ fieldset {
 
 textarea { 
 	resize: vertical;
-    max-height:100px; 
-    min-height:100px;
+    height:150px;
+    width:800px;
 }
 
 textarea {
@@ -602,7 +604,7 @@ textarea.placeholder {
 .title-item{
 	float:left;
 	width:92.5%;
-	margin-left:4.5%;
+	margin-left:3.5%;
 /* 	height:68px; */
 	margin-bottom:10px;
 }
@@ -619,26 +621,27 @@ textarea.placeholder {
 	font-family: Helvetica, sans-serif;
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 22px;
-	font-weight:600;
+    font-size: 27px;
+	font-weight:800;
 	color:#686868;
 	line-height:125%;
 	height:auto;
 	width:calc(100% - 70px);
-	margin-top:8px;
+	margin-bottom:10px;
+	margin-top:12px;
 }
 
 .title-text-2{
 	font-family: Helvetica, sans-serif;
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 15px;
+    font-size: 14px;
 	font-weight:400;
 	color:#A1A1A1;
 	line-height:125%;
 	height:auto;
 	width:calc(100% - 88px);
-	margin-top:8px;
+	margin-top:1px; 
 }
 
 
@@ -1145,3 +1148,10 @@ textarea {
 }
 
 
+
+
+.content-box{
+	min-heigth:600px;
+	min-width:600px;
+	background-color:#999;
+}

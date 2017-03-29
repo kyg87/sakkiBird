@@ -46,7 +46,7 @@
 }
 
 #vote-style h2{
-	font-family:짹쩌쨍짼 짹쩌쨍짼횄쩌;
+	font-family:吏뱀찈夷띿㏈ 吏뱀찈夷띿㏈�쉪姨�;
 	text-align:center;
 }
 
@@ -135,7 +135,7 @@
 	overflow:auto;
 	zoom: 1;
 }
-/* �닾�몴 寃곌낵李�*/
+/* 占쎈떮占쎈ご 野껉퀗�궢筌∽옙*/
 .progress-bar{
   display:inline-block;
   margin:1em;
@@ -209,22 +209,25 @@
 }
 .vote-container{
   margin:10px;
-  background-color: rgba(0,0, 0,.2);
+  background-color: rgba(235,250,255,0.94);
   width:600px;
   padding:4px;
  /*  height:270px; */
-  box-shadow: 2px 2px 3px #888888;
+  /* box-shadow: 2px 2px 3px #888888; */
   float:left;
+  border-radius: 4px;
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
 }
 
 
-/*�닾�몴 �븯�뒗怨�  */
+/*占쎈떮占쎈ご 占쎈릭占쎈뮉�⑨옙  */
 .poll-row {
-	background: #161616;
-	border-bottom: 1px dotted #262626;
+	background: rgba(235,250,255,0.94);
+	/* border-bottom: 1px dashed #686868; */
 	/* display: table; */
 	width: 100%;
 	table-layout: fixed;
+	box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
 }
 
 .poll-row:last-child {
@@ -237,7 +240,7 @@
 	height: 3rem;
 	padding: 5px 10px;
 	vertical-align: middle;
-	color : #fff;
+	color : #686868;
 }
 
 .vote-cell:not(:first-child) {
