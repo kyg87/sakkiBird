@@ -117,7 +117,7 @@
 	            
 				<div id="wrapper-title-2">
 				<%-- <%	response.sendRedirect("writer.jsp"); %> --%>
-	            <a id="auth" href="writer.jsp">
+	            <a id="auth" href="account.jsp">
 	            <script>
 				
 	            var auther = document.querySelector("#auth");
@@ -128,12 +128,13 @@
 							alert("글을 쓰시려면 로그인 해주세요.");
 							return false;
 						<%	
-						};
+						}
 						%>
 					};
 	           	
 	            </script>
 	            	<div class="recent object">WRITE</div>
+	            
 	            </a>
 	                <div id="fleche-nav-2"></div>
 	    		</div>
@@ -413,7 +414,7 @@ addLoadEvent(preloader);
 
 
 /*페이지버튼 자바스크립트*/
-
+/* 
 $('a').on('click', function(e){
 	  $(e).preventDefault();
 	});
@@ -423,7 +424,7 @@ $('a').on('click', function(e){
 	  $(this).siblings().removeClass('active');
 	  $(this).addClass('active');
 	  
-	})
+	}) */
 	
 /* 슬라이더자바스크립트 */
   /*   $('.element').each(function() {
