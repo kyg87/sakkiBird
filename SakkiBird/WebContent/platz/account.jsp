@@ -152,24 +152,24 @@
 									data-type="password" required="required">
 							</div>
 							<div class="group">
-								<input id="check" type="checkbox" class="check" checked>
-								<label for="check"><span class="icon"></span>로그인 상태 유지</label>
+								<!-- <input id="check" type="checkbox" class="check" checked>
+								<label for="check"><span class="icon"></span>로그인 상태 유지</label> -->
 							</div>
 							<div class="group">
 								<input type="submit" class="button" value="로그인">
 							</div>
 							<div class="hr"></div>
 							<div class="foot-lnk">
-								<a href="#forgot" onclick = "warringText()">아이디를 까묵?</a>
+								<!-- <a href="#forgot" onclick = "warringText()">아이디를 까묵?</a> -->
 							</div>
 							<div class="foot-lnk">
-								<a href="#forgot" onclick = "warringText()">비밀번호를 까묵?</a>
+								<!-- <a href="#forgot" onclick = "warringText()">비밀번호를 까묵?</a> -->
 							</div>
 
-							<div  class="foot-lnk">
-								<a href=""><img class="img1" src="img/페북.png" onclick = "warringText()"/></a> <a
+							<div style="font-size:20px;" class="foot-lnk">MotherBirds에 오신 걸 환영합니다.
+								<!-- 	<a href=""><img class="img1" src="img/페북.png" onclick = "warringText()"/></a> <a
 									href=""><img class="img1" src="img/트위터.png" onclick = "warringText()" /></a> <a
-									href=""><img class="img1" src="img/까똑.png" onclick = "warringText()"/></a>
+									href=""><img class="img1" src="img/까똑.png" onclick = "warringText()"/></a> -->
 							</div>
 							<input type = "hidden" name = "returnURL" value = "<%=returnURL %>" />
 						</form>
