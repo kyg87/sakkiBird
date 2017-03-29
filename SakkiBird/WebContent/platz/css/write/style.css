@@ -7,6 +7,17 @@
 	background-size: cover;
 }  */
 
+@font-face{ 
+	font-family:'BMDOHYEON'; 
+	src:url('../font/BMDOHYEON_ttf.ttf'); 
+}
+
+@font-face {
+	font-family: BMDOHYEON;
+	font-weight: 300;
+	src: url(../font/BMDOHYEON_ttf.ttf) format('ttf');
+}
+
  /* ------common style-------------------------------------- */
 .hidden{
 	display: none;
@@ -14,7 +25,7 @@
 
 #main{
 	margin-top:20px;
-	font-family: 맑은고딕, 고딕, sans-serif;
+	font-family: BMDOHYEON, sans-serif;
 	font-size: 14px;
 	box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.2);
 	background-color: #FFF;
@@ -154,15 +165,23 @@
 }
 
 #image-field{
-	text-align: left;
+	float:right;
 }
 
 #image-detail{
 	text-align: left;
 }
 
-/* #image{
-	margin-left:101px;
-	float: left;
-	border:1px black;
-} */
+
+
+#tdb{
+	margin-left:7px;
+	border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    
+}
