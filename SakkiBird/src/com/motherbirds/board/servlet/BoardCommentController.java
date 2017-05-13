@@ -15,7 +15,7 @@ import com.motherbirds.dao.WriterDao;
 import com.motherbirds.model.WriterModel;
 
 
-@WebServlet("/platz/details")
+@WebServlet("/details")
 public class BoardCommentController extends HttpServlet {
 	
 	

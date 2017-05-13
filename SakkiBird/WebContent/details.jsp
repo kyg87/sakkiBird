@@ -190,77 +190,11 @@ System.out.println("name :" + request.getSession().getAttribute("member"));
 </head>
 
 <body>
-<!-- sns -->
-<%-- 	<button id="facebook">facebook</button>
-	<button id="twitter">twitter</button>
-	
-	<script type="text/javascript">
-
-var  facebook = document.querySelector("#facebook")
-	,twitter = document.querySelector("#twitter")
-	/* ,me2day = document.querySelector("#me2day")
-	,yozm = document.querySelector("#yozm") */
-
-	,thisUrl = "<%="motherbirds.com/platz/details.jsp?" +"page="+pageNum %>"
-	,msg = "테스트 페이지를 SNS에 연동합니다. http://motherbirds.com/platz/index.jsp"
-	,tag = "motherbirds"
-
-facebook.addEventListener("click", function(){
-	goSns('facebook', thisUrl, msg, tag);
-}, false);
-
-twitter.addEventListener("click", function(){
-	goSns('twitter', thisUrl, msg, tag);
-}, false);
-
-/* me2day.addEventListener("click", function(){
-	goSns('me2day', thisUrl, msg, tag);
-}, false);
-
-yozm.addEventListener("click", function(){
-	goSns('yozm', thisUrl, msg, tag);
-}, false); */
-
-
-function goSns(site, url, msg, tag) {
-	var goUrl;
-	if (site == "facebook"){
-		
-		// 페이스북
-		goUrl = "http://www.facebook.com/sharer.php?u=" + url + "&t=" + encodeURIComponent(msg);
-	}else if(site == "twitter"){
-		
-		// 트위터
-		goUrl = "http://twitter.com/home?status=" + encodeURIComponent(msg) + " " + encodeURIComponent(url);
-	}/* else if(site == "me2day"){
-		
-		// me2day
-		goUrl = "http://me2day.net/posts/new?new_post[body]=" + encodeURIComponent(msg) + " " + encodeURIComponent(url) + "&new_post[tags]=" + encodeURIComponent(tag);
-	}else if(site == "yozm"){
-	
-		// 요즘
-		goUrl = "http://yozm.daum.net/api/popup/prePost?link=" + encodeURIComponent(url)+ "&prefix=" + encodeURIComponent(msg) + "&parameter=" + encodeURIComponent(msg);
-	} */
-	top.location.href = goUrl;
-}
-</script>
-<!-- sns end -->
-	<a name="ancre"></a>
-
-	<!-- CACHE -->
-	<div class="cache"></div>
- --%>
-	<!-- HEADER -->
 
 <div id="wrapper-header">
 	<div id="main-header" class="object">
 		<div class="logo"><a href="index.jsp"><img src="img/llogo.png" alt="logo platz" height="38" width="90"></a></div>
-        <%-- <div id="main_tip_search">
-			<form> 
-				<input type="text" name="search" id="tip_search_input" list="search" value="<%=query%>" autocomplete=off required>
-				<input type="hidden" name="p" value="1" />
-			</form>
-		</div> --%>
+  
         <div id="stripes"></div>
     </div>
 </div>
@@ -336,12 +270,7 @@ function goSns(site, url, msg, tag) {
             		</div>
             	<!-- </a> -->
             	
-            	<!-- <div id="bouton-ai"><img src="img/48_twitter_circle_color.png" alt="illustrator" title="Illustrator" height="28" width="28"></div>
-            	<div id="bouton-psd"><img src="img/48_facebook_circle_black.png" alt="photoshop" title="Photoshop" height="28" width="28"></div>
-            	<div id="bouton-theme"><img src="img/KakaoTalk.jpg" alt="theme" title="Theme" height="28" width="28"></div> -->
-            	<!-- <div id="bouton-font"><img src="img/icon-font.svg" alt="font" title="Font" height="28" width="28"></div>
-            	<div id="bouton-photo"><img src="img/icon-photo.svg" alt="photo" title="Photo" height="28" width="28"></div>
-            	<div id="bouton-premium"><img src="img/icon-premium.svg" alt="premium" title="Premium" height="28" width="28"></div> -->
+            	
 			</div>
 			<%} %>
     	</div>
